@@ -1,0 +1,3305 @@
+
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Interactive Code Visualization</title>
+        <!-- Highlight.js CSS -->
+        <link rel="stylesheet"
+              href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/default.min.css">
+        <!-- Font Awesome for Icons -->
+        <link rel="stylesheet"
+              href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+        <style>
+            body {
+                font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+                background-color: #f0f2f5;
+                margin: 0;
+                padding: 20px;
+                color: #333;
+            }
+            h1 {
+                text-align: center;
+                color: #2c3e50;
+                margin-bottom: 20px;
+            }
+            .container {
+                display: flex;
+                flex-direction: row;
+                gap: 20px;
+                max-width: 1200px;
+                margin: auto;
+                flex-wrap: wrap;
+            }
+            .code-container {
+                flex: 2;
+                min-width: 300px;
+            }
+            .state-container {
+                flex: 1;
+                min-width: 250px;
+            }
+            .code-container h2,
+            .state-container h2 {
+                margin-bottom: 10px;
+                color: #2c3e50;
+            }
+            #code-container {
+                background-color: #ffffff;
+                padding: 10px;
+                border-radius: 8px;
+                width: 100%;
+                overflow: auto;
+                box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+                transition: background-color 0.3s ease;
+                line-height: 1.5;
+                font-family: 'Courier New', Courier, monospace;
+            }
+            .code-line {
+                display: flex;
+                align-items: center;
+                margin: 0;
+                padding: 2px 0;
+            }
+            .line-number {
+                width: 40px;
+                text-align: right;
+                padding-right: 5px;
+                user-select: none;
+                color: #555;
+                font-weight: bold;
+                font-size: 14px;
+            }
+            .code-text {
+                flex-grow: 1;
+                white-space: pre-wrap;
+                word-wrap: break-word;
+                color: #2c3e50;
+                font-size: 14px;
+                line-height: 1.5;
+            }
+            .breakpoint-button {
+                margin-left: 5px;
+                padding: 2px 6px;
+                font-size: 12px;
+                cursor: pointer;
+                border: none;
+                border-radius: 4px;
+                background-color: #e74c3c;
+                color: white;
+                transition: background-color 0.3s ease;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+            }
+            .breakpoint-button i {
+                margin-right: 3px;
+            }
+            .breakpoint-button:hover {
+                background-color: #c0392b;
+            }
+            #state-display {
+                padding: 15px;
+                border-radius: 8px;
+                background-color: #ffffff;
+                box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+                height: 100%;
+                overflow-y: auto;
+            }
+            #state-display h2 {
+                margin-top: 0;
+                color: #2c3e50;
+                font-size: 20px;
+                border-bottom: 2px solid #3498db;
+                padding-bottom: 5px;
+                margin-bottom: 15px;
+            }
+            .state-section {
+                margin-bottom: 10px;
+                padding: 8px;
+                border-left: 4px solid #3498db;
+                background-color: #ecf0f1;
+                border-radius: 4px;
+            }
+            .state-section b {
+                display: block;
+                margin-bottom: 4px;
+                color: #2980b9;
+            }
+            /* Highlight active line */
+            .active-line {
+                background-color: rgba(52, 152, 219, 0.2);
+                border-radius: 4px;
+            }
+            /* Style for folded values */
+            .folded-value {
+                display: inline;
+            }
+            .folded-value a {
+                color: #3498db;
+                text-decoration: none;
+                margin-left: 5px;
+                font-size: 12px;
+            }
+            .folded-value a:hover {
+                text-decoration: underline;
+            }
+            /* Collapsible nested objects and arrays */
+            .collapsible {
+                cursor: pointer;
+                color: #2980b9;
+                text-decoration: underline;
+                margin-left: 5px;
+                font-size: 12px;
+            }
+            .nested {
+                display: none;
+                margin-left: 20px;
+                border-left: 2px solid #bdc3c7;
+                padding-left: 10px;
+            }
+            .active {
+                display: block;
+            }
+            /* Expand/Collapse All Buttons */
+            .expand-collapse-buttons {
+                margin-bottom: 10px;
+            }
+            .expand-collapse-buttons button {
+                margin-right: 5px;
+                padding: 5px 10px;
+                font-size: 12px;
+                cursor: pointer;
+                border: none;
+                border-radius: 4px;
+                background-color: #3498db;
+                color: white;
+                transition: background-color 0.3s ease;
+            }
+            .expand-collapse-buttons button:hover {
+                background-color: #2980b9;
+            }
+            /* Responsive Design */
+            @media (max-width: 768px) {
+                .container {
+                    flex-direction: column;
+                }
+                .line-number {
+                    width: 30px;
+                    font-size: 12px;
+                }
+                .breakpoint-button {
+                    padding: 2px 4px;
+                    font-size: 11px;
+                }
+                #state-display {
+                    padding: 10px;
+                }
+                .code-text {
+                    font-size: 13px;
+                }
+                #state-display h2 {
+                    font-size: 18px;
+                }
+                .state-section {
+                    padding: 6px;
+                }
+                .state-section b {
+                    margin-bottom: 2px;
+                }
+            }
+        </style>
+    </head>
+    <body>
+        <h1>Interactive Code Visualization</h1>
+        <div class="container">
+            <div class="code-container">
+                <h2>Source Code</h2>
+                <div class="expand-collapse-buttons">
+                    <button onclick="expandAll()">Expand All</button>
+                    <button onclick="collapseAll()">Collapse All</button>
+                </div>
+                <div id="code-container">
+    <div class="code-line"><span class="line-number">1</span><span class="code-text"><code class="language-c">#include &lt;stdio.h&gt;</code></span></div>
+<div class="code-line"><span class="line-number">2</span><span class="code-text"><code class="language-c">#include &lt;stdlib.h&gt;</code></span></div>
+<div class="code-line"><span class="line-number">3</span><span class="code-text"><code class="language-c">#include &lt;string.h&gt;</code></span></div>
+<div class="code-line"><span class="line-number">4</span><span class="code-text"><code class="language-c"></code></span></div>
+<div class="code-line"><span class="line-number">5</span><span class="code-text"><code class="language-c">#define MAX_TRANSACTIONS 10</code></span></div>
+<div class="code-line"><span class="line-number">6</span><span class="code-text"><code class="language-c">#define NAME_LENGTH 5</code></span></div>
+<div class="code-line"><span class="line-number">7</span><span class="code-text"><code class="language-c"></code></span></div>
+<div class="code-line"><span class="line-number">8</span><span class="code-text"><code class="language-c">typedef enum {</code></span></div>
+<div class="code-line"><span class="line-number">9</span><span class="code-text"><code class="language-c">    DEPOSIT,</code></span></div>
+<div class="code-line"><span class="line-number">10</span><span class="code-text"><code class="language-c">    WITHDRAWAL</code></span></div>
+<div class="code-line"><span class="line-number">11</span><span class="code-text"><code class="language-c">} TransactionType;</code></span></div>
+<div class="code-line"><span class="line-number">12</span><span class="code-text"><code class="language-c"></code></span></div>
+<div class="code-line"><span class="line-number">13</span><span class="code-text"><code class="language-c">typedef struct {</code></span></div>
+<div class="code-line"><span class="line-number">14</span><span class="code-text"><code class="language-c">    TransactionType type;</code></span></div>
+<div class="code-line"><span class="line-number">15</span><span class="code-text"><code class="language-c">    double amount;</code></span></div>
+<div class="code-line"><span class="line-number">16</span><span class="code-text"><code class="language-c">    char description[10];</code></span></div>
+<div class="code-line"><span class="line-number">17</span><span class="code-text"><code class="language-c">} Transaction;</code></span></div>
+<div class="code-line"><span class="line-number">18</span><span class="code-text"><code class="language-c"></code></span></div>
+<div class="code-line"><span class="line-number">19</span><span class="code-text"><code class="language-c">typedef struct {</code></span></div>
+<div class="code-line"><span class="line-number">20</span><span class="code-text"><code class="language-c">    int accountNumber;</code></span></div>
+<div class="code-line"><span class="line-number">21</span><span class="code-text"><code class="language-c">    char holderName[NAME_LENGTH];</code></span></div>
+<div class="code-line"><span class="line-number">22</span><span class="code-text"><code class="language-c">    double balance;</code></span></div>
+<div class="code-line"><span class="line-number">23</span><span class="code-text"><code class="language-c">    Transaction transactions[MAX_TRANSACTIONS];</code></span></div>
+<div class="code-line"><span class="line-number">24</span><span class="code-text"><code class="language-c">    int transactionCount;</code></span></div>
+<div class="code-line"><span class="line-number">25</span><span class="code-text"><code class="language-c">} BankAccount;</code></span></div>
+<div class="code-line"><span class="line-number">26</span><span class="code-text"><code class="language-c"></code></span></div>
+<div class="code-line"><span class="line-number">27</span><span class="code-text"><code class="language-c">BankAccount* createAccount(int accountNumber, const char* holderName);</code></span></div>
+<div class="code-line"><span class="line-number">28</span><span class="code-text"><code class="language-c">int deposit(BankAccount* account, double amount, const char* description);</code></span></div>
+<div class="code-line"><span class="line-number">29</span><span class="code-text"><code class="language-c">int withdraw(BankAccount* account, double amount, const char* description);</code></span></div>
+<div class="code-line"><span class="line-number">30</span><span class="code-text"><code class="language-c">void printAccountDetails(const BankAccount* account);</code></span></div>
+<div class="code-line"><span class="line-number">31</span><span class="code-text"><code class="language-c">void printTransactionHistory(const BankAccount* account);</code></span></div>
+<div class="code-line"><span class="line-number">32</span><span class="code-text"><code class="language-c">BankAccount* findAccount(BankAccount** accounts, int totalAccounts, int accountNumber);</code></span></div>
+<div class="code-line"><span class="line-number">33</span><span class="code-text"><code class="language-c">void transfer(BankAccount** accounts, int totalAccounts, int fromAccNum, int toAccNum, double amount);</code></span></div>
+<div class="code-line"><span class="line-number">34</span><span class="code-text"><code class="language-c">void simulateOperations();</code></span></div>
+<div class="code-line"><span class="line-number">35</span><span class="code-text"><code class="language-c"></code></span></div>
+<div class="code-line"><span class="line-number">36</span><span class="code-text"><code class="language-c">void addTransaction(BankAccount* account, TransactionType type, double amount, const char* description);</code></span></div>
+<div class="code-line"><span class="line-number">37</span><span class="code-text"><code class="language-c"></code></span></div>
+<div class="code-line"><span class="line-number">38</span><span class="code-text"><code class="language-c">int main() {</code></span></div>
+<div class="code-line"><span class="line-number">39</span><span class="code-text"><code class="language-c">    simulateOperations();</code></span> <button class="breakpoint-button" onclick="showState(39)"><i class="fa fa-eye"></i> Show State</button></div>
+<div class="code-line"><span class="line-number">40</span><span class="code-text"><code class="language-c">    return 0;</code></span></div>
+<div class="code-line"><span class="line-number">41</span><span class="code-text"><code class="language-c">}</code></span> <button class="breakpoint-button" onclick="showState(41)"><i class="fa fa-eye"></i> Show State</button></div>
+<div class="code-line"><span class="line-number">42</span><span class="code-text"><code class="language-c"></code></span></div>
+<div class="code-line"><span class="line-number">43</span><span class="code-text"><code class="language-c">BankAccount* createAccount(int accountNumber, const char* holderName) {</code></span></div>
+<div class="code-line"><span class="line-number">44</span><span class="code-text"><code class="language-c">    BankAccount* newAccount = (BankAccount*)malloc(sizeof(BankAccount));</code></span> <button class="breakpoint-button" onclick="showState(44)"><i class="fa fa-eye"></i> Show State</button></div>
+<div class="code-line"><span class="line-number">45</span><span class="code-text"><code class="language-c">    if (!newAccount) {</code></span></div>
+<div class="code-line"><span class="line-number">46</span><span class="code-text"><code class="language-c">        return NULL;</code></span></div>
+<div class="code-line"><span class="line-number">47</span><span class="code-text"><code class="language-c">    }</code></span></div>
+<div class="code-line"><span class="line-number">48</span><span class="code-text"><code class="language-c">    newAccount-&gt;accountNumber = accountNumber;</code></span></div>
+<div class="code-line"><span class="line-number">49</span><span class="code-text"><code class="language-c">    strncpy(newAccount-&gt;holderName, holderName, NAME_LENGTH);</code></span> <button class="breakpoint-button" onclick="showState(49)"><i class="fa fa-eye"></i> Show State</button></div>
+<div class="code-line"><span class="line-number">50</span><span class="code-text"><code class="language-c">    newAccount-&gt;balance = 0.0;</code></span></div>
+<div class="code-line"><span class="line-number">51</span><span class="code-text"><code class="language-c">    newAccount-&gt;transactionCount = 0;</code></span></div>
+<div class="code-line"><span class="line-number">52</span><span class="code-text"><code class="language-c">    return newAccount;</code></span></div>
+<div class="code-line"><span class="line-number">53</span><span class="code-text"><code class="language-c">}</code></span> <button class="breakpoint-button" onclick="showState(53)"><i class="fa fa-eye"></i> Show State</button></div>
+<div class="code-line"><span class="line-number">54</span><span class="code-text"><code class="language-c"></code></span></div>
+<div class="code-line"><span class="line-number">55</span><span class="code-text"><code class="language-c">void addTransaction(BankAccount* account, TransactionType type, double amount, const char* description) {</code></span></div>
+<div class="code-line"><span class="line-number">56</span><span class="code-text"><code class="language-c">    if (account-&gt;transactionCount &gt;= MAX_TRANSACTIONS) {</code></span></div>
+<div class="code-line"><span class="line-number">57</span><span class="code-text"><code class="language-c">        return;</code></span></div>
+<div class="code-line"><span class="line-number">58</span><span class="code-text"><code class="language-c">    }</code></span></div>
+<div class="code-line"><span class="line-number">59</span><span class="code-text"><code class="language-c">    Transaction* txn = &account-&gt;transactions[account-&gt;transactionCount++];</code></span></div>
+<div class="code-line"><span class="line-number">60</span><span class="code-text"><code class="language-c">    txn-&gt;type = type;</code></span></div>
+<div class="code-line"><span class="line-number">61</span><span class="code-text"><code class="language-c">    txn-&gt;amount = amount;</code></span></div>
+<div class="code-line"><span class="line-number">62</span><span class="code-text"><code class="language-c">    strncpy(txn-&gt;description, description, 10);</code></span> <button class="breakpoint-button" onclick="showState(62)"><i class="fa fa-eye"></i> Show State</button></div>
+<div class="code-line"><span class="line-number">63</span><span class="code-text"><code class="language-c">}</code></span> <button class="breakpoint-button" onclick="showState(63)"><i class="fa fa-eye"></i> Show State</button></div>
+<div class="code-line"><span class="line-number">64</span><span class="code-text"><code class="language-c"></code></span></div>
+<div class="code-line"><span class="line-number">65</span><span class="code-text"><code class="language-c">int deposit(BankAccount* account, double amount, const char* description) {</code></span></div>
+<div class="code-line"><span class="line-number">66</span><span class="code-text"><code class="language-c">    if (amount &lt;= 0) {</code></span></div>
+<div class="code-line"><span class="line-number">67</span><span class="code-text"><code class="language-c">        return -1;</code></span></div>
+<div class="code-line"><span class="line-number">68</span><span class="code-text"><code class="language-c">    }</code></span></div>
+<div class="code-line"><span class="line-number">69</span><span class="code-text"><code class="language-c">    account-&gt;balance += amount;</code></span></div>
+<div class="code-line"><span class="line-number">70</span><span class="code-text"><code class="language-c">    addTransaction(account, DEPOSIT, amount, description);</code></span> <button class="breakpoint-button" onclick="showState(70)"><i class="fa fa-eye"></i> Show State</button></div>
+<div class="code-line"><span class="line-number">71</span><span class="code-text"><code class="language-c">    return 0;</code></span></div>
+<div class="code-line"><span class="line-number">72</span><span class="code-text"><code class="language-c">}</code></span> <button class="breakpoint-button" onclick="showState(72)"><i class="fa fa-eye"></i> Show State</button></div>
+<div class="code-line"><span class="line-number">73</span><span class="code-text"><code class="language-c"></code></span></div>
+<div class="code-line"><span class="line-number">74</span><span class="code-text"><code class="language-c">int withdraw(BankAccount* account, double amount, const char* description) {</code></span></div>
+<div class="code-line"><span class="line-number">75</span><span class="code-text"><code class="language-c">    if (amount &lt;= 0) {</code></span></div>
+<div class="code-line"><span class="line-number">76</span><span class="code-text"><code class="language-c">        return -1;</code></span></div>
+<div class="code-line"><span class="line-number">77</span><span class="code-text"><code class="language-c">    }</code></span></div>
+<div class="code-line"><span class="line-number">78</span><span class="code-text"><code class="language-c">    if (account-&gt;balance &lt; amount) {</code></span></div>
+<div class="code-line"><span class="line-number">79</span><span class="code-text"><code class="language-c">        return -1;</code></span></div>
+<div class="code-line"><span class="line-number">80</span><span class="code-text"><code class="language-c">    }</code></span></div>
+<div class="code-line"><span class="line-number">81</span><span class="code-text"><code class="language-c">    account-&gt;balance -= amount;</code></span></div>
+<div class="code-line"><span class="line-number">82</span><span class="code-text"><code class="language-c">    addTransaction(account, WITHDRAWAL, amount, description);</code></span> <button class="breakpoint-button" onclick="showState(82)"><i class="fa fa-eye"></i> Show State</button></div>
+<div class="code-line"><span class="line-number">83</span><span class="code-text"><code class="language-c">    return 0;</code></span></div>
+<div class="code-line"><span class="line-number">84</span><span class="code-text"><code class="language-c">}</code></span> <button class="breakpoint-button" onclick="showState(84)"><i class="fa fa-eye"></i> Show State</button></div>
+<div class="code-line"><span class="line-number">85</span><span class="code-text"><code class="language-c"></code></span></div>
+<div class="code-line"><span class="line-number">86</span><span class="code-text"><code class="language-c">void printAccountDetails(const BankAccount* account) {</code></span></div>
+<div class="code-line"><span class="line-number">87</span><span class="code-text"><code class="language-c">}</code></span> <button class="breakpoint-button" onclick="showState(87)"><i class="fa fa-eye"></i> Show State</button></div>
+<div class="code-line"><span class="line-number">88</span><span class="code-text"><code class="language-c"></code></span></div>
+<div class="code-line"><span class="line-number">89</span><span class="code-text"><code class="language-c">void printTransactionHistory(const BankAccount* account) {</code></span></div>
+<div class="code-line"><span class="line-number">90</span><span class="code-text"><code class="language-c">}</code></span> <button class="breakpoint-button" onclick="showState(90)"><i class="fa fa-eye"></i> Show State</button></div>
+<div class="code-line"><span class="line-number">91</span><span class="code-text"><code class="language-c"></code></span></div>
+<div class="code-line"><span class="line-number">92</span><span class="code-text"><code class="language-c">BankAccount* findAccount(BankAccount** accounts, int totalAccounts, int accountNumber) {</code></span></div>
+<div class="code-line"><span class="line-number">93</span><span class="code-text"><code class="language-c">    for (int i = 0; i &lt; totalAccounts; i++) {</code></span></div>
+<div class="code-line"><span class="line-number">94</span><span class="code-text"><code class="language-c">        if (accounts[i]-&gt;accountNumber == accountNumber) {</code></span></div>
+<div class="code-line"><span class="line-number">95</span><span class="code-text"><code class="language-c">            return accounts[i];</code></span></div>
+<div class="code-line"><span class="line-number">96</span><span class="code-text"><code class="language-c">        }</code></span></div>
+<div class="code-line"><span class="line-number">97</span><span class="code-text"><code class="language-c">    }</code></span></div>
+<div class="code-line"><span class="line-number">98</span><span class="code-text"><code class="language-c">    return NULL;</code></span></div>
+<div class="code-line"><span class="line-number">99</span><span class="code-text"><code class="language-c">}</code></span> <button class="breakpoint-button" onclick="showState(99)"><i class="fa fa-eye"></i> Show State</button></div>
+<div class="code-line"><span class="line-number">100</span><span class="code-text"><code class="language-c"></code></span></div>
+<div class="code-line"><span class="line-number">101</span><span class="code-text"><code class="language-c">void transfer(BankAccount** accounts, int totalAccounts, int fromAccNum, int toAccNum, double amount) {</code></span></div>
+<div class="code-line"><span class="line-number">102</span><span class="code-text"><code class="language-c">    BankAccount* fromAccount = findAccount(accounts, totalAccounts, fromAccNum);</code></span></div>
+<div class="code-line"><span class="line-number">103</span><span class="code-text"><code class="language-c">    BankAccount* toAccount = findAccount(accounts, totalAccounts, toAccNum);</code></span> <button class="breakpoint-button" onclick="showState(103)"><i class="fa fa-eye"></i> Show State</button></div>
+<div class="code-line"><span class="line-number">104</span><span class="code-text"><code class="language-c">    if (!fromAccount || !toAccount) {</code></span></div>
+<div class="code-line"><span class="line-number">105</span><span class="code-text"><code class="language-c">        return;</code></span></div>
+<div class="code-line"><span class="line-number">106</span><span class="code-text"><code class="language-c">    }</code></span></div>
+<div class="code-line"><span class="line-number">107</span><span class="code-text"><code class="language-c">    if (withdraw(fromAccount, amount, "Transfer to") == 0) {</code></span> <button class="breakpoint-button" onclick="showState(107)"><i class="fa fa-eye"></i> Show State</button></div>
+<div class="code-line"><span class="line-number">108</span><span class="code-text"><code class="language-c">        deposit(toAccount, amount, "Transfer from");</code></span> <button class="breakpoint-button" onclick="showState(108)"><i class="fa fa-eye"></i> Show State</button></div>
+<div class="code-line"><span class="line-number">109</span><span class="code-text"><code class="language-c">    }</code></span></div>
+<div class="code-line"><span class="line-number">110</span><span class="code-text"><code class="language-c">}</code></span> <button class="breakpoint-button" onclick="showState(110)"><i class="fa fa-eye"></i> Show State</button></div>
+<div class="code-line"><span class="line-number">111</span><span class="code-text"><code class="language-c"></code></span></div>
+<div class="code-line"><span class="line-number">112</span><span class="code-text"><code class="language-c">void simulateOperations() {</code></span></div>
+<div class="code-line"><span class="line-number">113</span><span class="code-text"><code class="language-c">    int totalAccounts = 3;</code></span></div>
+<div class="code-line"><span class="line-number">114</span><span class="code-text"><code class="language-c">    BankAccount* accounts[3];</code></span></div>
+<div class="code-line"><span class="line-number">115</span><span class="code-text"><code class="language-c"></code></span></div>
+<div class="code-line"><span class="line-number">116</span><span class="code-text"><code class="language-c">    accounts[0] = createAccount(1001, "Alice");</code></span></div>
+<div class="code-line"><span class="line-number">117</span><span class="code-text"><code class="language-c">    accounts[1] = createAccount(1002, "Bob");</code></span></div>
+<div class="code-line"><span class="line-number">118</span><span class="code-text"><code class="language-c">    accounts[2] = createAccount(1003, "Charlie");</code></span> <button class="breakpoint-button" onclick="showState(118)"><i class="fa fa-eye"></i> Show State</button></div>
+<div class="code-line"><span class="line-number">119</span><span class="code-text"><code class="language-c"></code></span></div>
+<div class="code-line"><span class="line-number">120</span><span class="code-text"><code class="language-c">    deposit(accounts[0], 500.0, "Initial");</code></span></div>
+<div class="code-line"><span class="line-number">121</span><span class="code-text"><code class="language-c">    deposit(accounts[1], 1000.0, "Initial");</code></span></div>
+<div class="code-line"><span class="line-number">122</span><span class="code-text"><code class="language-c">    deposit(accounts[2], 750.0, "Initial");</code></span> <button class="breakpoint-button" onclick="showState(122)"><i class="fa fa-eye"></i> Show State</button></div>
+<div class="code-line"><span class="line-number">123</span><span class="code-text"><code class="language-c"></code></span></div>
+<div class="code-line"><span class="line-number">124</span><span class="code-text"><code class="language-c">    withdraw(accounts[1], 200.0, "withdrawal");</code></span></div>
+<div class="code-line"><span class="line-number">125</span><span class="code-text"><code class="language-c">    withdraw(accounts[2], 50.0, "shopping");</code></span> <button class="breakpoint-button" onclick="showState(125)"><i class="fa fa-eye"></i> Show State</button></div>
+<div class="code-line"><span class="line-number">126</span><span class="code-text"><code class="language-c"></code></span></div>
+<div class="code-line"><span class="line-number">127</span><span class="code-text"><code class="language-c">    transfer(accounts, totalAccounts, 1001, 1003, 150.0);</code></span> <button class="breakpoint-button" onclick="showState(127)"><i class="fa fa-eye"></i> Show State</button></div>
+<div class="code-line"><span class="line-number">128</span><span class="code-text"><code class="language-c"></code></span></div>
+<div class="code-line"><span class="line-number">129</span><span class="code-text"><code class="language-c">    for (int i = 0; i &lt; totalAccounts; i++) {</code></span></div>
+<div class="code-line"><span class="line-number">130</span><span class="code-text"><code class="language-c">        printAccountDetails(accounts[i]);</code></span> <button class="breakpoint-button" onclick="showState(130)"><i class="fa fa-eye"></i> Show State</button></div>
+<div class="code-line"><span class="line-number">131</span><span class="code-text"><code class="language-c">        printTransactionHistory(accounts[i]);</code></span> <button class="breakpoint-button" onclick="showState(131)"><i class="fa fa-eye"></i> Show State</button></div>
+<div class="code-line"><span class="line-number">132</span><span class="code-text"><code class="language-c">    }</code></span></div>
+<div class="code-line"><span class="line-number">133</span><span class="code-text"><code class="language-c"></code></span></div>
+<div class="code-line"><span class="line-number">134</span><span class="code-text"><code class="language-c">    for (int i = 0; i &lt; totalAccounts; i++) {</code></span></div>
+<div class="code-line"><span class="line-number">135</span><span class="code-text"><code class="language-c">        free(accounts[i]);</code></span> <button class="breakpoint-button" onclick="showState(135)"><i class="fa fa-eye"></i> Show State</button></div>
+<div class="code-line"><span class="line-number">136</span><span class="code-text"><code class="language-c">    }</code></span></div>
+<div class="code-line"><span class="line-number">137</span><span class="code-text"><code class="language-c">}</code></span> <button class="breakpoint-button" onclick="showState(137)"><i class="fa fa-eye"></i> Show State</button></div>
+<div class="code-line"><span class="line-number">138</span><span class="code-text"><code class="language-c"></code></span></div>
+
+                </div>
+            </div>
+            <div class="state-container">
+                <h2>State Display</h2>
+                <div id="state-display">
+                    <h2>State at Line <span id="state-line">N/A</span></h2>
+                    <div id="state-content">
+                        <p>Click on the "Show State" button next to a line to view its state.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Highlight.js Library -->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+        <script>hljs.highlightAll();</script>
+
+        <!-- Font Awesome for Icons -->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/js/all.min.js"></script>
+
+        <script>
+            // Breakpoint data from JSON
+            const breakpoints = 
+    {
+    "39": [
+        {
+            "location": "main",
+            "state": "before function call of simulateOperations",
+            "local_vars": {},
+            "global_vars": {},
+            "member_vars": {},
+            "arguments": {},
+            "line": 39
+        }
+    ],
+    "118": [
+        {
+            "location": "simulateOperations",
+            "state": "before function call of createAccount",
+            "local_vars": {
+                "totalAccounts": "3",
+                "accounts": {
+                    "0": {
+                        "accountNumber": "1001",
+                        "holderName": "\"Alice\"",
+                        "balance": "0",
+                        "transactions": {
+                            "0": {
+                                "type": "DEPOSIT",
+                                "amount": "0",
+                                "description": "\"\""
+                            },
+                            "1": {
+                                "type": "DEPOSIT",
+                                "amount": "0",
+                                "description": "\"\""
+                            },
+                            "2": {
+                                "type": "DEPOSIT",
+                                "amount": "0",
+                                "description": "\"\""
+                            },
+                            "3": {
+                                "type": "DEPOSIT",
+                                "amount": "0",
+                                "description": "\"\""
+                            },
+                            "4": {
+                                "type": "DEPOSIT",
+                                "amount": "0",
+                                "description": "\"\""
+                            },
+                            "5": {
+                                "type": "DEPOSIT",
+                                "amount": "0",
+                                "description": "\"\""
+                            },
+                            "6": {
+                                "type": "DEPOSIT",
+                                "amount": "0",
+                                "description": "\"\""
+                            },
+                            "7": {
+                                "type": "DEPOSIT",
+                                "amount": "0",
+                                "description": "\"\""
+                            },
+                            "8": {
+                                "type": "DEPOSIT",
+                                "amount": "0",
+                                "description": "\"\""
+                            },
+                            "9": {
+                                "type": "DEPOSIT",
+                                "amount": "0",
+                                "description": "\"\""
+                            }
+                        },
+                        "transactionCount": "0"
+                    },
+                    "1": {
+                        "accountNumber": "1002",
+                        "holderName": "\"Bob\"",
+                        "balance": "0",
+                        "transactions": {
+                            "0": {
+                                "type": "DEPOSIT",
+                                "amount": "0",
+                                "description": "\"\""
+                            },
+                            "1": {
+                                "type": "DEPOSIT",
+                                "amount": "0",
+                                "description": "\"\""
+                            },
+                            "2": {
+                                "type": "DEPOSIT",
+                                "amount": "0",
+                                "description": "\"\""
+                            },
+                            "3": {
+                                "type": "DEPOSIT",
+                                "amount": "0",
+                                "description": "\"\""
+                            },
+                            "4": {
+                                "type": "DEPOSIT",
+                                "amount": "0",
+                                "description": "\"\""
+                            },
+                            "5": {
+                                "type": "DEPOSIT",
+                                "amount": "0",
+                                "description": "\"\""
+                            },
+                            "6": {
+                                "type": "DEPOSIT",
+                                "amount": "0",
+                                "description": "\"\""
+                            },
+                            "7": {
+                                "type": "DEPOSIT",
+                                "amount": "0",
+                                "description": "\"\""
+                            },
+                            "8": {
+                                "type": "DEPOSIT",
+                                "amount": "0",
+                                "description": "\"\""
+                            },
+                            "9": {
+                                "type": "DEPOSIT",
+                                "amount": "0",
+                                "description": "\"\""
+                            }
+                        },
+                        "transactionCount": "0"
+                    },
+                    "2": "0x0"
+                }
+            },
+            "global_vars": {},
+            "member_vars": {},
+            "arguments": {},
+            "line": 118
+        }
+    ],
+    "44": [
+        {
+            "location": "createAccount",
+            "state": "before function call of malloc",
+            "local_vars": {
+                "newAccount": {
+                    "accountNumber": "1002",
+                    "holderName": "\"Bob\"",
+                    "balance": "0",
+                    "transactions": {
+                        "0": {
+                            "type": "DEPOSIT",
+                            "amount": "0",
+                            "description": "\"\""
+                        },
+                        "1": {
+                            "type": "DEPOSIT",
+                            "amount": "0",
+                            "description": "\"\""
+                        },
+                        "2": {
+                            "type": "DEPOSIT",
+                            "amount": "0",
+                            "description": "\"\""
+                        },
+                        "3": {
+                            "type": "DEPOSIT",
+                            "amount": "0",
+                            "description": "\"\""
+                        },
+                        "4": {
+                            "type": "DEPOSIT",
+                            "amount": "0",
+                            "description": "\"\""
+                        },
+                        "5": {
+                            "type": "DEPOSIT",
+                            "amount": "0",
+                            "description": "\"\""
+                        },
+                        "6": {
+                            "type": "DEPOSIT",
+                            "amount": "0",
+                            "description": "\"\""
+                        },
+                        "7": {
+                            "type": "DEPOSIT",
+                            "amount": "0",
+                            "description": "\"\""
+                        },
+                        "8": {
+                            "type": "DEPOSIT",
+                            "amount": "0",
+                            "description": "\"\""
+                        },
+                        "9": {
+                            "type": "DEPOSIT",
+                            "amount": "0",
+                            "description": "\"\""
+                        }
+                    },
+                    "transactionCount": "0"
+                }
+            },
+            "global_vars": {},
+            "member_vars": {},
+            "arguments": {
+                "accountNumber": "1003",
+                "holderName": "[67 'C', 104 'h', 97 'a', 114 'r', 108 'l', 105 'i', 101 'e', 0 '']"
+            },
+            "line": 44
+        }
+    ],
+    "49": [
+        {
+            "location": "createAccount",
+            "state": "before function call of strncpy",
+            "local_vars": {
+                "newAccount": {
+                    "accountNumber": "1003",
+                    "holderName": "\"\"",
+                    "balance": "0",
+                    "transactions": {
+                        "0": {
+                            "type": "DEPOSIT",
+                            "amount": "0",
+                            "description": "\"\""
+                        },
+                        "1": {
+                            "type": "DEPOSIT",
+                            "amount": "0",
+                            "description": "\"\""
+                        },
+                        "2": {
+                            "type": "DEPOSIT",
+                            "amount": "0",
+                            "description": "\"\""
+                        },
+                        "3": {
+                            "type": "DEPOSIT",
+                            "amount": "0",
+                            "description": "\"\""
+                        },
+                        "4": {
+                            "type": "DEPOSIT",
+                            "amount": "0",
+                            "description": "\"\""
+                        },
+                        "5": {
+                            "type": "DEPOSIT",
+                            "amount": "0",
+                            "description": "\"\""
+                        },
+                        "6": {
+                            "type": "DEPOSIT",
+                            "amount": "0",
+                            "description": "\"\""
+                        },
+                        "7": {
+                            "type": "DEPOSIT",
+                            "amount": "0",
+                            "description": "\"\""
+                        },
+                        "8": {
+                            "type": "DEPOSIT",
+                            "amount": "0",
+                            "description": "\"\""
+                        },
+                        "9": {
+                            "type": "DEPOSIT",
+                            "amount": "0",
+                            "description": "\"\""
+                        }
+                    },
+                    "transactionCount": "0"
+                }
+            },
+            "global_vars": {},
+            "member_vars": {},
+            "arguments": {
+                "accountNumber": "1003",
+                "holderName": "[67 'C', 104 'h', 97 'a', 114 'r', 108 'l', 105 'i', 101 'e', 0 '']"
+            },
+            "line": 49
+        }
+    ],
+    "53": [
+        {
+            "location": "simulateOperations",
+            "state": "before function return of createAccount",
+            "local_vars": {
+                "newAccount": {
+                    "accountNumber": "1003",
+                    "holderName": "\"Charl\"",
+                    "balance": "0",
+                    "transactions": {
+                        "0": {
+                            "type": "DEPOSIT",
+                            "amount": "0",
+                            "description": "\"\""
+                        },
+                        "1": {
+                            "type": "DEPOSIT",
+                            "amount": "0",
+                            "description": "\"\""
+                        },
+                        "2": {
+                            "type": "DEPOSIT",
+                            "amount": "0",
+                            "description": "\"\""
+                        },
+                        "3": {
+                            "type": "DEPOSIT",
+                            "amount": "0",
+                            "description": "\"\""
+                        },
+                        "4": {
+                            "type": "DEPOSIT",
+                            "amount": "0",
+                            "description": "\"\""
+                        },
+                        "5": {
+                            "type": "DEPOSIT",
+                            "amount": "0",
+                            "description": "\"\""
+                        },
+                        "6": {
+                            "type": "DEPOSIT",
+                            "amount": "0",
+                            "description": "\"\""
+                        },
+                        "7": {
+                            "type": "DEPOSIT",
+                            "amount": "0",
+                            "description": "\"\""
+                        },
+                        "8": {
+                            "type": "DEPOSIT",
+                            "amount": "0",
+                            "description": "\"\""
+                        },
+                        "9": {
+                            "type": "DEPOSIT",
+                            "amount": "0",
+                            "description": "\"\""
+                        }
+                    },
+                    "transactionCount": "0"
+                }
+            },
+            "global_vars": {},
+            "member_vars": {},
+            "arguments": {
+                "accountNumber": "1003",
+                "holderName": "[67 'C', 104 'h', 97 'a', 114 'r', 108 'l', 105 'i', 101 'e', 0 '']"
+            },
+            "line": 53
+        }
+    ],
+    "122": [
+        {
+            "location": "simulateOperations",
+            "state": "before function call of deposit",
+            "local_vars": {
+                "totalAccounts": "3",
+                "accounts": {
+                    "0": {
+                        "accountNumber": "1001",
+                        "holderName": "\"Alice\"",
+                        "balance": "500",
+                        "transactions": {
+                            "0": {
+                                "type": "DEPOSIT",
+                                "amount": "500",
+                                "description": "\"Initial\""
+                            },
+                            "1": {
+                                "type": "DEPOSIT",
+                                "amount": "0",
+                                "description": "\"\""
+                            },
+                            "2": {
+                                "type": "DEPOSIT",
+                                "amount": "0",
+                                "description": "\"\""
+                            },
+                            "3": {
+                                "type": "DEPOSIT",
+                                "amount": "0",
+                                "description": "\"\""
+                            },
+                            "4": {
+                                "type": "DEPOSIT",
+                                "amount": "0",
+                                "description": "\"\""
+                            },
+                            "5": {
+                                "type": "DEPOSIT",
+                                "amount": "0",
+                                "description": "\"\""
+                            },
+                            "6": {
+                                "type": "DEPOSIT",
+                                "amount": "0",
+                                "description": "\"\""
+                            },
+                            "7": {
+                                "type": "DEPOSIT",
+                                "amount": "0",
+                                "description": "\"\""
+                            },
+                            "8": {
+                                "type": "DEPOSIT",
+                                "amount": "0",
+                                "description": "\"\""
+                            },
+                            "9": {
+                                "type": "DEPOSIT",
+                                "amount": "0",
+                                "description": "\"\""
+                            }
+                        },
+                        "transactionCount": "1"
+                    },
+                    "1": {
+                        "accountNumber": "1002",
+                        "holderName": "\"Bob\"",
+                        "balance": "1000",
+                        "transactions": {
+                            "0": {
+                                "type": "DEPOSIT",
+                                "amount": "1000",
+                                "description": "\"Initial\""
+                            },
+                            "1": {
+                                "type": "DEPOSIT",
+                                "amount": "0",
+                                "description": "\"\""
+                            },
+                            "2": {
+                                "type": "DEPOSIT",
+                                "amount": "0",
+                                "description": "\"\""
+                            },
+                            "3": {
+                                "type": "DEPOSIT",
+                                "amount": "0",
+                                "description": "\"\""
+                            },
+                            "4": {
+                                "type": "DEPOSIT",
+                                "amount": "0",
+                                "description": "\"\""
+                            },
+                            "5": {
+                                "type": "DEPOSIT",
+                                "amount": "0",
+                                "description": "\"\""
+                            },
+                            "6": {
+                                "type": "DEPOSIT",
+                                "amount": "0",
+                                "description": "\"\""
+                            },
+                            "7": {
+                                "type": "DEPOSIT",
+                                "amount": "0",
+                                "description": "\"\""
+                            },
+                            "8": {
+                                "type": "DEPOSIT",
+                                "amount": "0",
+                                "description": "\"\""
+                            },
+                            "9": {
+                                "type": "DEPOSIT",
+                                "amount": "0",
+                                "description": "\"\""
+                            }
+                        },
+                        "transactionCount": "1"
+                    },
+                    "2": {
+                        "accountNumber": "1003",
+                        "holderName": "\"Charl\"",
+                        "balance": "0",
+                        "transactions": {
+                            "0": {
+                                "type": "DEPOSIT",
+                                "amount": "0",
+                                "description": "\"\""
+                            },
+                            "1": {
+                                "type": "DEPOSIT",
+                                "amount": "0",
+                                "description": "\"\""
+                            },
+                            "2": {
+                                "type": "DEPOSIT",
+                                "amount": "0",
+                                "description": "\"\""
+                            },
+                            "3": {
+                                "type": "DEPOSIT",
+                                "amount": "0",
+                                "description": "\"\""
+                            },
+                            "4": {
+                                "type": "DEPOSIT",
+                                "amount": "0",
+                                "description": "\"\""
+                            },
+                            "5": {
+                                "type": "DEPOSIT",
+                                "amount": "0",
+                                "description": "\"\""
+                            },
+                            "6": {
+                                "type": "DEPOSIT",
+                                "amount": "0",
+                                "description": "\"\""
+                            },
+                            "7": {
+                                "type": "DEPOSIT",
+                                "amount": "0",
+                                "description": "\"\""
+                            },
+                            "8": {
+                                "type": "DEPOSIT",
+                                "amount": "0",
+                                "description": "\"\""
+                            },
+                            "9": {
+                                "type": "DEPOSIT",
+                                "amount": "0",
+                                "description": "\"\""
+                            }
+                        },
+                        "transactionCount": "0"
+                    }
+                }
+            },
+            "global_vars": {},
+            "member_vars": {},
+            "arguments": {},
+            "line": 122
+        }
+    ],
+    "72": [
+        {
+            "location": "simulateOperations",
+            "state": "before function return of deposit",
+            "local_vars": {},
+            "global_vars": {},
+            "member_vars": {},
+            "arguments": {
+                "account": {
+                    "accountNumber": "1003",
+                    "holderName": "\"Charl\"",
+                    "balance": "750",
+                    "transactions": {
+                        "0": {
+                            "type": "DEPOSIT",
+                            "amount": "750",
+                            "description": "\"Initial\""
+                        },
+                        "1": {
+                            "type": "DEPOSIT",
+                            "amount": "0",
+                            "description": "\"\""
+                        },
+                        "2": {
+                            "type": "DEPOSIT",
+                            "amount": "0",
+                            "description": "\"\""
+                        },
+                        "3": {
+                            "type": "DEPOSIT",
+                            "amount": "0",
+                            "description": "\"\""
+                        },
+                        "4": {
+                            "type": "DEPOSIT",
+                            "amount": "0",
+                            "description": "\"\""
+                        },
+                        "5": {
+                            "type": "DEPOSIT",
+                            "amount": "0",
+                            "description": "\"\""
+                        },
+                        "6": {
+                            "type": "DEPOSIT",
+                            "amount": "0",
+                            "description": "\"\""
+                        },
+                        "7": {
+                            "type": "DEPOSIT",
+                            "amount": "0",
+                            "description": "\"\""
+                        },
+                        "8": {
+                            "type": "DEPOSIT",
+                            "amount": "0",
+                            "description": "\"\""
+                        },
+                        "9": {
+                            "type": "DEPOSIT",
+                            "amount": "0",
+                            "description": "\"\""
+                        }
+                    },
+                    "transactionCount": "1"
+                },
+                "amount": "750",
+                "description": "[73 'I', 110 'n', 105 'i', 116 't', 105 'i', 97 'a', 108 'l', 0 '']"
+            },
+            "line": 72
+        },
+        {
+            "location": "simulateOperations",
+            "state": "before function return of deposit",
+            "local_vars": {},
+            "global_vars": {},
+            "member_vars": {},
+            "arguments": {
+                "account": {
+                    "accountNumber": "1003",
+                    "holderName": "\"Charl\"",
+                    "balance": "850",
+                    "transactions": {
+                        "0": {
+                            "type": "DEPOSIT",
+                            "amount": "750",
+                            "description": "\"Initial\""
+                        },
+                        "1": {
+                            "type": "WITHDRAWAL",
+                            "amount": "50",
+                            "description": "\"shopping\""
+                        },
+                        "2": {
+                            "type": "DEPOSIT",
+                            "amount": "150",
+                            "description": "\"Transfer f\""
+                        },
+                        "3": {
+                            "type": "DEPOSIT",
+                            "amount": "0",
+                            "description": "\"\""
+                        },
+                        "4": {
+                            "type": "DEPOSIT",
+                            "amount": "0",
+                            "description": "\"\""
+                        },
+                        "5": {
+                            "type": "DEPOSIT",
+                            "amount": "0",
+                            "description": "\"\""
+                        },
+                        "6": {
+                            "type": "DEPOSIT",
+                            "amount": "0",
+                            "description": "\"\""
+                        },
+                        "7": {
+                            "type": "DEPOSIT",
+                            "amount": "0",
+                            "description": "\"\""
+                        },
+                        "8": {
+                            "type": "DEPOSIT",
+                            "amount": "0",
+                            "description": "\"\""
+                        },
+                        "9": {
+                            "type": "DEPOSIT",
+                            "amount": "0",
+                            "description": "\"\""
+                        }
+                    },
+                    "transactionCount": "3"
+                },
+                "amount": "150",
+                "description": "[84 'T', 114 'r', 97 'a', 110 'n', 115 's', 102 'f', 101 'e', 114 'r', 32 ' ', 102 'f', 114 'r', 111 'o', 109 'm', 0 '']"
+            },
+            "line": 72
+        }
+    ],
+    "125": [
+        {
+            "location": "simulateOperations",
+            "state": "before function call of withdraw",
+            "local_vars": {
+                "totalAccounts": "3",
+                "accounts": {
+                    "0": {
+                        "accountNumber": "1001",
+                        "holderName": "\"Alice\"",
+                        "balance": "500",
+                        "transactions": {
+                            "0": {
+                                "type": "DEPOSIT",
+                                "amount": "500",
+                                "description": "\"Initial\""
+                            },
+                            "1": {
+                                "type": "DEPOSIT",
+                                "amount": "0",
+                                "description": "\"\""
+                            },
+                            "2": {
+                                "type": "DEPOSIT",
+                                "amount": "0",
+                                "description": "\"\""
+                            },
+                            "3": {
+                                "type": "DEPOSIT",
+                                "amount": "0",
+                                "description": "\"\""
+                            },
+                            "4": {
+                                "type": "DEPOSIT",
+                                "amount": "0",
+                                "description": "\"\""
+                            },
+                            "5": {
+                                "type": "DEPOSIT",
+                                "amount": "0",
+                                "description": "\"\""
+                            },
+                            "6": {
+                                "type": "DEPOSIT",
+                                "amount": "0",
+                                "description": "\"\""
+                            },
+                            "7": {
+                                "type": "DEPOSIT",
+                                "amount": "0",
+                                "description": "\"\""
+                            },
+                            "8": {
+                                "type": "DEPOSIT",
+                                "amount": "0",
+                                "description": "\"\""
+                            },
+                            "9": {
+                                "type": "DEPOSIT",
+                                "amount": "0",
+                                "description": "\"\""
+                            }
+                        },
+                        "transactionCount": "1"
+                    },
+                    "1": {
+                        "accountNumber": "1002",
+                        "holderName": "\"Bob\"",
+                        "balance": "800",
+                        "transactions": {
+                            "0": {
+                                "type": "DEPOSIT",
+                                "amount": "1000",
+                                "description": "\"Initial\""
+                            },
+                            "1": {
+                                "type": "WITHDRAWAL",
+                                "amount": "200",
+                                "description": "\"withdrawal\""
+                            },
+                            "2": {
+                                "type": "DEPOSIT",
+                                "amount": "0",
+                                "description": "\"\""
+                            },
+                            "3": {
+                                "type": "DEPOSIT",
+                                "amount": "0",
+                                "description": "\"\""
+                            },
+                            "4": {
+                                "type": "DEPOSIT",
+                                "amount": "0",
+                                "description": "\"\""
+                            },
+                            "5": {
+                                "type": "DEPOSIT",
+                                "amount": "0",
+                                "description": "\"\""
+                            },
+                            "6": {
+                                "type": "DEPOSIT",
+                                "amount": "0",
+                                "description": "\"\""
+                            },
+                            "7": {
+                                "type": "DEPOSIT",
+                                "amount": "0",
+                                "description": "\"\""
+                            },
+                            "8": {
+                                "type": "DEPOSIT",
+                                "amount": "0",
+                                "description": "\"\""
+                            },
+                            "9": {
+                                "type": "DEPOSIT",
+                                "amount": "0",
+                                "description": "\"\""
+                            }
+                        },
+                        "transactionCount": "2"
+                    },
+                    "2": {
+                        "accountNumber": "1003",
+                        "holderName": "\"Charl\"",
+                        "balance": "750",
+                        "transactions": {
+                            "0": {
+                                "type": "DEPOSIT",
+                                "amount": "750",
+                                "description": "\"Initial\""
+                            },
+                            "1": {
+                                "type": "DEPOSIT",
+                                "amount": "0",
+                                "description": "\"\""
+                            },
+                            "2": {
+                                "type": "DEPOSIT",
+                                "amount": "0",
+                                "description": "\"\""
+                            },
+                            "3": {
+                                "type": "DEPOSIT",
+                                "amount": "0",
+                                "description": "\"\""
+                            },
+                            "4": {
+                                "type": "DEPOSIT",
+                                "amount": "0",
+                                "description": "\"\""
+                            },
+                            "5": {
+                                "type": "DEPOSIT",
+                                "amount": "0",
+                                "description": "\"\""
+                            },
+                            "6": {
+                                "type": "DEPOSIT",
+                                "amount": "0",
+                                "description": "\"\""
+                            },
+                            "7": {
+                                "type": "DEPOSIT",
+                                "amount": "0",
+                                "description": "\"\""
+                            },
+                            "8": {
+                                "type": "DEPOSIT",
+                                "amount": "0",
+                                "description": "\"\""
+                            },
+                            "9": {
+                                "type": "DEPOSIT",
+                                "amount": "0",
+                                "description": "\"\""
+                            }
+                        },
+                        "transactionCount": "1"
+                    }
+                }
+            },
+            "global_vars": {},
+            "member_vars": {},
+            "arguments": {},
+            "line": 125
+        }
+    ],
+    "84": [
+        {
+            "location": "simulateOperations",
+            "state": "before function return of withdraw",
+            "local_vars": {},
+            "global_vars": {},
+            "member_vars": {},
+            "arguments": {
+                "account": {
+                    "accountNumber": "1003",
+                    "holderName": "\"Charl\"",
+                    "balance": "700",
+                    "transactions": {
+                        "0": {
+                            "type": "DEPOSIT",
+                            "amount": "750",
+                            "description": "\"Initial\""
+                        },
+                        "1": {
+                            "type": "WITHDRAWAL",
+                            "amount": "50",
+                            "description": "\"shopping\""
+                        },
+                        "2": {
+                            "type": "DEPOSIT",
+                            "amount": "0",
+                            "description": "\"\""
+                        },
+                        "3": {
+                            "type": "DEPOSIT",
+                            "amount": "0",
+                            "description": "\"\""
+                        },
+                        "4": {
+                            "type": "DEPOSIT",
+                            "amount": "0",
+                            "description": "\"\""
+                        },
+                        "5": {
+                            "type": "DEPOSIT",
+                            "amount": "0",
+                            "description": "\"\""
+                        },
+                        "6": {
+                            "type": "DEPOSIT",
+                            "amount": "0",
+                            "description": "\"\""
+                        },
+                        "7": {
+                            "type": "DEPOSIT",
+                            "amount": "0",
+                            "description": "\"\""
+                        },
+                        "8": {
+                            "type": "DEPOSIT",
+                            "amount": "0",
+                            "description": "\"\""
+                        },
+                        "9": {
+                            "type": "DEPOSIT",
+                            "amount": "0",
+                            "description": "\"\""
+                        }
+                    },
+                    "transactionCount": "2"
+                },
+                "amount": "50",
+                "description": "[115 's', 104 'h', 111 'o', 112 'p', 112 'p', 105 'i', 110 'n', 103 'g', 0 '']"
+            },
+            "line": 84
+        },
+        {
+            "location": "simulateOperations",
+            "state": "before function return of withdraw",
+            "local_vars": {},
+            "global_vars": {},
+            "member_vars": {},
+            "arguments": {
+                "account": {
+                    "accountNumber": "1001",
+                    "holderName": "\"Alice\"",
+                    "balance": "350",
+                    "transactions": {
+                        "0": {
+                            "type": "DEPOSIT",
+                            "amount": "500",
+                            "description": "\"Initial\""
+                        },
+                        "1": {
+                            "type": "WITHDRAWAL",
+                            "amount": "150",
+                            "description": "\"Transfer t\""
+                        },
+                        "2": {
+                            "type": "DEPOSIT",
+                            "amount": "0",
+                            "description": "\"\""
+                        },
+                        "3": {
+                            "type": "DEPOSIT",
+                            "amount": "0",
+                            "description": "\"\""
+                        },
+                        "4": {
+                            "type": "DEPOSIT",
+                            "amount": "0",
+                            "description": "\"\""
+                        },
+                        "5": {
+                            "type": "DEPOSIT",
+                            "amount": "0",
+                            "description": "\"\""
+                        },
+                        "6": {
+                            "type": "DEPOSIT",
+                            "amount": "0",
+                            "description": "\"\""
+                        },
+                        "7": {
+                            "type": "DEPOSIT",
+                            "amount": "0",
+                            "description": "\"\""
+                        },
+                        "8": {
+                            "type": "DEPOSIT",
+                            "amount": "0",
+                            "description": "\"\""
+                        },
+                        "9": {
+                            "type": "DEPOSIT",
+                            "amount": "0",
+                            "description": "\"\""
+                        }
+                    },
+                    "transactionCount": "2"
+                },
+                "amount": "150",
+                "description": "[84 'T', 114 'r', 97 'a', 110 'n', 115 's', 102 'f', 101 'e', 114 'r', 32 ' ', 116 't', 111 'o', 0 '']"
+            },
+            "line": 84
+        }
+    ],
+    "127": [
+        {
+            "location": "simulateOperations",
+            "state": "before function call of transfer",
+            "local_vars": {
+                "totalAccounts": "3",
+                "accounts": {
+                    "0": {
+                        "accountNumber": "1001",
+                        "holderName": "\"Alice\"",
+                        "balance": "500",
+                        "transactions": {
+                            "0": {
+                                "type": "DEPOSIT",
+                                "amount": "500",
+                                "description": "\"Initial\""
+                            },
+                            "1": {
+                                "type": "DEPOSIT",
+                                "amount": "0",
+                                "description": "\"\""
+                            },
+                            "2": {
+                                "type": "DEPOSIT",
+                                "amount": "0",
+                                "description": "\"\""
+                            },
+                            "3": {
+                                "type": "DEPOSIT",
+                                "amount": "0",
+                                "description": "\"\""
+                            },
+                            "4": {
+                                "type": "DEPOSIT",
+                                "amount": "0",
+                                "description": "\"\""
+                            },
+                            "5": {
+                                "type": "DEPOSIT",
+                                "amount": "0",
+                                "description": "\"\""
+                            },
+                            "6": {
+                                "type": "DEPOSIT",
+                                "amount": "0",
+                                "description": "\"\""
+                            },
+                            "7": {
+                                "type": "DEPOSIT",
+                                "amount": "0",
+                                "description": "\"\""
+                            },
+                            "8": {
+                                "type": "DEPOSIT",
+                                "amount": "0",
+                                "description": "\"\""
+                            },
+                            "9": {
+                                "type": "DEPOSIT",
+                                "amount": "0",
+                                "description": "\"\""
+                            }
+                        },
+                        "transactionCount": "1"
+                    },
+                    "1": {
+                        "accountNumber": "1002",
+                        "holderName": "\"Bob\"",
+                        "balance": "800",
+                        "transactions": {
+                            "0": {
+                                "type": "DEPOSIT",
+                                "amount": "1000",
+                                "description": "\"Initial\""
+                            },
+                            "1": {
+                                "type": "WITHDRAWAL",
+                                "amount": "200",
+                                "description": "\"withdrawal\""
+                            },
+                            "2": {
+                                "type": "DEPOSIT",
+                                "amount": "0",
+                                "description": "\"\""
+                            },
+                            "3": {
+                                "type": "DEPOSIT",
+                                "amount": "0",
+                                "description": "\"\""
+                            },
+                            "4": {
+                                "type": "DEPOSIT",
+                                "amount": "0",
+                                "description": "\"\""
+                            },
+                            "5": {
+                                "type": "DEPOSIT",
+                                "amount": "0",
+                                "description": "\"\""
+                            },
+                            "6": {
+                                "type": "DEPOSIT",
+                                "amount": "0",
+                                "description": "\"\""
+                            },
+                            "7": {
+                                "type": "DEPOSIT",
+                                "amount": "0",
+                                "description": "\"\""
+                            },
+                            "8": {
+                                "type": "DEPOSIT",
+                                "amount": "0",
+                                "description": "\"\""
+                            },
+                            "9": {
+                                "type": "DEPOSIT",
+                                "amount": "0",
+                                "description": "\"\""
+                            }
+                        },
+                        "transactionCount": "2"
+                    },
+                    "2": {
+                        "accountNumber": "1003",
+                        "holderName": "\"Charl\"",
+                        "balance": "700",
+                        "transactions": {
+                            "0": {
+                                "type": "DEPOSIT",
+                                "amount": "750",
+                                "description": "\"Initial\""
+                            },
+                            "1": {
+                                "type": "WITHDRAWAL",
+                                "amount": "50",
+                                "description": "\"shopping\""
+                            },
+                            "2": {
+                                "type": "DEPOSIT",
+                                "amount": "0",
+                                "description": "\"\""
+                            },
+                            "3": {
+                                "type": "DEPOSIT",
+                                "amount": "0",
+                                "description": "\"\""
+                            },
+                            "4": {
+                                "type": "DEPOSIT",
+                                "amount": "0",
+                                "description": "\"\""
+                            },
+                            "5": {
+                                "type": "DEPOSIT",
+                                "amount": "0",
+                                "description": "\"\""
+                            },
+                            "6": {
+                                "type": "DEPOSIT",
+                                "amount": "0",
+                                "description": "\"\""
+                            },
+                            "7": {
+                                "type": "DEPOSIT",
+                                "amount": "0",
+                                "description": "\"\""
+                            },
+                            "8": {
+                                "type": "DEPOSIT",
+                                "amount": "0",
+                                "description": "\"\""
+                            },
+                            "9": {
+                                "type": "DEPOSIT",
+                                "amount": "0",
+                                "description": "\"\""
+                            }
+                        },
+                        "transactionCount": "2"
+                    }
+                }
+            },
+            "global_vars": {},
+            "member_vars": {},
+            "arguments": {},
+            "line": 127
+        }
+    ],
+    "103": [
+        {
+            "location": "transfer",
+            "state": "before function call of findAccount",
+            "local_vars": {
+                "fromAccount": {
+                    "accountNumber": "1001",
+                    "holderName": "\"Alice\"",
+                    "balance": "500",
+                    "transactions": {
+                        "0": {
+                            "type": "DEPOSIT",
+                            "amount": "500",
+                            "description": "\"Initial\""
+                        },
+                        "1": {
+                            "type": "DEPOSIT",
+                            "amount": "0",
+                            "description": "\"\""
+                        },
+                        "2": {
+                            "type": "DEPOSIT",
+                            "amount": "0",
+                            "description": "\"\""
+                        },
+                        "3": {
+                            "type": "DEPOSIT",
+                            "amount": "0",
+                            "description": "\"\""
+                        },
+                        "4": {
+                            "type": "DEPOSIT",
+                            "amount": "0",
+                            "description": "\"\""
+                        },
+                        "5": {
+                            "type": "DEPOSIT",
+                            "amount": "0",
+                            "description": "\"\""
+                        },
+                        "6": {
+                            "type": "DEPOSIT",
+                            "amount": "0",
+                            "description": "\"\""
+                        },
+                        "7": {
+                            "type": "DEPOSIT",
+                            "amount": "0",
+                            "description": "\"\""
+                        },
+                        "8": {
+                            "type": "DEPOSIT",
+                            "amount": "0",
+                            "description": "\"\""
+                        },
+                        "9": {
+                            "type": "DEPOSIT",
+                            "amount": "0",
+                            "description": "\"\""
+                        }
+                    },
+                    "transactionCount": "1"
+                },
+                "toAccount": {
+                    "accountNumber": "<unavailable>",
+                    "holderName": "<unavailable>",
+                    "balance": "<unavailable>",
+                    "transactions": {
+                        "0": {
+                            "type": "<unavailable>",
+                            "amount": "<unavailable>",
+                            "description": "<unavailable>"
+                        },
+                        "1": {
+                            "type": "<unavailable>",
+                            "amount": "<unavailable>",
+                            "description": "<unavailable>"
+                        },
+                        "2": {
+                            "type": "<unavailable>",
+                            "amount": "<unavailable>",
+                            "description": "<unavailable>"
+                        },
+                        "3": {
+                            "type": "<unavailable>",
+                            "amount": "<unavailable>",
+                            "description": "<unavailable>"
+                        },
+                        "4": {
+                            "type": "<unavailable>",
+                            "amount": "<unavailable>",
+                            "description": "<unavailable>"
+                        },
+                        "5": {
+                            "type": "<unavailable>",
+                            "amount": "<unavailable>",
+                            "description": "<unavailable>"
+                        },
+                        "6": {
+                            "type": "<unavailable>",
+                            "amount": "<unavailable>",
+                            "description": "<unavailable>"
+                        },
+                        "7": {
+                            "type": "<unavailable>",
+                            "amount": "<unavailable>",
+                            "description": "<unavailable>"
+                        },
+                        "8": {
+                            "type": "<unavailable>",
+                            "amount": "<unavailable>",
+                            "description": "<unavailable>"
+                        },
+                        "9": {
+                            "type": "<unavailable>",
+                            "amount": "<unavailable>",
+                            "description": "<unavailable>"
+                        }
+                    },
+                    "transactionCount": "<unavailable>"
+                }
+            },
+            "global_vars": {},
+            "member_vars": {},
+            "arguments": {
+                "accounts": {
+                    "accountNumber": "1001",
+                    "holderName": "\"Alice\"",
+                    "balance": "500",
+                    "transactions": {
+                        "0": {
+                            "type": "DEPOSIT",
+                            "amount": "500",
+                            "description": "\"Initial\""
+                        },
+                        "1": {
+                            "type": "DEPOSIT",
+                            "amount": "0",
+                            "description": "\"\""
+                        },
+                        "2": {
+                            "type": "DEPOSIT",
+                            "amount": "0",
+                            "description": "\"\""
+                        },
+                        "3": {
+                            "type": "DEPOSIT",
+                            "amount": "0",
+                            "description": "\"\""
+                        },
+                        "4": {
+                            "type": "DEPOSIT",
+                            "amount": "0",
+                            "description": "\"\""
+                        },
+                        "5": {
+                            "type": "DEPOSIT",
+                            "amount": "0",
+                            "description": "\"\""
+                        },
+                        "6": {
+                            "type": "DEPOSIT",
+                            "amount": "0",
+                            "description": "\"\""
+                        },
+                        "7": {
+                            "type": "DEPOSIT",
+                            "amount": "0",
+                            "description": "\"\""
+                        },
+                        "8": {
+                            "type": "DEPOSIT",
+                            "amount": "0",
+                            "description": "\"\""
+                        },
+                        "9": {
+                            "type": "DEPOSIT",
+                            "amount": "0",
+                            "description": "\"\""
+                        }
+                    },
+                    "transactionCount": "1"
+                },
+                "totalAccounts": "3",
+                "fromAccNum": "1001",
+                "toAccNum": "1003",
+                "amount": "150"
+            },
+            "line": 103
+        }
+    ],
+    "99": [
+        {
+            "location": "transfer",
+            "state": "before function return of findAccount",
+            "local_vars": {},
+            "global_vars": {},
+            "member_vars": {},
+            "arguments": {
+                "accounts": {
+                    "accountNumber": "1001",
+                    "holderName": "\"Alice\"",
+                    "balance": "500",
+                    "transactions": {
+                        "0": {
+                            "type": "DEPOSIT",
+                            "amount": "500",
+                            "description": "\"Initial\""
+                        },
+                        "1": {
+                            "type": "DEPOSIT",
+                            "amount": "0",
+                            "description": "\"\""
+                        },
+                        "2": {
+                            "type": "DEPOSIT",
+                            "amount": "0",
+                            "description": "\"\""
+                        },
+                        "3": {
+                            "type": "DEPOSIT",
+                            "amount": "0",
+                            "description": "\"\""
+                        },
+                        "4": {
+                            "type": "DEPOSIT",
+                            "amount": "0",
+                            "description": "\"\""
+                        },
+                        "5": {
+                            "type": "DEPOSIT",
+                            "amount": "0",
+                            "description": "\"\""
+                        },
+                        "6": {
+                            "type": "DEPOSIT",
+                            "amount": "0",
+                            "description": "\"\""
+                        },
+                        "7": {
+                            "type": "DEPOSIT",
+                            "amount": "0",
+                            "description": "\"\""
+                        },
+                        "8": {
+                            "type": "DEPOSIT",
+                            "amount": "0",
+                            "description": "\"\""
+                        },
+                        "9": {
+                            "type": "DEPOSIT",
+                            "amount": "0",
+                            "description": "\"\""
+                        }
+                    },
+                    "transactionCount": "1"
+                },
+                "totalAccounts": "3",
+                "accountNumber": "1003"
+            },
+            "line": 99
+        }
+    ],
+    "107": [
+        {
+            "location": "transfer",
+            "state": "before function call of withdraw",
+            "local_vars": {
+                "fromAccount": {
+                    "accountNumber": "1001",
+                    "holderName": "\"Alice\"",
+                    "balance": "500",
+                    "transactions": {
+                        "0": {
+                            "type": "DEPOSIT",
+                            "amount": "500",
+                            "description": "\"Initial\""
+                        },
+                        "1": {
+                            "type": "DEPOSIT",
+                            "amount": "0",
+                            "description": "\"\""
+                        },
+                        "2": {
+                            "type": "DEPOSIT",
+                            "amount": "0",
+                            "description": "\"\""
+                        },
+                        "3": {
+                            "type": "DEPOSIT",
+                            "amount": "0",
+                            "description": "\"\""
+                        },
+                        "4": {
+                            "type": "DEPOSIT",
+                            "amount": "0",
+                            "description": "\"\""
+                        },
+                        "5": {
+                            "type": "DEPOSIT",
+                            "amount": "0",
+                            "description": "\"\""
+                        },
+                        "6": {
+                            "type": "DEPOSIT",
+                            "amount": "0",
+                            "description": "\"\""
+                        },
+                        "7": {
+                            "type": "DEPOSIT",
+                            "amount": "0",
+                            "description": "\"\""
+                        },
+                        "8": {
+                            "type": "DEPOSIT",
+                            "amount": "0",
+                            "description": "\"\""
+                        },
+                        "9": {
+                            "type": "DEPOSIT",
+                            "amount": "0",
+                            "description": "\"\""
+                        }
+                    },
+                    "transactionCount": "1"
+                },
+                "toAccount": {
+                    "accountNumber": "1003",
+                    "holderName": "\"Charl\"",
+                    "balance": "700",
+                    "transactions": {
+                        "0": {
+                            "type": "DEPOSIT",
+                            "amount": "750",
+                            "description": "\"Initial\""
+                        },
+                        "1": {
+                            "type": "WITHDRAWAL",
+                            "amount": "50",
+                            "description": "\"shopping\""
+                        },
+                        "2": {
+                            "type": "DEPOSIT",
+                            "amount": "0",
+                            "description": "\"\""
+                        },
+                        "3": {
+                            "type": "DEPOSIT",
+                            "amount": "0",
+                            "description": "\"\""
+                        },
+                        "4": {
+                            "type": "DEPOSIT",
+                            "amount": "0",
+                            "description": "\"\""
+                        },
+                        "5": {
+                            "type": "DEPOSIT",
+                            "amount": "0",
+                            "description": "\"\""
+                        },
+                        "6": {
+                            "type": "DEPOSIT",
+                            "amount": "0",
+                            "description": "\"\""
+                        },
+                        "7": {
+                            "type": "DEPOSIT",
+                            "amount": "0",
+                            "description": "\"\""
+                        },
+                        "8": {
+                            "type": "DEPOSIT",
+                            "amount": "0",
+                            "description": "\"\""
+                        },
+                        "9": {
+                            "type": "DEPOSIT",
+                            "amount": "0",
+                            "description": "\"\""
+                        }
+                    },
+                    "transactionCount": "2"
+                }
+            },
+            "global_vars": {},
+            "member_vars": {},
+            "arguments": {
+                "accounts": {
+                    "accountNumber": "1001",
+                    "holderName": "\"Alice\"",
+                    "balance": "500",
+                    "transactions": {
+                        "0": {
+                            "type": "DEPOSIT",
+                            "amount": "500",
+                            "description": "\"Initial\""
+                        },
+                        "1": {
+                            "type": "DEPOSIT",
+                            "amount": "0",
+                            "description": "\"\""
+                        },
+                        "2": {
+                            "type": "DEPOSIT",
+                            "amount": "0",
+                            "description": "\"\""
+                        },
+                        "3": {
+                            "type": "DEPOSIT",
+                            "amount": "0",
+                            "description": "\"\""
+                        },
+                        "4": {
+                            "type": "DEPOSIT",
+                            "amount": "0",
+                            "description": "\"\""
+                        },
+                        "5": {
+                            "type": "DEPOSIT",
+                            "amount": "0",
+                            "description": "\"\""
+                        },
+                        "6": {
+                            "type": "DEPOSIT",
+                            "amount": "0",
+                            "description": "\"\""
+                        },
+                        "7": {
+                            "type": "DEPOSIT",
+                            "amount": "0",
+                            "description": "\"\""
+                        },
+                        "8": {
+                            "type": "DEPOSIT",
+                            "amount": "0",
+                            "description": "\"\""
+                        },
+                        "9": {
+                            "type": "DEPOSIT",
+                            "amount": "0",
+                            "description": "\"\""
+                        }
+                    },
+                    "transactionCount": "1"
+                },
+                "totalAccounts": "3",
+                "fromAccNum": "1001",
+                "toAccNum": "1003",
+                "amount": "150"
+            },
+            "line": 107
+        }
+    ],
+    "82": [
+        {
+            "location": "withdraw",
+            "state": "before function call of addTransaction",
+            "local_vars": {},
+            "global_vars": {},
+            "member_vars": {},
+            "arguments": {
+                "account": {
+                    "accountNumber": "1001",
+                    "holderName": "\"Alice\"",
+                    "balance": "350",
+                    "transactions": {
+                        "0": {
+                            "type": "DEPOSIT",
+                            "amount": "500",
+                            "description": "\"Initial\""
+                        },
+                        "1": {
+                            "type": "DEPOSIT",
+                            "amount": "0",
+                            "description": "\"\""
+                        },
+                        "2": {
+                            "type": "DEPOSIT",
+                            "amount": "0",
+                            "description": "\"\""
+                        },
+                        "3": {
+                            "type": "DEPOSIT",
+                            "amount": "0",
+                            "description": "\"\""
+                        },
+                        "4": {
+                            "type": "DEPOSIT",
+                            "amount": "0",
+                            "description": "\"\""
+                        },
+                        "5": {
+                            "type": "DEPOSIT",
+                            "amount": "0",
+                            "description": "\"\""
+                        },
+                        "6": {
+                            "type": "DEPOSIT",
+                            "amount": "0",
+                            "description": "\"\""
+                        },
+                        "7": {
+                            "type": "DEPOSIT",
+                            "amount": "0",
+                            "description": "\"\""
+                        },
+                        "8": {
+                            "type": "DEPOSIT",
+                            "amount": "0",
+                            "description": "\"\""
+                        },
+                        "9": {
+                            "type": "DEPOSIT",
+                            "amount": "0",
+                            "description": "\"\""
+                        }
+                    },
+                    "transactionCount": "1"
+                },
+                "amount": "150",
+                "description": "[84 'T', 114 'r', 97 'a', 110 'n', 115 's', 102 'f', 101 'e', 114 'r', 32 ' ', 116 't', 111 'o', 0 '']"
+            },
+            "line": 82
+        }
+    ],
+    "108": [
+        {
+            "location": "transfer",
+            "state": "before function call of deposit",
+            "local_vars": {
+                "fromAccount": {
+                    "accountNumber": "1001",
+                    "holderName": "\"Alice\"",
+                    "balance": "350",
+                    "transactions": {
+                        "0": {
+                            "type": "DEPOSIT",
+                            "amount": "500",
+                            "description": "\"Initial\""
+                        },
+                        "1": {
+                            "type": "WITHDRAWAL",
+                            "amount": "150",
+                            "description": "\"Transfer t\""
+                        },
+                        "2": {
+                            "type": "DEPOSIT",
+                            "amount": "0",
+                            "description": "\"\""
+                        },
+                        "3": {
+                            "type": "DEPOSIT",
+                            "amount": "0",
+                            "description": "\"\""
+                        },
+                        "4": {
+                            "type": "DEPOSIT",
+                            "amount": "0",
+                            "description": "\"\""
+                        },
+                        "5": {
+                            "type": "DEPOSIT",
+                            "amount": "0",
+                            "description": "\"\""
+                        },
+                        "6": {
+                            "type": "DEPOSIT",
+                            "amount": "0",
+                            "description": "\"\""
+                        },
+                        "7": {
+                            "type": "DEPOSIT",
+                            "amount": "0",
+                            "description": "\"\""
+                        },
+                        "8": {
+                            "type": "DEPOSIT",
+                            "amount": "0",
+                            "description": "\"\""
+                        },
+                        "9": {
+                            "type": "DEPOSIT",
+                            "amount": "0",
+                            "description": "\"\""
+                        }
+                    },
+                    "transactionCount": "2"
+                },
+                "toAccount": {
+                    "accountNumber": "1003",
+                    "holderName": "\"Charl\"",
+                    "balance": "700",
+                    "transactions": {
+                        "0": {
+                            "type": "DEPOSIT",
+                            "amount": "750",
+                            "description": "\"Initial\""
+                        },
+                        "1": {
+                            "type": "WITHDRAWAL",
+                            "amount": "50",
+                            "description": "\"shopping\""
+                        },
+                        "2": {
+                            "type": "DEPOSIT",
+                            "amount": "0",
+                            "description": "\"\""
+                        },
+                        "3": {
+                            "type": "DEPOSIT",
+                            "amount": "0",
+                            "description": "\"\""
+                        },
+                        "4": {
+                            "type": "DEPOSIT",
+                            "amount": "0",
+                            "description": "\"\""
+                        },
+                        "5": {
+                            "type": "DEPOSIT",
+                            "amount": "0",
+                            "description": "\"\""
+                        },
+                        "6": {
+                            "type": "DEPOSIT",
+                            "amount": "0",
+                            "description": "\"\""
+                        },
+                        "7": {
+                            "type": "DEPOSIT",
+                            "amount": "0",
+                            "description": "\"\""
+                        },
+                        "8": {
+                            "type": "DEPOSIT",
+                            "amount": "0",
+                            "description": "\"\""
+                        },
+                        "9": {
+                            "type": "DEPOSIT",
+                            "amount": "0",
+                            "description": "\"\""
+                        }
+                    },
+                    "transactionCount": "2"
+                }
+            },
+            "global_vars": {},
+            "member_vars": {},
+            "arguments": {
+                "accounts": {
+                    "accountNumber": "1001",
+                    "holderName": "\"Alice\"",
+                    "balance": "350",
+                    "transactions": {
+                        "0": {
+                            "type": "DEPOSIT",
+                            "amount": "500",
+                            "description": "\"Initial\""
+                        },
+                        "1": {
+                            "type": "WITHDRAWAL",
+                            "amount": "150",
+                            "description": "\"Transfer t\""
+                        },
+                        "2": {
+                            "type": "DEPOSIT",
+                            "amount": "0",
+                            "description": "\"\""
+                        },
+                        "3": {
+                            "type": "DEPOSIT",
+                            "amount": "0",
+                            "description": "\"\""
+                        },
+                        "4": {
+                            "type": "DEPOSIT",
+                            "amount": "0",
+                            "description": "\"\""
+                        },
+                        "5": {
+                            "type": "DEPOSIT",
+                            "amount": "0",
+                            "description": "\"\""
+                        },
+                        "6": {
+                            "type": "DEPOSIT",
+                            "amount": "0",
+                            "description": "\"\""
+                        },
+                        "7": {
+                            "type": "DEPOSIT",
+                            "amount": "0",
+                            "description": "\"\""
+                        },
+                        "8": {
+                            "type": "DEPOSIT",
+                            "amount": "0",
+                            "description": "\"\""
+                        },
+                        "9": {
+                            "type": "DEPOSIT",
+                            "amount": "0",
+                            "description": "\"\""
+                        }
+                    },
+                    "transactionCount": "2"
+                },
+                "totalAccounts": "3",
+                "fromAccNum": "1001",
+                "toAccNum": "1003",
+                "amount": "150"
+            },
+            "line": 108
+        }
+    ],
+    "70": [
+        {
+            "location": "deposit",
+            "state": "before function call of addTransaction",
+            "local_vars": {},
+            "global_vars": {},
+            "member_vars": {},
+            "arguments": {
+                "account": {
+                    "accountNumber": "1003",
+                    "holderName": "\"Charl\"",
+                    "balance": "850",
+                    "transactions": {
+                        "0": {
+                            "type": "DEPOSIT",
+                            "amount": "750",
+                            "description": "\"Initial\""
+                        },
+                        "1": {
+                            "type": "WITHDRAWAL",
+                            "amount": "50",
+                            "description": "\"shopping\""
+                        },
+                        "2": {
+                            "type": "DEPOSIT",
+                            "amount": "0",
+                            "description": "\"\""
+                        },
+                        "3": {
+                            "type": "DEPOSIT",
+                            "amount": "0",
+                            "description": "\"\""
+                        },
+                        "4": {
+                            "type": "DEPOSIT",
+                            "amount": "0",
+                            "description": "\"\""
+                        },
+                        "5": {
+                            "type": "DEPOSIT",
+                            "amount": "0",
+                            "description": "\"\""
+                        },
+                        "6": {
+                            "type": "DEPOSIT",
+                            "amount": "0",
+                            "description": "\"\""
+                        },
+                        "7": {
+                            "type": "DEPOSIT",
+                            "amount": "0",
+                            "description": "\"\""
+                        },
+                        "8": {
+                            "type": "DEPOSIT",
+                            "amount": "0",
+                            "description": "\"\""
+                        },
+                        "9": {
+                            "type": "DEPOSIT",
+                            "amount": "0",
+                            "description": "\"\""
+                        }
+                    },
+                    "transactionCount": "2"
+                },
+                "amount": "150",
+                "description": "[84 'T', 114 'r', 97 'a', 110 'n', 115 's', 102 'f', 101 'e', 114 'r', 32 ' ', 102 'f', 114 'r', 111 'o', 109 'm', 0 '']"
+            },
+            "line": 70
+        }
+    ],
+    "62": [
+        {
+            "location": "addTransaction",
+            "state": "before function call of strncpy",
+            "local_vars": {
+                "txn": {
+                    "type": "DEPOSIT",
+                    "amount": "150",
+                    "description": "\"\""
+                }
+            },
+            "global_vars": {},
+            "member_vars": {},
+            "arguments": {
+                "account": {
+                    "accountNumber": "1003",
+                    "holderName": "\"Charl\"",
+                    "balance": "850",
+                    "transactions": {
+                        "0": {
+                            "type": "DEPOSIT",
+                            "amount": "750",
+                            "description": "\"Initial\""
+                        },
+                        "1": {
+                            "type": "WITHDRAWAL",
+                            "amount": "50",
+                            "description": "\"shopping\""
+                        },
+                        "2": {
+                            "type": "DEPOSIT",
+                            "amount": "150",
+                            "description": "\"\""
+                        },
+                        "3": {
+                            "type": "DEPOSIT",
+                            "amount": "0",
+                            "description": "\"\""
+                        },
+                        "4": {
+                            "type": "DEPOSIT",
+                            "amount": "0",
+                            "description": "\"\""
+                        },
+                        "5": {
+                            "type": "DEPOSIT",
+                            "amount": "0",
+                            "description": "\"\""
+                        },
+                        "6": {
+                            "type": "DEPOSIT",
+                            "amount": "0",
+                            "description": "\"\""
+                        },
+                        "7": {
+                            "type": "DEPOSIT",
+                            "amount": "0",
+                            "description": "\"\""
+                        },
+                        "8": {
+                            "type": "DEPOSIT",
+                            "amount": "0",
+                            "description": "\"\""
+                        },
+                        "9": {
+                            "type": "DEPOSIT",
+                            "amount": "0",
+                            "description": "\"\""
+                        }
+                    },
+                    "transactionCount": "3"
+                },
+                "type": "DEPOSIT",
+                "amount": "150",
+                "description": "[84 'T', 114 'r', 97 'a', 110 'n', 115 's', 102 'f', 101 'e', 114 'r', 32 ' ', 102 'f', 114 'r', 111 'o', 109 'm', 0 '']"
+            },
+            "line": 62
+        }
+    ],
+    "63": [
+        {
+            "location": "deposit",
+            "state": "before function return of addTransaction",
+            "local_vars": {
+                "txn": {
+                    "type": "DEPOSIT",
+                    "amount": "150",
+                    "description": "\"Transfer f\""
+                }
+            },
+            "global_vars": {},
+            "member_vars": {},
+            "arguments": {
+                "account": {
+                    "accountNumber": "1003",
+                    "holderName": "\"Charl\"",
+                    "balance": "850",
+                    "transactions": {
+                        "0": {
+                            "type": "DEPOSIT",
+                            "amount": "750",
+                            "description": "\"Initial\""
+                        },
+                        "1": {
+                            "type": "WITHDRAWAL",
+                            "amount": "50",
+                            "description": "\"shopping\""
+                        },
+                        "2": {
+                            "type": "DEPOSIT",
+                            "amount": "150",
+                            "description": "\"Transfer f\""
+                        },
+                        "3": {
+                            "type": "DEPOSIT",
+                            "amount": "0",
+                            "description": "\"\""
+                        },
+                        "4": {
+                            "type": "DEPOSIT",
+                            "amount": "0",
+                            "description": "\"\""
+                        },
+                        "5": {
+                            "type": "DEPOSIT",
+                            "amount": "0",
+                            "description": "\"\""
+                        },
+                        "6": {
+                            "type": "DEPOSIT",
+                            "amount": "0",
+                            "description": "\"\""
+                        },
+                        "7": {
+                            "type": "DEPOSIT",
+                            "amount": "0",
+                            "description": "\"\""
+                        },
+                        "8": {
+                            "type": "DEPOSIT",
+                            "amount": "0",
+                            "description": "\"\""
+                        },
+                        "9": {
+                            "type": "DEPOSIT",
+                            "amount": "0",
+                            "description": "\"\""
+                        }
+                    },
+                    "transactionCount": "3"
+                },
+                "type": "DEPOSIT",
+                "amount": "150",
+                "description": "[84 'T', 114 'r', 97 'a', 110 'n', 115 's', 102 'f', 101 'e', 114 'r', 32 ' ', 102 'f', 114 'r', 111 'o', 109 'm', 0 '']"
+            },
+            "line": 63
+        }
+    ],
+    "110": [
+        {
+            "location": "simulateOperations",
+            "state": "before function return of transfer",
+            "local_vars": {
+                "fromAccount": {
+                    "accountNumber": "1001",
+                    "holderName": "\"Alice\"",
+                    "balance": "350",
+                    "transactions": {
+                        "0": {
+                            "type": "DEPOSIT",
+                            "amount": "500",
+                            "description": "\"Initial\""
+                        },
+                        "1": {
+                            "type": "WITHDRAWAL",
+                            "amount": "150",
+                            "description": "\"Transfer t\""
+                        },
+                        "2": {
+                            "type": "DEPOSIT",
+                            "amount": "0",
+                            "description": "\"\""
+                        },
+                        "3": {
+                            "type": "DEPOSIT",
+                            "amount": "0",
+                            "description": "\"\""
+                        },
+                        "4": {
+                            "type": "DEPOSIT",
+                            "amount": "0",
+                            "description": "\"\""
+                        },
+                        "5": {
+                            "type": "DEPOSIT",
+                            "amount": "0",
+                            "description": "\"\""
+                        },
+                        "6": {
+                            "type": "DEPOSIT",
+                            "amount": "0",
+                            "description": "\"\""
+                        },
+                        "7": {
+                            "type": "DEPOSIT",
+                            "amount": "0",
+                            "description": "\"\""
+                        },
+                        "8": {
+                            "type": "DEPOSIT",
+                            "amount": "0",
+                            "description": "\"\""
+                        },
+                        "9": {
+                            "type": "DEPOSIT",
+                            "amount": "0",
+                            "description": "\"\""
+                        }
+                    },
+                    "transactionCount": "2"
+                },
+                "toAccount": {
+                    "accountNumber": "1003",
+                    "holderName": "\"Charl\"",
+                    "balance": "850",
+                    "transactions": {
+                        "0": {
+                            "type": "DEPOSIT",
+                            "amount": "750",
+                            "description": "\"Initial\""
+                        },
+                        "1": {
+                            "type": "WITHDRAWAL",
+                            "amount": "50",
+                            "description": "\"shopping\""
+                        },
+                        "2": {
+                            "type": "DEPOSIT",
+                            "amount": "150",
+                            "description": "\"Transfer f\""
+                        },
+                        "3": {
+                            "type": "DEPOSIT",
+                            "amount": "0",
+                            "description": "\"\""
+                        },
+                        "4": {
+                            "type": "DEPOSIT",
+                            "amount": "0",
+                            "description": "\"\""
+                        },
+                        "5": {
+                            "type": "DEPOSIT",
+                            "amount": "0",
+                            "description": "\"\""
+                        },
+                        "6": {
+                            "type": "DEPOSIT",
+                            "amount": "0",
+                            "description": "\"\""
+                        },
+                        "7": {
+                            "type": "DEPOSIT",
+                            "amount": "0",
+                            "description": "\"\""
+                        },
+                        "8": {
+                            "type": "DEPOSIT",
+                            "amount": "0",
+                            "description": "\"\""
+                        },
+                        "9": {
+                            "type": "DEPOSIT",
+                            "amount": "0",
+                            "description": "\"\""
+                        }
+                    },
+                    "transactionCount": "3"
+                }
+            },
+            "global_vars": {},
+            "member_vars": {},
+            "arguments": {
+                "accounts": {
+                    "accountNumber": "1001",
+                    "holderName": "\"Alice\"",
+                    "balance": "350",
+                    "transactions": {
+                        "0": {
+                            "type": "DEPOSIT",
+                            "amount": "500",
+                            "description": "\"Initial\""
+                        },
+                        "1": {
+                            "type": "WITHDRAWAL",
+                            "amount": "150",
+                            "description": "\"Transfer t\""
+                        },
+                        "2": {
+                            "type": "DEPOSIT",
+                            "amount": "0",
+                            "description": "\"\""
+                        },
+                        "3": {
+                            "type": "DEPOSIT",
+                            "amount": "0",
+                            "description": "\"\""
+                        },
+                        "4": {
+                            "type": "DEPOSIT",
+                            "amount": "0",
+                            "description": "\"\""
+                        },
+                        "5": {
+                            "type": "DEPOSIT",
+                            "amount": "0",
+                            "description": "\"\""
+                        },
+                        "6": {
+                            "type": "DEPOSIT",
+                            "amount": "0",
+                            "description": "\"\""
+                        },
+                        "7": {
+                            "type": "DEPOSIT",
+                            "amount": "0",
+                            "description": "\"\""
+                        },
+                        "8": {
+                            "type": "DEPOSIT",
+                            "amount": "0",
+                            "description": "\"\""
+                        },
+                        "9": {
+                            "type": "DEPOSIT",
+                            "amount": "0",
+                            "description": "\"\""
+                        }
+                    },
+                    "transactionCount": "2"
+                },
+                "totalAccounts": "3",
+                "fromAccNum": "1001",
+                "toAccNum": "1003",
+                "amount": "150"
+            },
+            "line": 110
+        }
+    ],
+    "130": [
+        {
+            "location": "simulateOperations",
+            "state": "before function call of printAccountDetails",
+            "local_vars": {
+                "i": "2"
+            },
+            "global_vars": {},
+            "member_vars": {},
+            "arguments": {},
+            "line": 130
+        }
+    ],
+    "87": [
+        {
+            "location": "simulateOperations",
+            "state": "before function return of printAccountDetails",
+            "local_vars": {},
+            "global_vars": {},
+            "member_vars": {},
+            "arguments": {
+                "account": {
+                    "accountNumber": "1003",
+                    "holderName": "\"Charl\"",
+                    "balance": "850",
+                    "transactions": {
+                        "0": {
+                            "type": "DEPOSIT",
+                            "amount": "750",
+                            "description": "\"Initial\""
+                        },
+                        "1": {
+                            "type": "WITHDRAWAL",
+                            "amount": "50",
+                            "description": "\"shopping\""
+                        },
+                        "2": {
+                            "type": "DEPOSIT",
+                            "amount": "150",
+                            "description": "\"Transfer f\""
+                        },
+                        "3": {
+                            "type": "DEPOSIT",
+                            "amount": "0",
+                            "description": "\"\""
+                        },
+                        "4": {
+                            "type": "DEPOSIT",
+                            "amount": "0",
+                            "description": "\"\""
+                        },
+                        "5": {
+                            "type": "DEPOSIT",
+                            "amount": "0",
+                            "description": "\"\""
+                        },
+                        "6": {
+                            "type": "DEPOSIT",
+                            "amount": "0",
+                            "description": "\"\""
+                        },
+                        "7": {
+                            "type": "DEPOSIT",
+                            "amount": "0",
+                            "description": "\"\""
+                        },
+                        "8": {
+                            "type": "DEPOSIT",
+                            "amount": "0",
+                            "description": "\"\""
+                        },
+                        "9": {
+                            "type": "DEPOSIT",
+                            "amount": "0",
+                            "description": "\"\""
+                        }
+                    },
+                    "transactionCount": "3"
+                }
+            },
+            "line": 87
+        }
+    ],
+    "131": [
+        {
+            "location": "simulateOperations",
+            "state": "before function call of printTransactionHistory",
+            "local_vars": {
+                "i": "2"
+            },
+            "global_vars": {},
+            "member_vars": {},
+            "arguments": {},
+            "line": 131
+        }
+    ],
+    "90": [
+        {
+            "location": "simulateOperations",
+            "state": "before function return of printTransactionHistory",
+            "local_vars": {},
+            "global_vars": {},
+            "member_vars": {},
+            "arguments": {
+                "account": {
+                    "accountNumber": "1003",
+                    "holderName": "\"Charl\"",
+                    "balance": "850",
+                    "transactions": {
+                        "0": {
+                            "type": "DEPOSIT",
+                            "amount": "750",
+                            "description": "\"Initial\""
+                        },
+                        "1": {
+                            "type": "WITHDRAWAL",
+                            "amount": "50",
+                            "description": "\"shopping\""
+                        },
+                        "2": {
+                            "type": "DEPOSIT",
+                            "amount": "150",
+                            "description": "\"Transfer f\""
+                        },
+                        "3": {
+                            "type": "DEPOSIT",
+                            "amount": "0",
+                            "description": "\"\""
+                        },
+                        "4": {
+                            "type": "DEPOSIT",
+                            "amount": "0",
+                            "description": "\"\""
+                        },
+                        "5": {
+                            "type": "DEPOSIT",
+                            "amount": "0",
+                            "description": "\"\""
+                        },
+                        "6": {
+                            "type": "DEPOSIT",
+                            "amount": "0",
+                            "description": "\"\""
+                        },
+                        "7": {
+                            "type": "DEPOSIT",
+                            "amount": "0",
+                            "description": "\"\""
+                        },
+                        "8": {
+                            "type": "DEPOSIT",
+                            "amount": "0",
+                            "description": "\"\""
+                        },
+                        "9": {
+                            "type": "DEPOSIT",
+                            "amount": "0",
+                            "description": "\"\""
+                        }
+                    },
+                    "transactionCount": "3"
+                }
+            },
+            "line": 90
+        }
+    ],
+    "135": [
+        {
+            "location": "simulateOperations",
+            "state": "before function call of free",
+            "local_vars": {
+                "i": "2"
+            },
+            "global_vars": {},
+            "member_vars": {},
+            "arguments": {},
+            "line": 135
+        }
+    ],
+    "137": [
+        {
+            "location": "main",
+            "state": "before function return of simulateOperations",
+            "local_vars": {
+                "totalAccounts": "3",
+                "accounts": {
+                    "0": {
+                        "accountNumber": "1431655769",
+                        "holderName": "\"\\005\\307\"",
+                        "balance": "350",
+                        "transactions": {
+                            "0": {
+                                "type": "DEPOSIT",
+                                "amount": "500",
+                                "description": "\"Initial\""
+                            },
+                            "1": {
+                                "type": "WITHDRAWAL",
+                                "amount": "150",
+                                "description": "\"Transfer t\""
+                            },
+                            "2": {
+                                "type": "DEPOSIT",
+                                "amount": "0",
+                                "description": "\"\""
+                            },
+                            "3": {
+                                "type": "DEPOSIT",
+                                "amount": "0",
+                                "description": "\"\""
+                            },
+                            "4": {
+                                "type": "DEPOSIT",
+                                "amount": "0",
+                                "description": "\"\""
+                            },
+                            "5": {
+                                "type": "DEPOSIT",
+                                "amount": "0",
+                                "description": "\"\""
+                            },
+                            "6": {
+                                "type": "DEPOSIT",
+                                "amount": "0",
+                                "description": "\"\""
+                            },
+                            "7": {
+                                "type": "DEPOSIT",
+                                "amount": "0",
+                                "description": "\"\""
+                            },
+                            "8": {
+                                "type": "DEPOSIT",
+                                "amount": "0",
+                                "description": "\"\""
+                            },
+                            "9": {
+                                "type": "DEPOSIT",
+                                "amount": "0",
+                                "description": "\"\""
+                            }
+                        },
+                        "transactionCount": "2"
+                    },
+                    "1": {
+                        "accountNumber": "51193",
+                        "holderName": "\"PU\\307\"",
+                        "balance": "800",
+                        "transactions": {
+                            "0": {
+                                "type": "DEPOSIT",
+                                "amount": "1000",
+                                "description": "\"Initial\""
+                            },
+                            "1": {
+                                "type": "WITHDRAWAL",
+                                "amount": "200",
+                                "description": "\"withdrawal\""
+                            },
+                            "2": {
+                                "type": "DEPOSIT",
+                                "amount": "0",
+                                "description": "\"\""
+                            },
+                            "3": {
+                                "type": "DEPOSIT",
+                                "amount": "0",
+                                "description": "\"\""
+                            },
+                            "4": {
+                                "type": "DEPOSIT",
+                                "amount": "0",
+                                "description": "\"\""
+                            },
+                            "5": {
+                                "type": "DEPOSIT",
+                                "amount": "0",
+                                "description": "\"\""
+                            },
+                            "6": {
+                                "type": "DEPOSIT",
+                                "amount": "0",
+                                "description": "\"\""
+                            },
+                            "7": {
+                                "type": "DEPOSIT",
+                                "amount": "0",
+                                "description": "\"\""
+                            },
+                            "8": {
+                                "type": "DEPOSIT",
+                                "amount": "0",
+                                "description": "\"\""
+                            },
+                            "9": {
+                                "type": "DEPOSIT",
+                                "amount": "0",
+                                "description": "\"\""
+                            }
+                        },
+                        "transactionCount": "2"
+                    },
+                    "2": {
+                        "accountNumber": "49481",
+                        "holderName": "\"PU\\307\"",
+                        "balance": "850",
+                        "transactions": {
+                            "0": {
+                                "type": "DEPOSIT",
+                                "amount": "750",
+                                "description": "\"Initial\""
+                            },
+                            "1": {
+                                "type": "WITHDRAWAL",
+                                "amount": "50",
+                                "description": "\"shopping\""
+                            },
+                            "2": {
+                                "type": "DEPOSIT",
+                                "amount": "150",
+                                "description": "\"Transfer f\""
+                            },
+                            "3": {
+                                "type": "DEPOSIT",
+                                "amount": "0",
+                                "description": "\"\""
+                            },
+                            "4": {
+                                "type": "DEPOSIT",
+                                "amount": "0",
+                                "description": "\"\""
+                            },
+                            "5": {
+                                "type": "DEPOSIT",
+                                "amount": "0",
+                                "description": "\"\""
+                            },
+                            "6": {
+                                "type": "DEPOSIT",
+                                "amount": "0",
+                                "description": "\"\""
+                            },
+                            "7": {
+                                "type": "DEPOSIT",
+                                "amount": "0",
+                                "description": "\"\""
+                            },
+                            "8": {
+                                "type": "DEPOSIT",
+                                "amount": "0",
+                                "description": "\"\""
+                            },
+                            "9": {
+                                "type": "DEPOSIT",
+                                "amount": "0",
+                                "description": "\"\""
+                            }
+                        },
+                        "transactionCount": "3"
+                    }
+                }
+            },
+            "global_vars": {},
+            "member_vars": {},
+            "arguments": {},
+            "line": 137
+        }
+    ],
+    "41": [
+        {
+            "location": "_start",
+            "state": "before function return of main",
+            "local_vars": {},
+            "global_vars": {},
+            "member_vars": {},
+            "arguments": {},
+            "line": 41
+        }
+    ]
+};
+
+            // Function to display state
+            function showState(lineNumber) {
+                const stateDisplay = document.getElementById('state-display');
+                const stateLine = document.getElementById('state-line');
+                const stateContent = document.getElementById('state-content');
+
+                // Clear previous highlight
+                const active = document.querySelector('.active-line');
+                if (active) {
+                    active.classList.remove('active-line');
+                }
+
+                // Highlight the current line
+                const codeContainer = document.getElementById('code-container');
+                const lines = codeContainer.getElementsByClassName('code-line');
+                if (lines[lineNumber - 1]) {
+                    lines[lineNumber - 1].classList.add('active-line');
+                }
+
+                // Get breakpoint data for the line
+                const bps = breakpoints[lineNumber];
+                if (!bps) {
+                    stateContent.innerHTML = '<p>No state information available for this line.</p>';
+                    stateLine.textContent = lineNumber;
+                    return;
+                }
+
+                // Build HTML content for the state
+                let html = '';
+                bps.forEach((bp, index) => {
+                    html += `<div class="state-section"><b>Breakpoint ${index + 1}:</b>`;
+                    if (bp.location) {
+                        html += `<strong>Location:</strong> ${bp.location}<br>`;
+                    }
+                    if (bp.state) {
+                        html += `<strong>State:</strong> ${bp.state}<br>`;
+                    }
+
+                    // Recursive function to escape HTML special characters
+                    function escapeHTML(str) {
+                        if (typeof str !== 'string') {
+                            str = JSON.stringify(str);
+                        }
+                        return str.replace(/&/g, '&amp;')
+                                  .replace(/</g, '&lt;')
+                                  .replace(/>/g, '&gt;')
+                                  .replace(/"/g, '&quot;')
+                                  .replace(/'/g, '&#039;');
+                    }
+
+function toggleNested(varID) {
+    const nestedDiv = document.getElementById(varID + '_nested');
+    if (nestedDiv) {
+        nestedDiv.classList.toggle('active');
+        if (!nestedDiv.classList.contains('active')) {
+            // Collapse all nested children as well
+            const allNested = nestedDiv.querySelectorAll('.nested');
+            allNested.forEach(child => {
+                child.classList.remove('active');
+            });
+        }
+    }
+}
+
+
+                    // Recursive function to create variable HTML
+
+function createVariableHTML(key, value, varID) {
+    let escapedKey = escapeHTML(key);
+    if (Array.isArray(value)) {
+        // Begin array handling
+        let html = `${escapedKey} = [<br><div class="nested" id="${varID}_nested">`;
+        html += value.map((item, idx) => {
+            const arrayItemID = `${varID}_${idx}`;
+            if (typeof item === 'object' && item !== null) {
+                // Object handling for nested arrays
+                return `<span id="${arrayItemID}_container">${idx} = {<span class="collapsible" onclick="toggleNested('${arrayItemID}')">[+/-]</span><div id="${arrayItemID}_nested" class="nested">` + createVariableHTML(`${idx}`, item, arrayItemID) + `}</div>}</span>`;
+            } else {
+                // Primitive type handling within arrays
+                let itemValue = escapeHTML(JSON.stringify(item));
+                return `<span class="array-item">${idx} = ${itemValue}</span>`;
+            }
+        }).join('<br>');  // Use <br> to separate array elements
+        html += `</div>]<br>`;
+        return html;
+    } else if (typeof value === 'object' && value !== null) {
+        // Handle nested objects
+        let html = `${escapedKey} = { <span class="collapsible" onclick="toggleNested('${varID}')">[+/-]</span><div id="${varID}_nested" class="nested">`;
+        for (const [subKey, subValue] of Object.entries(value)) {
+            const fieldID = `${varID}_${subKey}`;
+            html += createVariableHTML(subKey, subValue, fieldID);
+        }
+        html += `}</div><br>`;
+        return html;
+    } else {
+        // Handle primitive types
+        let escapedValue = escapeHTML(value);
+        return `${escapedKey} = ${escapedValue}<br>`;
+    }
+}
+
+
+
+                    // Add variable sections
+                    if (bp.arguments && Object.keys(bp.arguments).length > 0) {
+                        html += `<strong>Arguments:</strong><br>`;
+                        for (const [key, value] of Object.entries(bp.arguments)) {
+                            const varID = `arg_${lineNumber}_${index}_${key}`;
+                            html += createVariableHTML(key, value, varID);
+                        }
+                    }
+                    if (bp.local_vars && Object.keys(bp.local_vars).length > 0) {
+                        html += `<strong>Local Variables:</strong><br>`;
+                        for (const [key, value] of Object.entries(bp.local_vars)) {
+                            const varID = `local_${lineNumber}_${index}_${key}`;
+                            html += createVariableHTML(key, value, varID);
+                        }
+                    }
+                    if (bp.global_vars && Object.keys(bp.global_vars).length > 0) {
+                        html += `<strong>Global Variables:</strong><br>`;
+                        for (const [key, value] of Object.entries(bp.global_vars)) {
+                            const varID = `global_${lineNumber}_${index}_${key}`;
+                            html += createVariableHTML(key, value, varID);
+                        }
+                    }
+                    html += '</div>';
+                });
+
+                // Update the display
+                stateLine.textContent = lineNumber;
+                stateContent.innerHTML = html;
+            }
+
+            // Function to expand folded values
+            function expandValue(varID) {
+                const element = document.getElementById(varID);
+                const fullValue = element.getAttribute('data-full-value');
+                element.innerHTML = `${fullValue} <a href="#" onclick="collapseValue('${varID}'); return false;">Show Less</a>`;
+            }
+
+            // Function to collapse expanded values
+            function collapseValue(varID) {
+                const element = document.getElementById(varID);
+                const fullValue = element.getAttribute('data-full-value');
+                const MAX_VALUE_LENGTH = 50;
+                let truncatedValue = fullValue.substring(0, MAX_VALUE_LENGTH) + '...';
+                element.innerHTML = `"${truncatedValue}" <a href="#" onclick="expandValue('${varID}'); return false;">Show More</a>`;
+            }
+
+            // Function to toggle nested objects and arrays
+            function toggleNested(varID) {
+                const nestedDiv = document.getElementById(varID + '_nested');
+                if (nestedDiv) {
+                    nestedDiv.classList.toggle('active');
+                }
+            }
+
+            // Optional Enhancement: Handle expanding and collapsing of string arrays
+            function expandString(varID, fullString) {
+                const element = document.getElementById(varID);
+                element.innerHTML = `"${fullString}" <a href="#" onclick="collapseString('${varID}', '${fullString.substring(0, 50)}...'); return false;">Show Less</a>`;
+            }
+
+            function collapseString(varID, truncatedStr) {
+                const element = document.getElementById(varID);
+                const fullValue = element.getAttribute('data-full-value');
+                element.innerHTML = `"${truncatedStr}" <a href="#" onclick="expandString('${varID}', '${fullValue}'); return false;">Show More</a>`;
+            }
+
+            // Function to expand all nested elements
+            function expandAll() {
+                const nestedElements = document.querySelectorAll('.nested');
+                nestedElements.forEach(elem => {
+                    elem.classList.add('active');
+                });
+            }
+
+            // Function to collapse all nested elements
+            function collapseAll() {
+                const nestedElements = document.querySelectorAll('.nested');
+                nestedElements.forEach(elem => {
+                    elem.classList.remove('active');
+                });
+            }
+        </script>
+    </body>
+    </html>
+    

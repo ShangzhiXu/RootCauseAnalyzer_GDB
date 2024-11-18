@@ -1,0 +1,76 @@
+{
+    "main": {
+        "local_vars": [],
+        "times_called": [1],
+        "calls": ["simulateOperations"]
+    },
+    "simulateOperations": {
+        "local_vars": ["totalAccounts", "accounts", "i"],
+        "times_called": [3, 3, 2, 1, 3, 3, 3],
+        "calls": [
+            "createAccount",
+            "deposit",
+            "withdraw",
+            "transfer",
+            "printAccountDetails",
+            "printTransactionHistory",
+            "free"
+        ]
+    },
+    "createAccount": {
+        "local_vars": ["newAccount"],
+        "times_called": [3, 3],
+        "calls": ["malloc", "strncpy"]
+    },
+    "addTransaction": {
+        "local_vars": ["txn"],
+        "times_called": [7],
+        "calls": ["strncpy"]
+    },
+    "deposit": {
+        "local_vars": ["account", "amount", "description"],
+        "times_called": [4],
+        "calls": ["addTransaction"]
+    },
+    "withdraw": {
+        "local_vars": ["account", "amount", "description"],
+        "times_called": [3],
+        "calls": ["addTransaction"]
+    },
+    "printAccountDetails": {
+        "local_vars": ["account"],
+        "times_called": [],
+        "calls": []
+    },
+    "printTransactionHistory": {
+        "local_vars": ["account"],
+        "times_called": [],
+        "calls": []
+    },
+    "findAccount": {
+        "local_vars": ["i"],
+        "times_called": [],
+        "calls": []
+    },
+    "transfer": {
+        "local_vars": ["fromAccount", "toAccount"],
+        "times_called": [2, 1, 1],
+        "calls": ["findAccount", "withdraw", "deposit"]
+    },
+    "malloc": {
+        "local_vars": ["size"],
+        "times_called": [],
+        "calls": []
+    },
+    "strncpy": {
+        "local_vars": ["dest", "src", "n"],
+        "times_called": [],
+        "calls": []
+    },
+    "free": {
+        "local_vars": ["ptr"],
+        "times_called": [],
+        "calls": []
+    }
+}
+

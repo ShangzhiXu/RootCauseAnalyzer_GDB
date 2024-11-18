@@ -1,0 +1,10 @@
+{
+  "input": "input.json",
+  "stdinput": "input.txt",
+  "output": "output.json",
+  "debug": false,
+  "debug_break": false,
+  "debug_disasm": false,
+  "debugLevel": 0
+}
+

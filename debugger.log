@@ -1,0 +1,2512 @@
+2024-11-18 21:35:59,560 - DEBUG - [Call]    0x0000555555555162 <+9>:	call   0x555555555465 <simulateOperations>
+2024-11-18 21:35:59,561 - DEBUG - [Return]    0x000055555555516d <+20>:	ret
+2024-11-18 21:35:59,561 - DEBUG - Stopped at simulateOperations at function start, called from main.
+2024-11-18 21:35:59,561 - DEBUG - main called simulateOperations 1 times, total 1 times.
+2024-11-18 21:35:59,561 - INFO - Function simulateOperations called 1 times, total 1 times.
+2024-11-18 21:35:59,562 - DEBUG - SAL: symbol and line for test15.c, line 39 Line: 39 File: test15.c
+2024-11-18 21:35:59,562 - INFO - [Local Variables]:
+2024-11-18 21:35:59,562 - INFO - [Global Variables]:
+2024-11-18 21:35:59,562 - INFO - [Member Variables]:
+2024-11-18 21:35:59,562 - INFO - [Arguments]:
+2024-11-18 21:35:59,563 - DEBUG - Stopped at simulateOperations at function start, called from main.
+2024-11-18 21:35:59,563 - DEBUG - Function 0x555555556022 not found in input data.
+2024-11-18 21:35:59,563 - DEBUG - [Call]    0x0000555555555483 <+30>:	call   0x55555555516e <createAccount>
+2024-11-18 21:35:59,563 - DEBUG - Function 0x555555556028 not found in input data.
+2024-11-18 21:35:59,563 - DEBUG - [Call]    0x000055555555549b <+54>:	call   0x55555555516e <createAccount>
+2024-11-18 21:35:59,564 - DEBUG - Function 0x55555555602c not found in input data.
+2024-11-18 21:35:59,564 - DEBUG - [Call]    0x00005555555554b3 <+78>:	call   0x55555555516e <createAccount>
+2024-11-18 21:35:59,564 - DEBUG - Function 0x555555556034 not found in input data.
+2024-11-18 21:35:59,564 - DEBUG - [Call]    0x00005555555554d9 <+116>:	call   0x55555555526e <deposit>
+2024-11-18 21:35:59,564 - DEBUG - Function 0x555555556034 not found in input data.
+2024-11-18 21:35:59,564 - DEBUG - [Call]    0x00005555555554fb <+150>:	call   0x55555555526e <deposit>
+2024-11-18 21:35:59,564 - DEBUG - Function 0x555555556034 not found in input data.
+2024-11-18 21:35:59,564 - DEBUG - [Call]    0x000055555555551d <+184>:	call   0x55555555526e <deposit>
+2024-11-18 21:35:59,564 - DEBUG - Function 0x55555555603c not found in input data.
+2024-11-18 21:35:59,564 - DEBUG - [Call]    0x000055555555553f <+218>:	call   0x5555555552d1 <withdraw>
+2024-11-18 21:35:59,564 - DEBUG - Function 0x555555556047 not found in input data.
+2024-11-18 21:35:59,564 - DEBUG - [Call]    0x0000555555555561 <+252>:	call   0x5555555552d1 <withdraw>
+2024-11-18 21:35:59,564 - DEBUG - Function -0x30(%rbp),%rax not found in input data.
+2024-11-18 21:35:59,564 - DEBUG - [Call]    0x0000555555555586 <+289>:	call   0x5555555553c6 <transfer>
+2024-11-18 21:35:59,565 - DEBUG - [Call]    0x00005555555555a1 <+316>:	call   0x55555555534f <printAccountDetails>
+2024-11-18 21:35:59,565 - DEBUG - [Call]    0x00005555555555b3 <+334>:	call   0x55555555535a <printTransactionHistory>
+2024-11-18 21:35:59,565 - DEBUG - [Call]    0x00005555555555da <+373>:	call   0x555555555030 <free@plt>
+2024-11-18 21:35:59,565 - DEBUG - [Return]    0x00005555555555ee <+393>:	ret
+2024-11-18 21:35:59,566 - DEBUG - Stopped at createAccount at function start, called from simulateOperations.
+2024-11-18 21:35:59,566 - DEBUG - simulateOperations called createAccount 1 times, total 3 times.
+2024-11-18 21:35:59,566 - INFO - Function createAccount called 1 times, total 3 times.
+2024-11-18 21:35:59,566 - DEBUG - Stopped at createAccount at function start, called from simulateOperations.
+2024-11-18 21:35:59,566 - DEBUG - [Call]    0x0000555555555182 <+20>:	call   0x555555555050 <malloc@plt>
+2024-11-18 21:35:59,566 - DEBUG - Function 0x4(%rax),%rcx not found in input data.
+2024-11-18 21:35:59,566 - DEBUG - [Call]    0x00005555555551b9 <+75>:	call   0x555555555040 <strncpy@plt>
+2024-11-18 21:35:59,567 - DEBUG - [Return]    0x00005555555551de <+112>:	ret
+2024-11-18 21:35:59,567 - DEBUG - Stopped at malloc at function start, called from createAccount.
+2024-11-18 21:35:59,567 - DEBUG - createAccount called malloc 1 times, total 3 times.
+2024-11-18 21:35:59,567 - INFO - Function malloc called 1 times, total 3 times.
+2024-11-18 21:35:59,568 - DEBUG - Stopped at malloc at function start, called from createAccount.
+2024-11-18 21:35:59,569 - DEBUG - Function 0x17(%rbx),%rax not found in input data.
+2024-11-18 21:35:59,569 - DEBUG - Function -0x11(%rax),%rbp not found in input data.
+2024-11-18 21:35:59,569 - DEBUG - Function 0x7ffff7e5f2b0 not found in input data.
+2024-11-18 21:35:59,569 - DEBUG - Function 0x7ffff7f9ac60 not found in input data.
+2024-11-18 21:35:59,569 - DEBUG - Function 0x0(,%rcx,4),%rdx not found in input data.
+2024-11-18 21:35:59,569 - DEBUG - Function -0x10(%rax),%rcx not found in input data.
+2024-11-18 21:35:59,569 - DEBUG - [Return]    0x00007ffff7e60970 <+256>:	ret
+2024-11-18 21:35:59,569 - DEBUG - Function 0x7ffff7e60160 not found in input data.
+2024-11-18 21:35:59,569 - DEBUG - Function 0x10(%rbp),%rdi not found in input data.
+2024-11-18 21:35:59,569 - DEBUG - [Return]    0x00007ffff7e609f2 <+386>:	ret
+2024-11-18 21:35:59,570 - DEBUG - Function 0x7ffff7f9ac60 not found in input data.
+2024-11-18 21:35:59,570 - DEBUG - Function 0x7ffff7e5f2b0 not found in input data.
+2024-11-18 21:35:59,570 - DEBUG - Function 0x0(,%rcx,4),%rdx not found in input data.
+2024-11-18 21:35:59,570 - DEBUG - Function -0x10(%rax),%rcx not found in input data.
+2024-11-18 21:35:59,570 - DEBUG - Function 0x7ffff7f647f8 not found in input data.
+2024-11-18 21:35:59,570 - DEBUG - Function 0x7ffff7f64be0 not found in input data.
+2024-11-18 21:35:59,570 - DEBUG - Function 0x7ffff7f63b80 not found in input data.
+2024-11-18 21:35:59,570 - DEBUG - Function 0x7ffff7e471d0 not found in input data.
+2024-11-18 21:35:59,570 - DEBUG - Function 0x7ffff7e5d240 not found in input data.
+2024-11-18 21:35:59,570 - DEBUG - [Return]    0x00007ffff7e60aa6 <+566>:	ret
+2024-11-18 21:35:59,570 - DEBUG - Function 0x7ffff7e5d6f0 not found in input data.
+2024-11-18 21:35:59,570 - DEBUG - Function 0x7ffff7e5f2b0 not found in input data.
+2024-11-18 21:35:59,570 - DEBUG - Function 0x7ffff7e5dcc0 not found in input data.
+2024-11-18 21:35:59,570 - DEBUG - Function 0x7ffff7e5f2b0 not found in input data.
+2024-11-18 21:35:59,570 - DEBUG - Function 0x7ffff7f64860 not found in input data.
+2024-11-18 21:35:59,570 - DEBUG - Function 0x7ffff7f64be0 not found in input data.
+2024-11-18 21:35:59,570 - DEBUG - Function 0x7ffff7f63b80 not found in input data.
+2024-11-18 21:35:59,570 - DEBUG - Function 0x7ffff7e471d0 not found in input data.
+2024-11-18 21:35:59,570 - DEBUG - Function __lll_lock_wait_private not found in input data.
+2024-11-18 21:35:59,570 - DEBUG - Function __lll_lock_wake_private not found in input data.
+2024-11-18 21:35:59,570 - DEBUG - Function 0x7ffff7f646c8 not found in input data.
+2024-11-18 21:35:59,570 - DEBUG - Function 0x7ffff7e5c7a0 not found in input data.
+2024-11-18 21:35:59,570 - DEBUG - Function __lll_lock_wake_private not found in input data.
+2024-11-18 21:35:59,571 - DEBUG - Stopped at malloc at function return, returning to createAccount.
+2024-11-18 21:35:59,571 - DEBUG - createAccount called malloc 1 times, total 3 times.
+2024-11-18 21:35:59,571 - INFO - Function malloc called 1 times, total 3 times.
+2024-11-18 21:35:59,571 - DEBUG - Stopped at strncpy at function start, called from createAccount.
+2024-11-18 21:35:59,571 - DEBUG - createAccount called strncpy 1 times, total 3 times.
+2024-11-18 21:35:59,571 - INFO - Function strncpy called 1 times, total 3 times.
+2024-11-18 21:35:59,572 - DEBUG - Stopped at strncpy at function start, called from createAccount.
+2024-11-18 21:35:59,572 - DEBUG - Function 0x7ffff7e76920 not found in input data.
+2024-11-18 21:35:59,572 - DEBUG - Function 0x7ffff7f287c0 not found in input data.
+2024-11-18 21:35:59,573 - DEBUG - Function 0x7ffff7e76920 not found in input data.
+2024-11-18 21:35:59,573 - DEBUG - Function 0x7ffff7f1fc20 not found in input data.
+2024-11-18 21:35:59,573 - DEBUG - [Return]    0x00007ffff7e67429 <+73>:	ret
+2024-11-18 21:35:59,573 - DEBUG - Function 0x7ffff7f31630 not found in input data.
+2024-11-18 21:35:59,573 - DEBUG - Stopped at strncpy at function return, returning to createAccount.
+2024-11-18 21:35:59,573 - DEBUG - createAccount called strncpy 1 times, total 3 times.
+2024-11-18 21:35:59,573 - INFO - Function strncpy called 1 times, total 3 times.
+2024-11-18 21:35:59,574 - DEBUG - Stopped at createAccount at function return, returning to simulateOperations.
+2024-11-18 21:35:59,574 - DEBUG - simulateOperations called createAccount 1 times, total 3 times.
+2024-11-18 21:35:59,574 - INFO - Function createAccount called 1 times, total 3 times.
+2024-11-18 21:35:59,575 - DEBUG - Stopped at createAccount at function start, called from simulateOperations.
+2024-11-18 21:35:59,575 - DEBUG - simulateOperations called createAccount 2 times, total 3 times.
+2024-11-18 21:35:59,575 - INFO - Function createAccount called 2 times, total 3 times.
+2024-11-18 21:35:59,575 - DEBUG - Stopped at createAccount at function start, called from simulateOperations.
+2024-11-18 21:35:59,575 - DEBUG - [Call]    0x0000555555555182 <+20>:	call   0x555555555050 <malloc@plt>
+2024-11-18 21:35:59,575 - DEBUG - Function 0x4(%rax),%rcx not found in input data.
+2024-11-18 21:35:59,575 - DEBUG - [Call]    0x00005555555551b9 <+75>:	call   0x555555555040 <strncpy@plt>
+2024-11-18 21:35:59,576 - DEBUG - [Return]    0x00005555555551de <+112>:	ret
+2024-11-18 21:35:59,576 - DEBUG - Stopped at malloc at function start, called from createAccount.
+2024-11-18 21:35:59,576 - DEBUG - createAccount called malloc 2 times, total 3 times.
+2024-11-18 21:35:59,576 - INFO - Function malloc called 2 times, total 3 times.
+2024-11-18 21:35:59,577 - DEBUG - Stopped at malloc at function start, called from createAccount.
+2024-11-18 21:35:59,578 - DEBUG - Function 0x17(%rbx),%rax not found in input data.
+2024-11-18 21:35:59,578 - DEBUG - Function -0x11(%rax),%rbp not found in input data.
+2024-11-18 21:35:59,578 - DEBUG - Function 0x7ffff7e5f2b0 not found in input data.
+2024-11-18 21:35:59,578 - DEBUG - Function 0x7ffff7f9ac60 not found in input data.
+2024-11-18 21:35:59,578 - DEBUG - Function 0x0(,%rcx,4),%rdx not found in input data.
+2024-11-18 21:35:59,578 - DEBUG - Function -0x10(%rax),%rcx not found in input data.
+2024-11-18 21:35:59,578 - DEBUG - [Return]    0x00007ffff7e60970 <+256>:	ret
+2024-11-18 21:35:59,578 - DEBUG - Function 0x7ffff7e60160 not found in input data.
+2024-11-18 21:35:59,578 - DEBUG - Function 0x10(%rbp),%rdi not found in input data.
+2024-11-18 21:35:59,578 - DEBUG - [Return]    0x00007ffff7e609f2 <+386>:	ret
+2024-11-18 21:35:59,578 - DEBUG - Function 0x7ffff7f9ac60 not found in input data.
+2024-11-18 21:35:59,578 - DEBUG - Function 0x7ffff7e5f2b0 not found in input data.
+2024-11-18 21:35:59,578 - DEBUG - Function 0x0(,%rcx,4),%rdx not found in input data.
+2024-11-18 21:35:59,578 - DEBUG - Function -0x10(%rax),%rcx not found in input data.
+2024-11-18 21:35:59,578 - DEBUG - Function 0x7ffff7f647f8 not found in input data.
+2024-11-18 21:35:59,579 - DEBUG - Function 0x7ffff7f64be0 not found in input data.
+2024-11-18 21:35:59,579 - DEBUG - Function 0x7ffff7f63b80 not found in input data.
+2024-11-18 21:35:59,579 - DEBUG - Function 0x7ffff7e471d0 not found in input data.
+2024-11-18 21:35:59,579 - DEBUG - Function 0x7ffff7e5d240 not found in input data.
+2024-11-18 21:35:59,579 - DEBUG - [Return]    0x00007ffff7e60aa6 <+566>:	ret
+2024-11-18 21:35:59,579 - DEBUG - Function 0x7ffff7e5d6f0 not found in input data.
+2024-11-18 21:35:59,579 - DEBUG - Function 0x7ffff7e5f2b0 not found in input data.
+2024-11-18 21:35:59,579 - DEBUG - Function 0x7ffff7e5dcc0 not found in input data.
+2024-11-18 21:35:59,579 - DEBUG - Function 0x7ffff7e5f2b0 not found in input data.
+2024-11-18 21:35:59,579 - DEBUG - Function 0x7ffff7f64860 not found in input data.
+2024-11-18 21:35:59,579 - DEBUG - Function 0x7ffff7f64be0 not found in input data.
+2024-11-18 21:35:59,579 - DEBUG - Function 0x7ffff7f63b80 not found in input data.
+2024-11-18 21:35:59,579 - DEBUG - Function 0x7ffff7e471d0 not found in input data.
+2024-11-18 21:35:59,579 - DEBUG - Function __lll_lock_wait_private not found in input data.
+2024-11-18 21:35:59,579 - DEBUG - Function __lll_lock_wake_private not found in input data.
+2024-11-18 21:35:59,579 - DEBUG - Function 0x7ffff7f646c8 not found in input data.
+2024-11-18 21:35:59,579 - DEBUG - Function 0x7ffff7e5c7a0 not found in input data.
+2024-11-18 21:35:59,579 - DEBUG - Function __lll_lock_wake_private not found in input data.
+2024-11-18 21:35:59,580 - DEBUG - Stopped at malloc at function return, returning to createAccount.
+2024-11-18 21:35:59,580 - DEBUG - createAccount called malloc 2 times, total 3 times.
+2024-11-18 21:35:59,580 - INFO - Function malloc called 2 times, total 3 times.
+2024-11-18 21:35:59,580 - DEBUG - Stopped at strncpy at function start, called from createAccount.
+2024-11-18 21:35:59,580 - DEBUG - createAccount called strncpy 2 times, total 3 times.
+2024-11-18 21:35:59,580 - INFO - Function strncpy called 2 times, total 3 times.
+2024-11-18 21:35:59,581 - DEBUG - Stopped at strncpy at function start, called from createAccount.
+2024-11-18 21:35:59,581 - DEBUG - Function 0x7ffff7e76920 not found in input data.
+2024-11-18 21:35:59,581 - DEBUG - Function 0x7ffff7f287c0 not found in input data.
+2024-11-18 21:35:59,581 - DEBUG - Function 0x7ffff7e76920 not found in input data.
+2024-11-18 21:35:59,581 - DEBUG - Function 0x7ffff7f1fc20 not found in input data.
+2024-11-18 21:35:59,581 - DEBUG - [Return]    0x00007ffff7e67429 <+73>:	ret
+2024-11-18 21:35:59,581 - DEBUG - Function 0x7ffff7f31630 not found in input data.
+2024-11-18 21:35:59,582 - DEBUG - Stopped at createAccount at function return, returning to simulateOperations.
+2024-11-18 21:35:59,582 - DEBUG - simulateOperations called createAccount 2 times, total 3 times.
+2024-11-18 21:35:59,582 - INFO - Function createAccount called 2 times, total 3 times.
+2024-11-18 21:35:59,582 - DEBUG - Stopped at createAccount at function start, called from simulateOperations.
+2024-11-18 21:35:59,582 - DEBUG - simulateOperations called createAccount 3 times, total 3 times.
+2024-11-18 21:35:59,582 - INFO - Function createAccount called 3 times, total 3 times.
+2024-11-18 21:35:59,583 - DEBUG - SAL: symbol and line for test15.c, line 118 Line: 118 File: test15.c
+2024-11-18 21:35:59,583 - DEBUG - [Pointer] 0x5555555592a0 [Type] None (1)
+2024-11-18 21:35:59,584 - DEBUG - [Pointer] 0x555555559410 [Type] None (1)
+2024-11-18 21:35:59,585 - DEBUG - [Pointer] 0x0 [Type] None (1)
+2024-11-18 21:35:59,585 - INFO - [Local Variables]:
+2024-11-18 21:35:59,585 - DEBUG - [Pointer] 0x5555555592a0 [Type] None (1)
+2024-11-18 21:35:59,586 - DEBUG - [Pointer] 0x555555559410 [Type] None (1)
+2024-11-18 21:35:59,587 - DEBUG - [Pointer] 0x0 [Type] None (1)
+2024-11-18 21:35:59,587 - INFO -   totalAccounts = "3"
+2024-11-18 21:35:59,588 - INFO -   accounts = {
+    "0": {
+        "accountNumber": "1001",
+        "holderName": "\"Alice\"",
+        "balance": "0",
+        "transactions": {
+            "0": {
+                "type": "DEPOSIT",
+                "amount": "0",
+                "description": "\"\""
+            },
+            "1": {
+                "type": "DEPOSIT",
+                "amount": "0",
+                "description": "\"\""
+            },
+            "2": {
+                "type": "DEPOSIT",
+                "amount": "0",
+                "description": "\"\""
+            },
+            "3": {
+                "type": "DEPOSIT",
+                "amount": "0",
+                "description": "\"\""
+            },
+            "4": {
+                "type": "DEPOSIT",
+                "amount": "0",
+                "description": "\"\""
+            },
+            "5": {
+                "type": "DEPOSIT",
+                "amount": "0",
+                "description": "\"\""
+            },
+            "6": {
+                "type": "DEPOSIT",
+                "amount": "0",
+                "description": "\"\""
+            },
+            "7": {
+                "type": "DEPOSIT",
+                "amount": "0",
+                "description": "\"\""
+            },
+            "8": {
+                "type": "DEPOSIT",
+                "amount": "0",
+                "description": "\"\""
+            },
+            "9": {
+                "type": "DEPOSIT",
+                "amount": "0",
+                "description": "\"\""
+            }
+        },
+        "transactionCount": "0"
+    },
+    "1": {
+        "accountNumber": "1002",
+        "holderName": "\"Bob\"",
+        "balance": "0",
+        "transactions": {
+            "0": {
+                "type": "DEPOSIT",
+                "amount": "0",
+                "description": "\"\""
+            },
+            "1": {
+                "type": "DEPOSIT",
+                "amount": "0",
+                "description": "\"\""
+            },
+            "2": {
+                "type": "DEPOSIT",
+                "amount": "0",
+                "description": "\"\""
+            },
+            "3": {
+                "type": "DEPOSIT",
+                "amount": "0",
+                "description": "\"\""
+            },
+            "4": {
+                "type": "DEPOSIT",
+                "amount": "0",
+                "description": "\"\""
+            },
+            "5": {
+                "type": "DEPOSIT",
+                "amount": "0",
+                "description": "\"\""
+            },
+            "6": {
+                "type": "DEPOSIT",
+                "amount": "0",
+                "description": "\"\""
+            },
+            "7": {
+                "type": "DEPOSIT",
+                "amount": "0",
+                "description": "\"\""
+            },
+            "8": {
+                "type": "DEPOSIT",
+                "amount": "0",
+                "description": "\"\""
+            },
+            "9": {
+                "type": "DEPOSIT",
+                "amount": "0",
+                "description": "\"\""
+            }
+        },
+        "transactionCount": "0"
+    },
+    "2": "0x0"
+}
+2024-11-18 21:35:59,588 - INFO - [Global Variables]:
+2024-11-18 21:35:59,588 - INFO - [Member Variables]:
+2024-11-18 21:35:59,588 - INFO - [Arguments]:
+2024-11-18 21:35:59,589 - DEBUG - Stopped at createAccount at function start, called from simulateOperations.
+2024-11-18 21:35:59,589 - DEBUG - [Call]    0x0000555555555182 <+20>:	call   0x555555555050 <malloc@plt>
+2024-11-18 21:35:59,589 - DEBUG - Function 0x4(%rax),%rcx not found in input data.
+2024-11-18 21:35:59,589 - DEBUG - [Call]    0x00005555555551b9 <+75>:	call   0x555555555040 <strncpy@plt>
+2024-11-18 21:35:59,589 - DEBUG - [Return]    0x00005555555551de <+112>:	ret
+2024-11-18 21:35:59,590 - DEBUG - Stopped at malloc at function start, called from createAccount.
+2024-11-18 21:35:59,590 - DEBUG - createAccount called malloc 3 times, total 3 times.
+2024-11-18 21:35:59,590 - INFO - Function malloc called 3 times, total 3 times.
+2024-11-18 21:35:59,590 - DEBUG - SAL: symbol and line for test15.c, line 44 Line: 44 File: test15.c
+2024-11-18 21:35:59,590 - DEBUG - [Pointer] 0x555555559410 [Type] None (1)
+2024-11-18 21:35:59,591 - DEBUG - [Pointer] 0x55555555602c "Charlie" [Type] None (1)
+2024-11-18 21:35:59,591 - DEBUG - [Pointer] 0x55555555602c "Charlie" [Address] 93824992239660 [Size] 1
+2024-11-18 21:35:59,591 - INFO - [Local Variables]:
+2024-11-18 21:35:59,591 - DEBUG - [Pointer] 0x555555559410 [Type] None (1)
+2024-11-18 21:35:59,593 - INFO -   newAccount = {
+    "accountNumber": "1002",
+    "holderName": "\"Bob\"",
+    "balance": "0",
+    "transactions": {
+        "0": {
+            "type": "DEPOSIT",
+            "amount": "0",
+            "description": "\"\""
+        },
+        "1": {
+            "type": "DEPOSIT",
+            "amount": "0",
+            "description": "\"\""
+        },
+        "2": {
+            "type": "DEPOSIT",
+            "amount": "0",
+            "description": "\"\""
+        },
+        "3": {
+            "type": "DEPOSIT",
+            "amount": "0",
+            "description": "\"\""
+        },
+        "4": {
+            "type": "DEPOSIT",
+            "amount": "0",
+            "description": "\"\""
+        },
+        "5": {
+            "type": "DEPOSIT",
+            "amount": "0",
+            "description": "\"\""
+        },
+        "6": {
+            "type": "DEPOSIT",
+            "amount": "0",
+            "description": "\"\""
+        },
+        "7": {
+            "type": "DEPOSIT",
+            "amount": "0",
+            "description": "\"\""
+        },
+        "8": {
+            "type": "DEPOSIT",
+            "amount": "0",
+            "description": "\"\""
+        },
+        "9": {
+            "type": "DEPOSIT",
+            "amount": "0",
+            "description": "\"\""
+        }
+    },
+    "transactionCount": "0"
+}
+2024-11-18 21:35:59,593 - INFO - [Global Variables]:
+2024-11-18 21:35:59,593 - INFO - [Member Variables]:
+2024-11-18 21:35:59,593 - INFO - [Arguments]:
+2024-11-18 21:35:59,593 - DEBUG - [Pointer] 0x55555555602c "Charlie" [Type] None (1)
+2024-11-18 21:35:59,593 - DEBUG - [Pointer] 0x55555555602c "Charlie" [Address] 93824992239660 [Size] 1
+2024-11-18 21:35:59,593 - INFO -   accountNumber = "1003"
+2024-11-18 21:35:59,593 - INFO -   holderName = "[67 'C', 104 'h', 97 'a', 114 'r', 108 'l', 105 'i', 101 'e', 0 '']"
+2024-11-18 21:35:59,594 - DEBUG - Stopped at malloc at function start, called from createAccount.
+2024-11-18 21:35:59,595 - DEBUG - Function 0x17(%rbx),%rax not found in input data.
+2024-11-18 21:35:59,595 - DEBUG - Function -0x11(%rax),%rbp not found in input data.
+2024-11-18 21:35:59,595 - DEBUG - Function 0x7ffff7e5f2b0 not found in input data.
+2024-11-18 21:35:59,595 - DEBUG - Function 0x7ffff7f9ac60 not found in input data.
+2024-11-18 21:35:59,595 - DEBUG - Function 0x0(,%rcx,4),%rdx not found in input data.
+2024-11-18 21:35:59,595 - DEBUG - Function -0x10(%rax),%rcx not found in input data.
+2024-11-18 21:35:59,595 - DEBUG - [Return]    0x00007ffff7e60970 <+256>:	ret
+2024-11-18 21:35:59,595 - DEBUG - Function 0x7ffff7e60160 not found in input data.
+2024-11-18 21:35:59,595 - DEBUG - Function 0x10(%rbp),%rdi not found in input data.
+2024-11-18 21:35:59,595 - DEBUG - [Return]    0x00007ffff7e609f2 <+386>:	ret
+2024-11-18 21:35:59,595 - DEBUG - Function 0x7ffff7f9ac60 not found in input data.
+2024-11-18 21:35:59,595 - DEBUG - Function 0x7ffff7e5f2b0 not found in input data.
+2024-11-18 21:35:59,595 - DEBUG - Function 0x0(,%rcx,4),%rdx not found in input data.
+2024-11-18 21:35:59,595 - DEBUG - Function -0x10(%rax),%rcx not found in input data.
+2024-11-18 21:35:59,595 - DEBUG - Function 0x7ffff7f647f8 not found in input data.
+2024-11-18 21:35:59,595 - DEBUG - Function 0x7ffff7f64be0 not found in input data.
+2024-11-18 21:35:59,596 - DEBUG - Function 0x7ffff7f63b80 not found in input data.
+2024-11-18 21:35:59,596 - DEBUG - Function 0x7ffff7e471d0 not found in input data.
+2024-11-18 21:35:59,596 - DEBUG - Function 0x7ffff7e5d240 not found in input data.
+2024-11-18 21:35:59,596 - DEBUG - [Return]    0x00007ffff7e60aa6 <+566>:	ret
+2024-11-18 21:35:59,596 - DEBUG - Function 0x7ffff7e5d6f0 not found in input data.
+2024-11-18 21:35:59,596 - DEBUG - Function 0x7ffff7e5f2b0 not found in input data.
+2024-11-18 21:35:59,596 - DEBUG - Function 0x7ffff7e5dcc0 not found in input data.
+2024-11-18 21:35:59,596 - DEBUG - Function 0x7ffff7e5f2b0 not found in input data.
+2024-11-18 21:35:59,596 - DEBUG - Function 0x7ffff7f64860 not found in input data.
+2024-11-18 21:35:59,596 - DEBUG - Function 0x7ffff7f64be0 not found in input data.
+2024-11-18 21:35:59,596 - DEBUG - Function 0x7ffff7f63b80 not found in input data.
+2024-11-18 21:35:59,596 - DEBUG - Function 0x7ffff7e471d0 not found in input data.
+2024-11-18 21:35:59,596 - DEBUG - Function __lll_lock_wait_private not found in input data.
+2024-11-18 21:35:59,596 - DEBUG - Function __lll_lock_wake_private not found in input data.
+2024-11-18 21:35:59,596 - DEBUG - Function 0x7ffff7f646c8 not found in input data.
+2024-11-18 21:35:59,596 - DEBUG - Function 0x7ffff7e5c7a0 not found in input data.
+2024-11-18 21:35:59,596 - DEBUG - Function __lll_lock_wake_private not found in input data.
+2024-11-18 21:35:59,597 - DEBUG - Stopped at malloc at function return, returning to createAccount.
+2024-11-18 21:35:59,597 - DEBUG - createAccount called malloc 3 times, total 3 times.
+2024-11-18 21:35:59,597 - INFO - Function malloc called 3 times, total 3 times.
+2024-11-18 21:35:59,597 - DEBUG - SAL: symbol and line for <unknown>, line 0 Line: 0 File: unknown
+2024-11-18 21:35:59,597 - ERROR - Failed to get frame block: Cannot locate block for frame.
+2024-11-18 21:35:59,597 - ERROR - Failed to get frame block: Cannot locate block for frame.
+2024-11-18 21:35:59,597 - ERROR - Failed to get frame block: Cannot locate block for frame.
+2024-11-18 21:35:59,597 - ERROR - Failed to get frame block: Cannot locate block for frame.
+2024-11-18 21:35:59,597 - INFO - [Local Variables]:
+2024-11-18 21:35:59,597 - ERROR - Failed to get frame block: Cannot locate block for frame.
+2024-11-18 21:35:59,597 - INFO - [Global Variables]:
+2024-11-18 21:35:59,597 - ERROR - Failed to get frame block: Cannot locate block for frame.
+2024-11-18 21:35:59,597 - INFO - [Member Variables]:
+2024-11-18 21:35:59,597 - ERROR - Failed to get frame block: Cannot locate block for frame.
+2024-11-18 21:35:59,597 - INFO - [Arguments]:
+2024-11-18 21:35:59,597 - ERROR - Failed to get frame block: Cannot locate block for frame.
+2024-11-18 21:35:59,598 - DEBUG - Stopped at strncpy at function start, called from createAccount.
+2024-11-18 21:35:59,598 - DEBUG - createAccount called strncpy 3 times, total 3 times.
+2024-11-18 21:35:59,598 - INFO - Function strncpy called 3 times, total 3 times.
+2024-11-18 21:35:59,598 - DEBUG - SAL: symbol and line for test15.c, line 49 Line: 49 File: test15.c
+2024-11-18 21:35:59,598 - DEBUG - [Pointer] 0x555555559580 [Type] None (1)
+2024-11-18 21:35:59,599 - DEBUG - [Pointer] 0x55555555602c "Charlie" [Type] None (1)
+2024-11-18 21:35:59,599 - DEBUG - [Pointer] 0x55555555602c "Charlie" [Address] 93824992239660 [Size] 1
+2024-11-18 21:35:59,599 - INFO - [Local Variables]:
+2024-11-18 21:35:59,600 - DEBUG - [Pointer] 0x555555559580 [Type] None (1)
+2024-11-18 21:35:59,601 - INFO -   newAccount = {
+    "accountNumber": "1003",
+    "holderName": "\"\"",
+    "balance": "0",
+    "transactions": {
+        "0": {
+            "type": "DEPOSIT",
+            "amount": "0",
+            "description": "\"\""
+        },
+        "1": {
+            "type": "DEPOSIT",
+            "amount": "0",
+            "description": "\"\""
+        },
+        "2": {
+            "type": "DEPOSIT",
+            "amount": "0",
+            "description": "\"\""
+        },
+        "3": {
+            "type": "DEPOSIT",
+            "amount": "0",
+            "description": "\"\""
+        },
+        "4": {
+            "type": "DEPOSIT",
+            "amount": "0",
+            "description": "\"\""
+        },
+        "5": {
+            "type": "DEPOSIT",
+            "amount": "0",
+            "description": "\"\""
+        },
+        "6": {
+            "type": "DEPOSIT",
+            "amount": "0",
+            "description": "\"\""
+        },
+        "7": {
+            "type": "DEPOSIT",
+            "amount": "0",
+            "description": "\"\""
+        },
+        "8": {
+            "type": "DEPOSIT",
+            "amount": "0",
+            "description": "\"\""
+        },
+        "9": {
+            "type": "DEPOSIT",
+            "amount": "0",
+            "description": "\"\""
+        }
+    },
+    "transactionCount": "0"
+}
+2024-11-18 21:35:59,601 - INFO - [Global Variables]:
+2024-11-18 21:35:59,601 - INFO - [Member Variables]:
+2024-11-18 21:35:59,601 - INFO - [Arguments]:
+2024-11-18 21:35:59,601 - DEBUG - [Pointer] 0x55555555602c "Charlie" [Type] None (1)
+2024-11-18 21:35:59,601 - DEBUG - [Pointer] 0x55555555602c "Charlie" [Address] 93824992239660 [Size] 1
+2024-11-18 21:35:59,601 - INFO -   accountNumber = "1003"
+2024-11-18 21:35:59,601 - INFO -   holderName = "[67 'C', 104 'h', 97 'a', 114 'r', 108 'l', 105 'i', 101 'e', 0 '']"
+2024-11-18 21:35:59,602 - DEBUG - Stopped at strncpy at function start, called from createAccount.
+2024-11-18 21:35:59,602 - DEBUG - Function 0x7ffff7e76920 not found in input data.
+2024-11-18 21:35:59,602 - DEBUG - Function 0x7ffff7f287c0 not found in input data.
+2024-11-18 21:35:59,602 - DEBUG - Function 0x7ffff7e76920 not found in input data.
+2024-11-18 21:35:59,602 - DEBUG - Function 0x7ffff7f1fc20 not found in input data.
+2024-11-18 21:35:59,602 - DEBUG - [Return]    0x00007ffff7e67429 <+73>:	ret
+2024-11-18 21:35:59,602 - DEBUG - Function 0x7ffff7f31630 not found in input data.
+2024-11-18 21:35:59,603 - DEBUG - Stopped at createAccount at function return, returning to simulateOperations.
+2024-11-18 21:35:59,603 - DEBUG - simulateOperations called createAccount 3 times, total 3 times.
+2024-11-18 21:35:59,603 - INFO - Function createAccount called 3 times, total 3 times.
+2024-11-18 21:35:59,603 - DEBUG - SAL: symbol and line for test15.c, line 53 Line: 53 File: test15.c
+2024-11-18 21:35:59,603 - DEBUG - [Pointer] 0x555555559580 [Type] None (1)
+2024-11-18 21:35:59,604 - DEBUG - [Pointer] 0x55555555602c "Charlie" [Type] None (1)
+2024-11-18 21:35:59,604 - DEBUG - [Pointer] 0x55555555602c "Charlie" [Address] 93824992239660 [Size] 1
+2024-11-18 21:35:59,605 - INFO - [Local Variables]:
+2024-11-18 21:35:59,605 - DEBUG - [Pointer] 0x555555559580 [Type] None (1)
+2024-11-18 21:35:59,606 - INFO - [Global Variables]:
+2024-11-18 21:35:59,606 - INFO - [Member Variables]:
+2024-11-18 21:35:59,606 - INFO - [Arguments]:
+2024-11-18 21:35:59,606 - DEBUG - [Pointer] 0x55555555602c "Charlie" [Type] None (1)
+2024-11-18 21:35:59,606 - DEBUG - [Pointer] 0x55555555602c "Charlie" [Address] 93824992239660 [Size] 1
+2024-11-18 21:35:59,607 - DEBUG - Stopped at deposit at function start, called from simulateOperations.
+2024-11-18 21:35:59,607 - DEBUG - simulateOperations called deposit 1 times, total 3 times.
+2024-11-18 21:35:59,607 - INFO - Function deposit called 1 times, total 3 times.
+2024-11-18 21:35:59,607 - DEBUG - Stopped at deposit at function start, called from simulateOperations.
+2024-11-18 21:35:59,608 - DEBUG - [Call]    0x00005555555552c5 <+87>:	call   0x5555555551df <addTransaction>
+2024-11-18 21:35:59,608 - DEBUG - [Return]    0x00005555555552d0 <+98>:	ret
+2024-11-18 21:35:59,609 - DEBUG - Stopped at addTransaction at function start, called from deposit.
+2024-11-18 21:35:59,609 - DEBUG - deposit called addTransaction 1 times, total 4 times.
+2024-11-18 21:35:59,609 - INFO - Function addTransaction called 1 times, total 4 times.
+2024-11-18 21:35:59,609 - DEBUG - Stopped at addTransaction at function start, called from deposit.
+2024-11-18 21:35:59,610 - DEBUG - Function 0x1(%rax),%ecx not found in input data.
+2024-11-18 21:35:59,610 - DEBUG - Function 0x10(%rax),%rdx not found in input data.
+2024-11-18 21:35:59,610 - DEBUG - Function 0x10(%rax),%rcx not found in input data.
+2024-11-18 21:35:59,610 - DEBUG - [Call]    0x0000555555555264 <+133>:	call   0x555555555040 <strncpy@plt>
+2024-11-18 21:35:59,610 - DEBUG - [Return]    0x000055555555526d <+142>:	ret
+2024-11-18 21:35:59,611 - DEBUG - Stopped at strncpy at function start, called from addTransaction.
+2024-11-18 21:35:59,611 - DEBUG - addTransaction called strncpy 1 times, total 7 times.
+2024-11-18 21:35:59,611 - INFO - Function strncpy called 1 times, total 7 times.
+2024-11-18 21:35:59,611 - DEBUG - Stopped at strncpy at function start, called from createAccount.
+2024-11-18 21:35:59,612 - DEBUG - Function 0x7ffff7e76920 not found in input data.
+2024-11-18 21:35:59,612 - DEBUG - Function 0x7ffff7f287c0 not found in input data.
+2024-11-18 21:35:59,612 - DEBUG - Function 0x7ffff7e76920 not found in input data.
+2024-11-18 21:35:59,612 - DEBUG - Function 0x7ffff7f1fc20 not found in input data.
+2024-11-18 21:35:59,612 - DEBUG - [Return]    0x00007ffff7e67429 <+73>:	ret
+2024-11-18 21:35:59,612 - DEBUG - Function 0x7ffff7f31630 not found in input data.
+2024-11-18 21:35:59,612 - DEBUG - Stopped at addTransaction at function return, returning to deposit.
+2024-11-18 21:35:59,612 - DEBUG - deposit called addTransaction 1 times, total 4 times.
+2024-11-18 21:35:59,612 - INFO - Function addTransaction called 1 times, total 4 times.
+2024-11-18 21:35:59,613 - DEBUG - Stopped at deposit at function return, returning to simulateOperations.
+2024-11-18 21:35:59,613 - DEBUG - simulateOperations called deposit 1 times, total 3 times.
+2024-11-18 21:35:59,613 - INFO - Function deposit called 1 times, total 3 times.
+2024-11-18 21:35:59,614 - DEBUG - Stopped at deposit at function start, called from simulateOperations.
+2024-11-18 21:35:59,614 - DEBUG - simulateOperations called deposit 2 times, total 3 times.
+2024-11-18 21:35:59,614 - INFO - Function deposit called 2 times, total 3 times.
+2024-11-18 21:35:59,614 - DEBUG - Stopped at deposit at function start, called from simulateOperations.
+2024-11-18 21:35:59,615 - DEBUG - [Call]    0x00005555555552c5 <+87>:	call   0x5555555551df <addTransaction>
+2024-11-18 21:35:59,615 - DEBUG - [Return]    0x00005555555552d0 <+98>:	ret
+2024-11-18 21:35:59,615 - DEBUG - Stopped at addTransaction at function start, called from deposit.
+2024-11-18 21:35:59,616 - DEBUG - deposit called addTransaction 2 times, total 4 times.
+2024-11-18 21:35:59,616 - INFO - Function addTransaction called 2 times, total 4 times.
+2024-11-18 21:35:59,616 - DEBUG - Stopped at addTransaction at function start, called from deposit.
+2024-11-18 21:35:59,616 - DEBUG - Function 0x1(%rax),%ecx not found in input data.
+2024-11-18 21:35:59,616 - DEBUG - Function 0x10(%rax),%rdx not found in input data.
+2024-11-18 21:35:59,617 - DEBUG - Function 0x10(%rax),%rcx not found in input data.
+2024-11-18 21:35:59,617 - DEBUG - [Call]    0x0000555555555264 <+133>:	call   0x555555555040 <strncpy@plt>
+2024-11-18 21:35:59,617 - DEBUG - [Return]    0x000055555555526d <+142>:	ret
+2024-11-18 21:35:59,617 - DEBUG - Stopped at strncpy at function start, called from addTransaction.
+2024-11-18 21:35:59,617 - DEBUG - addTransaction called strncpy 2 times, total 7 times.
+2024-11-18 21:35:59,617 - INFO - Function strncpy called 2 times, total 7 times.
+2024-11-18 21:35:59,618 - DEBUG - Stopped at strncpy at function start, called from createAccount.
+2024-11-18 21:35:59,618 - DEBUG - Function 0x7ffff7e76920 not found in input data.
+2024-11-18 21:35:59,618 - DEBUG - Function 0x7ffff7f287c0 not found in input data.
+2024-11-18 21:35:59,618 - DEBUG - Function 0x7ffff7e76920 not found in input data.
+2024-11-18 21:35:59,618 - DEBUG - Function 0x7ffff7f1fc20 not found in input data.
+2024-11-18 21:35:59,618 - DEBUG - [Return]    0x00007ffff7e67429 <+73>:	ret
+2024-11-18 21:35:59,618 - DEBUG - Function 0x7ffff7f31630 not found in input data.
+2024-11-18 21:35:59,619 - DEBUG - Stopped at addTransaction at function return, returning to deposit.
+2024-11-18 21:35:59,619 - DEBUG - deposit called addTransaction 2 times, total 4 times.
+2024-11-18 21:35:59,619 - INFO - Function addTransaction called 2 times, total 4 times.
+2024-11-18 21:35:59,620 - DEBUG - Stopped at deposit at function return, returning to simulateOperations.
+2024-11-18 21:35:59,620 - DEBUG - simulateOperations called deposit 2 times, total 3 times.
+2024-11-18 21:35:59,620 - INFO - Function deposit called 2 times, total 3 times.
+2024-11-18 21:35:59,620 - DEBUG - Stopped at deposit at function start, called from simulateOperations.
+2024-11-18 21:35:59,621 - DEBUG - simulateOperations called deposit 3 times, total 3 times.
+2024-11-18 21:35:59,621 - INFO - Function deposit called 3 times, total 3 times.
+2024-11-18 21:35:59,621 - DEBUG - SAL: symbol and line for test15.c, line 122 Line: 122 File: test15.c
+2024-11-18 21:35:59,621 - DEBUG - [Pointer] 0x5555555592a0 [Type] None (1)
+2024-11-18 21:35:59,622 - DEBUG - [Pointer] 0x555555559410 [Type] None (1)
+2024-11-18 21:35:59,623 - DEBUG - [Pointer] 0x555555559580 [Type] None (1)
+2024-11-18 21:35:59,624 - INFO - [Local Variables]:
+2024-11-18 21:35:59,624 - DEBUG - [Pointer] 0x5555555592a0 [Type] None (1)
+2024-11-18 21:35:59,625 - DEBUG - [Pointer] 0x555555559410 [Type] None (1)
+2024-11-18 21:35:59,626 - DEBUG - [Pointer] 0x555555559580 [Type] None (1)
+2024-11-18 21:35:59,627 - INFO -   totalAccounts = "3"
+2024-11-18 21:35:59,628 - INFO -   accounts = {
+    "0": {
+        "accountNumber": "1001",
+        "holderName": "\"Alice\"",
+        "balance": "500",
+        "transactions": {
+            "0": {
+                "type": "DEPOSIT",
+                "amount": "500",
+                "description": "\"Initial\""
+            },
+            "1": {
+                "type": "DEPOSIT",
+                "amount": "0",
+                "description": "\"\""
+            },
+            "2": {
+                "type": "DEPOSIT",
+                "amount": "0",
+                "description": "\"\""
+            },
+            "3": {
+                "type": "DEPOSIT",
+                "amount": "0",
+                "description": "\"\""
+            },
+            "4": {
+                "type": "DEPOSIT",
+                "amount": "0",
+                "description": "\"\""
+            },
+            "5": {
+                "type": "DEPOSIT",
+                "amount": "0",
+                "description": "\"\""
+            },
+            "6": {
+                "type": "DEPOSIT",
+                "amount": "0",
+                "description": "\"\""
+            },
+            "7": {
+                "type": "DEPOSIT",
+                "amount": "0",
+                "description": "\"\""
+            },
+            "8": {
+                "type": "DEPOSIT",
+                "amount": "0",
+                "description": "\"\""
+            },
+            "9": {
+                "type": "DEPOSIT",
+                "amount": "0",
+                "description": "\"\""
+            }
+        },
+        "transactionCount": "1"
+    },
+    "1": {
+        "accountNumber": "1002",
+        "holderName": "\"Bob\"",
+        "balance": "1000",
+        "transactions": {
+            "0": {
+                "type": "DEPOSIT",
+                "amount": "1000",
+                "description": "\"Initial\""
+            },
+            "1": {
+                "type": "DEPOSIT",
+                "amount": "0",
+                "description": "\"\""
+            },
+            "2": {
+                "type": "DEPOSIT",
+                "amount": "0",
+                "description": "\"\""
+            },
+            "3": {
+                "type": "DEPOSIT",
+                "amount": "0",
+                "description": "\"\""
+            },
+            "4": {
+                "type": "DEPOSIT",
+                "amount": "0",
+                "description": "\"\""
+            },
+            "5": {
+                "type": "DEPOSIT",
+                "amount": "0",
+                "description": "\"\""
+            },
+            "6": {
+                "type": "DEPOSIT",
+                "amount": "0",
+                "description": "\"\""
+            },
+            "7": {
+                "type": "DEPOSIT",
+                "amount": "0",
+                "description": "\"\""
+            },
+            "8": {
+                "type": "DEPOSIT",
+                "amount": "0",
+                "description": "\"\""
+            },
+            "9": {
+                "type": "DEPOSIT",
+                "amount": "0",
+                "description": "\"\""
+            }
+        },
+        "transactionCount": "1"
+    },
+    "2": {
+        "accountNumber": "1003",
+        "holderName": "\"Charl\"",
+        "balance": "0",
+        "transactions": {
+            "0": {
+                "type": "DEPOSIT",
+                "amount": "0",
+                "description": "\"\""
+            },
+            "1": {
+                "type": "DEPOSIT",
+                "amount": "0",
+                "description": "\"\""
+            },
+            "2": {
+                "type": "DEPOSIT",
+                "amount": "0",
+                "description": "\"\""
+            },
+            "3": {
+                "type": "DEPOSIT",
+                "amount": "0",
+                "description": "\"\""
+            },
+            "4": {
+                "type": "DEPOSIT",
+                "amount": "0",
+                "description": "\"\""
+            },
+            "5": {
+                "type": "DEPOSIT",
+                "amount": "0",
+                "description": "\"\""
+            },
+            "6": {
+                "type": "DEPOSIT",
+                "amount": "0",
+                "description": "\"\""
+            },
+            "7": {
+                "type": "DEPOSIT",
+                "amount": "0",
+                "description": "\"\""
+            },
+            "8": {
+                "type": "DEPOSIT",
+                "amount": "0",
+                "description": "\"\""
+            },
+            "9": {
+                "type": "DEPOSIT",
+                "amount": "0",
+                "description": "\"\""
+            }
+        },
+        "transactionCount": "0"
+    }
+}
+2024-11-18 21:35:59,628 - INFO - [Global Variables]:
+2024-11-18 21:35:59,628 - INFO - [Member Variables]:
+2024-11-18 21:35:59,628 - INFO - [Arguments]:
+2024-11-18 21:35:59,629 - DEBUG - Stopped at deposit at function start, called from simulateOperations.
+2024-11-18 21:35:59,629 - DEBUG - [Call]    0x00005555555552c5 <+87>:	call   0x5555555551df <addTransaction>
+2024-11-18 21:35:59,629 - DEBUG - [Return]    0x00005555555552d0 <+98>:	ret
+2024-11-18 21:35:59,630 - DEBUG - Stopped at addTransaction at function start, called from deposit.
+2024-11-18 21:35:59,630 - DEBUG - deposit called addTransaction 3 times, total 4 times.
+2024-11-18 21:35:59,630 - INFO - Function addTransaction called 3 times, total 4 times.
+2024-11-18 21:35:59,630 - DEBUG - Stopped at addTransaction at function start, called from deposit.
+2024-11-18 21:35:59,631 - DEBUG - Function 0x1(%rax),%ecx not found in input data.
+2024-11-18 21:35:59,631 - DEBUG - Function 0x10(%rax),%rdx not found in input data.
+2024-11-18 21:35:59,631 - DEBUG - Function 0x10(%rax),%rcx not found in input data.
+2024-11-18 21:35:59,631 - DEBUG - [Call]    0x0000555555555264 <+133>:	call   0x555555555040 <strncpy@plt>
+2024-11-18 21:35:59,631 - DEBUG - [Return]    0x000055555555526d <+142>:	ret
+2024-11-18 21:35:59,632 - DEBUG - Stopped at strncpy at function start, called from addTransaction.
+2024-11-18 21:35:59,632 - DEBUG - addTransaction called strncpy 3 times, total 7 times.
+2024-11-18 21:35:59,632 - INFO - Function strncpy called 3 times, total 7 times.
+2024-11-18 21:35:59,632 - DEBUG - Stopped at strncpy at function start, called from createAccount.
+2024-11-18 21:35:59,633 - DEBUG - Function 0x7ffff7e76920 not found in input data.
+2024-11-18 21:35:59,633 - DEBUG - Function 0x7ffff7f287c0 not found in input data.
+2024-11-18 21:35:59,633 - DEBUG - Function 0x7ffff7e76920 not found in input data.
+2024-11-18 21:35:59,633 - DEBUG - Function 0x7ffff7f1fc20 not found in input data.
+2024-11-18 21:35:59,633 - DEBUG - [Return]    0x00007ffff7e67429 <+73>:	ret
+2024-11-18 21:35:59,633 - DEBUG - Function 0x7ffff7f31630 not found in input data.
+2024-11-18 21:35:59,633 - DEBUG - Stopped at addTransaction at function return, returning to deposit.
+2024-11-18 21:35:59,633 - DEBUG - deposit called addTransaction 3 times, total 4 times.
+2024-11-18 21:35:59,633 - INFO - Function addTransaction called 3 times, total 4 times.
+2024-11-18 21:35:59,634 - DEBUG - Stopped at deposit at function return, returning to simulateOperations.
+2024-11-18 21:35:59,634 - DEBUG - simulateOperations called deposit 3 times, total 3 times.
+2024-11-18 21:35:59,634 - INFO - Function deposit called 3 times, total 3 times.
+2024-11-18 21:35:59,634 - DEBUG - SAL: symbol and line for test15.c, line 72 Line: 72 File: test15.c
+2024-11-18 21:35:59,634 - DEBUG - [Pointer] 0x555555559580 [Type] None (1)
+2024-11-18 21:35:59,635 - DEBUG - [Pointer] 0x555555556034 "Initial" [Type] None (1)
+2024-11-18 21:35:59,635 - DEBUG - [Pointer] 0x555555556034 "Initial" [Address] 93824992239668 [Size] 1
+2024-11-18 21:35:59,636 - INFO - [Local Variables]:
+2024-11-18 21:35:59,636 - INFO - [Global Variables]:
+2024-11-18 21:35:59,636 - INFO - [Member Variables]:
+2024-11-18 21:35:59,636 - INFO - [Arguments]:
+2024-11-18 21:35:59,636 - DEBUG - [Pointer] 0x555555559580 [Type] None (1)
+2024-11-18 21:35:59,637 - DEBUG - [Pointer] 0x555555556034 "Initial" [Type] None (1)
+2024-11-18 21:35:59,637 - DEBUG - [Pointer] 0x555555556034 "Initial" [Address] 93824992239668 [Size] 1
+2024-11-18 21:35:59,638 - DEBUG - Stopped at withdraw at function start, called from simulateOperations.
+2024-11-18 21:35:59,638 - DEBUG - simulateOperations called withdraw 1 times, total 2 times.
+2024-11-18 21:35:59,638 - INFO - Function withdraw called 1 times, total 2 times.
+2024-11-18 21:35:59,638 - DEBUG - Stopped at withdraw at function start, called from simulateOperations.
+2024-11-18 21:35:59,639 - DEBUG - [Call]    0x0000555555555343 <+114>:	call   0x5555555551df <addTransaction>
+2024-11-18 21:35:59,639 - DEBUG - [Return]    0x000055555555534e <+125>:	ret
+2024-11-18 21:35:59,640 - DEBUG - Stopped at addTransaction at function start, called from withdraw.
+2024-11-18 21:35:59,640 - DEBUG - withdraw called addTransaction 1 times, total 3 times.
+2024-11-18 21:35:59,640 - INFO - Function addTransaction called 1 times, total 3 times.
+2024-11-18 21:35:59,640 - DEBUG - Stopped at addTransaction at function start, called from deposit.
+2024-11-18 21:35:59,641 - DEBUG - Function 0x1(%rax),%ecx not found in input data.
+2024-11-18 21:35:59,641 - DEBUG - Function 0x10(%rax),%rdx not found in input data.
+2024-11-18 21:35:59,641 - DEBUG - Function 0x10(%rax),%rcx not found in input data.
+2024-11-18 21:35:59,641 - DEBUG - [Call]    0x0000555555555264 <+133>:	call   0x555555555040 <strncpy@plt>
+2024-11-18 21:35:59,641 - DEBUG - [Return]    0x000055555555526d <+142>:	ret
+2024-11-18 21:35:59,642 - DEBUG - Stopped at strncpy at function start, called from addTransaction.
+2024-11-18 21:35:59,642 - DEBUG - addTransaction called strncpy 4 times, total 7 times.
+2024-11-18 21:35:59,642 - INFO - Function strncpy called 4 times, total 7 times.
+2024-11-18 21:35:59,642 - DEBUG - Stopped at strncpy at function start, called from createAccount.
+2024-11-18 21:35:59,642 - DEBUG - Function 0x7ffff7e76920 not found in input data.
+2024-11-18 21:35:59,643 - DEBUG - Function 0x7ffff7f287c0 not found in input data.
+2024-11-18 21:35:59,643 - DEBUG - Function 0x7ffff7e76920 not found in input data.
+2024-11-18 21:35:59,643 - DEBUG - Function 0x7ffff7f1fc20 not found in input data.
+2024-11-18 21:35:59,643 - DEBUG - [Return]    0x00007ffff7e67429 <+73>:	ret
+2024-11-18 21:35:59,643 - DEBUG - Function 0x7ffff7f31630 not found in input data.
+2024-11-18 21:35:59,643 - DEBUG - Stopped at addTransaction at function return, returning to deposit.
+2024-11-18 21:35:59,643 - DEBUG - deposit called addTransaction 3 times, total 4 times.
+2024-11-18 21:35:59,643 - INFO - Function addTransaction called 3 times, total 4 times.
+2024-11-18 21:35:59,644 - DEBUG - Stopped at withdraw at function return, returning to simulateOperations.
+2024-11-18 21:35:59,644 - DEBUG - simulateOperations called withdraw 1 times, total 2 times.
+2024-11-18 21:35:59,644 - INFO - Function withdraw called 1 times, total 2 times.
+2024-11-18 21:35:59,645 - DEBUG - Stopped at withdraw at function start, called from simulateOperations.
+2024-11-18 21:35:59,645 - DEBUG - simulateOperations called withdraw 2 times, total 2 times.
+2024-11-18 21:35:59,645 - INFO - Function withdraw called 2 times, total 2 times.
+2024-11-18 21:35:59,645 - DEBUG - SAL: symbol and line for test15.c, line 125 Line: 125 File: test15.c
+2024-11-18 21:35:59,645 - DEBUG - [Pointer] 0x5555555592a0 [Type] None (1)
+2024-11-18 21:35:59,646 - DEBUG - [Pointer] 0x555555559410 [Type] None (1)
+2024-11-18 21:35:59,647 - DEBUG - [Pointer] 0x555555559580 [Type] None (1)
+2024-11-18 21:35:59,648 - INFO - [Local Variables]:
+2024-11-18 21:35:59,648 - DEBUG - [Pointer] 0x5555555592a0 [Type] None (1)
+2024-11-18 21:35:59,649 - DEBUG - [Pointer] 0x555555559410 [Type] None (1)
+2024-11-18 21:35:59,651 - DEBUG - [Pointer] 0x555555559580 [Type] None (1)
+2024-11-18 21:35:59,652 - INFO -   totalAccounts = "3"
+2024-11-18 21:35:59,652 - INFO -   accounts = {
+    "0": {
+        "accountNumber": "1001",
+        "holderName": "\"Alice\"",
+        "balance": "500",
+        "transactions": {
+            "0": {
+                "type": "DEPOSIT",
+                "amount": "500",
+                "description": "\"Initial\""
+            },
+            "1": {
+                "type": "DEPOSIT",
+                "amount": "0",
+                "description": "\"\""
+            },
+            "2": {
+                "type": "DEPOSIT",
+                "amount": "0",
+                "description": "\"\""
+            },
+            "3": {
+                "type": "DEPOSIT",
+                "amount": "0",
+                "description": "\"\""
+            },
+            "4": {
+                "type": "DEPOSIT",
+                "amount": "0",
+                "description": "\"\""
+            },
+            "5": {
+                "type": "DEPOSIT",
+                "amount": "0",
+                "description": "\"\""
+            },
+            "6": {
+                "type": "DEPOSIT",
+                "amount": "0",
+                "description": "\"\""
+            },
+            "7": {
+                "type": "DEPOSIT",
+                "amount": "0",
+                "description": "\"\""
+            },
+            "8": {
+                "type": "DEPOSIT",
+                "amount": "0",
+                "description": "\"\""
+            },
+            "9": {
+                "type": "DEPOSIT",
+                "amount": "0",
+                "description": "\"\""
+            }
+        },
+        "transactionCount": "1"
+    },
+    "1": {
+        "accountNumber": "1002",
+        "holderName": "\"Bob\"",
+        "balance": "800",
+        "transactions": {
+            "0": {
+                "type": "DEPOSIT",
+                "amount": "1000",
+                "description": "\"Initial\""
+            },
+            "1": {
+                "type": "WITHDRAWAL",
+                "amount": "200",
+                "description": "\"withdrawal\""
+            },
+            "2": {
+                "type": "DEPOSIT",
+                "amount": "0",
+                "description": "\"\""
+            },
+            "3": {
+                "type": "DEPOSIT",
+                "amount": "0",
+                "description": "\"\""
+            },
+            "4": {
+                "type": "DEPOSIT",
+                "amount": "0",
+                "description": "\"\""
+            },
+            "5": {
+                "type": "DEPOSIT",
+                "amount": "0",
+                "description": "\"\""
+            },
+            "6": {
+                "type": "DEPOSIT",
+                "amount": "0",
+                "description": "\"\""
+            },
+            "7": {
+                "type": "DEPOSIT",
+                "amount": "0",
+                "description": "\"\""
+            },
+            "8": {
+                "type": "DEPOSIT",
+                "amount": "0",
+                "description": "\"\""
+            },
+            "9": {
+                "type": "DEPOSIT",
+                "amount": "0",
+                "description": "\"\""
+            }
+        },
+        "transactionCount": "2"
+    },
+    "2": {
+        "accountNumber": "1003",
+        "holderName": "\"Charl\"",
+        "balance": "750",
+        "transactions": {
+            "0": {
+                "type": "DEPOSIT",
+                "amount": "750",
+                "description": "\"Initial\""
+            },
+            "1": {
+                "type": "DEPOSIT",
+                "amount": "0",
+                "description": "\"\""
+            },
+            "2": {
+                "type": "DEPOSIT",
+                "amount": "0",
+                "description": "\"\""
+            },
+            "3": {
+                "type": "DEPOSIT",
+                "amount": "0",
+                "description": "\"\""
+            },
+            "4": {
+                "type": "DEPOSIT",
+                "amount": "0",
+                "description": "\"\""
+            },
+            "5": {
+                "type": "DEPOSIT",
+                "amount": "0",
+                "description": "\"\""
+            },
+            "6": {
+                "type": "DEPOSIT",
+                "amount": "0",
+                "description": "\"\""
+            },
+            "7": {
+                "type": "DEPOSIT",
+                "amount": "0",
+                "description": "\"\""
+            },
+            "8": {
+                "type": "DEPOSIT",
+                "amount": "0",
+                "description": "\"\""
+            },
+            "9": {
+                "type": "DEPOSIT",
+                "amount": "0",
+                "description": "\"\""
+            }
+        },
+        "transactionCount": "1"
+    }
+}
+2024-11-18 21:35:59,652 - INFO - [Global Variables]:
+2024-11-18 21:35:59,652 - INFO - [Member Variables]:
+2024-11-18 21:35:59,652 - INFO - [Arguments]:
+2024-11-18 21:35:59,653 - DEBUG - Stopped at withdraw at function start, called from simulateOperations.
+2024-11-18 21:35:59,653 - DEBUG - [Call]    0x0000555555555343 <+114>:	call   0x5555555551df <addTransaction>
+2024-11-18 21:35:59,653 - DEBUG - [Return]    0x000055555555534e <+125>:	ret
+2024-11-18 21:35:59,654 - DEBUG - Stopped at addTransaction at function start, called from withdraw.
+2024-11-18 21:35:59,654 - DEBUG - withdraw called addTransaction 2 times, total 3 times.
+2024-11-18 21:35:59,654 - INFO - Function addTransaction called 2 times, total 3 times.
+2024-11-18 21:35:59,655 - DEBUG - Stopped at addTransaction at function start, called from deposit.
+2024-11-18 21:35:59,655 - DEBUG - Function 0x1(%rax),%ecx not found in input data.
+2024-11-18 21:35:59,655 - DEBUG - Function 0x10(%rax),%rdx not found in input data.
+2024-11-18 21:35:59,655 - DEBUG - Function 0x10(%rax),%rcx not found in input data.
+2024-11-18 21:35:59,655 - DEBUG - [Call]    0x0000555555555264 <+133>:	call   0x555555555040 <strncpy@plt>
+2024-11-18 21:35:59,655 - DEBUG - [Return]    0x000055555555526d <+142>:	ret
+2024-11-18 21:35:59,656 - DEBUG - Stopped at strncpy at function start, called from addTransaction.
+2024-11-18 21:35:59,656 - DEBUG - addTransaction called strncpy 5 times, total 7 times.
+2024-11-18 21:35:59,656 - INFO - Function strncpy called 5 times, total 7 times.
+2024-11-18 21:35:59,657 - DEBUG - Stopped at strncpy at function start, called from createAccount.
+2024-11-18 21:35:59,657 - DEBUG - Function 0x7ffff7e76920 not found in input data.
+2024-11-18 21:35:59,657 - DEBUG - Function 0x7ffff7f287c0 not found in input data.
+2024-11-18 21:35:59,657 - DEBUG - Function 0x7ffff7e76920 not found in input data.
+2024-11-18 21:35:59,657 - DEBUG - Function 0x7ffff7f1fc20 not found in input data.
+2024-11-18 21:35:59,657 - DEBUG - [Return]    0x00007ffff7e67429 <+73>:	ret
+2024-11-18 21:35:59,657 - DEBUG - Function 0x7ffff7f31630 not found in input data.
+2024-11-18 21:35:59,658 - DEBUG - Stopped at addTransaction at function return, returning to deposit.
+2024-11-18 21:35:59,658 - DEBUG - deposit called addTransaction 3 times, total 4 times.
+2024-11-18 21:35:59,658 - INFO - Function addTransaction called 3 times, total 4 times.
+2024-11-18 21:35:59,658 - DEBUG - Stopped at withdraw at function return, returning to simulateOperations.
+2024-11-18 21:35:59,658 - DEBUG - simulateOperations called withdraw 2 times, total 2 times.
+2024-11-18 21:35:59,658 - INFO - Function withdraw called 2 times, total 2 times.
+2024-11-18 21:35:59,659 - DEBUG - SAL: symbol and line for test15.c, line 84 Line: 84 File: test15.c
+2024-11-18 21:35:59,659 - DEBUG - [Pointer] 0x555555559580 [Type] None (1)
+2024-11-18 21:35:59,660 - DEBUG - [Pointer] 0x555555556047 "shopping" [Type] None (1)
+2024-11-18 21:35:59,660 - DEBUG - [Pointer] 0x555555556047 "shopping" [Address] 93824992239687 [Size] 1
+2024-11-18 21:35:59,660 - INFO - [Local Variables]:
+2024-11-18 21:35:59,660 - INFO - [Global Variables]:
+2024-11-18 21:35:59,660 - INFO - [Member Variables]:
+2024-11-18 21:35:59,660 - INFO - [Arguments]:
+2024-11-18 21:35:59,660 - DEBUG - [Pointer] 0x555555559580 [Type] None (1)
+2024-11-18 21:35:59,661 - DEBUG - [Pointer] 0x555555556047 "shopping" [Type] None (1)
+2024-11-18 21:35:59,662 - DEBUG - [Pointer] 0x555555556047 "shopping" [Address] 93824992239687 [Size] 1
+2024-11-18 21:35:59,662 - DEBUG - Stopped at transfer at function start, called from simulateOperations.
+2024-11-18 21:35:59,662 - DEBUG - simulateOperations called transfer 1 times, total 1 times.
+2024-11-18 21:35:59,662 - INFO - Function transfer called 1 times, total 1 times.
+2024-11-18 21:35:59,662 - DEBUG - SAL: symbol and line for test15.c, line 127 Line: 127 File: test15.c
+2024-11-18 21:35:59,663 - DEBUG - [Pointer] 0x5555555592a0 [Type] None (1)
+2024-11-18 21:35:59,664 - DEBUG - [Pointer] 0x555555559410 [Type] None (1)
+2024-11-18 21:35:59,665 - DEBUG - [Pointer] 0x555555559580 [Type] None (1)
+2024-11-18 21:35:59,666 - INFO - [Local Variables]:
+2024-11-18 21:35:59,666 - DEBUG - [Pointer] 0x5555555592a0 [Type] None (1)
+2024-11-18 21:35:59,667 - DEBUG - [Pointer] 0x555555559410 [Type] None (1)
+2024-11-18 21:35:59,668 - DEBUG - [Pointer] 0x555555559580 [Type] None (1)
+2024-11-18 21:35:59,669 - INFO -   totalAccounts = "3"
+2024-11-18 21:35:59,670 - INFO -   accounts = {
+    "0": {
+        "accountNumber": "1001",
+        "holderName": "\"Alice\"",
+        "balance": "500",
+        "transactions": {
+            "0": {
+                "type": "DEPOSIT",
+                "amount": "500",
+                "description": "\"Initial\""
+            },
+            "1": {
+                "type": "DEPOSIT",
+                "amount": "0",
+                "description": "\"\""
+            },
+            "2": {
+                "type": "DEPOSIT",
+                "amount": "0",
+                "description": "\"\""
+            },
+            "3": {
+                "type": "DEPOSIT",
+                "amount": "0",
+                "description": "\"\""
+            },
+            "4": {
+                "type": "DEPOSIT",
+                "amount": "0",
+                "description": "\"\""
+            },
+            "5": {
+                "type": "DEPOSIT",
+                "amount": "0",
+                "description": "\"\""
+            },
+            "6": {
+                "type": "DEPOSIT",
+                "amount": "0",
+                "description": "\"\""
+            },
+            "7": {
+                "type": "DEPOSIT",
+                "amount": "0",
+                "description": "\"\""
+            },
+            "8": {
+                "type": "DEPOSIT",
+                "amount": "0",
+                "description": "\"\""
+            },
+            "9": {
+                "type": "DEPOSIT",
+                "amount": "0",
+                "description": "\"\""
+            }
+        },
+        "transactionCount": "1"
+    },
+    "1": {
+        "accountNumber": "1002",
+        "holderName": "\"Bob\"",
+        "balance": "800",
+        "transactions": {
+            "0": {
+                "type": "DEPOSIT",
+                "amount": "1000",
+                "description": "\"Initial\""
+            },
+            "1": {
+                "type": "WITHDRAWAL",
+                "amount": "200",
+                "description": "\"withdrawal\""
+            },
+            "2": {
+                "type": "DEPOSIT",
+                "amount": "0",
+                "description": "\"\""
+            },
+            "3": {
+                "type": "DEPOSIT",
+                "amount": "0",
+                "description": "\"\""
+            },
+            "4": {
+                "type": "DEPOSIT",
+                "amount": "0",
+                "description": "\"\""
+            },
+            "5": {
+                "type": "DEPOSIT",
+                "amount": "0",
+                "description": "\"\""
+            },
+            "6": {
+                "type": "DEPOSIT",
+                "amount": "0",
+                "description": "\"\""
+            },
+            "7": {
+                "type": "DEPOSIT",
+                "amount": "0",
+                "description": "\"\""
+            },
+            "8": {
+                "type": "DEPOSIT",
+                "amount": "0",
+                "description": "\"\""
+            },
+            "9": {
+                "type": "DEPOSIT",
+                "amount": "0",
+                "description": "\"\""
+            }
+        },
+        "transactionCount": "2"
+    },
+    "2": {
+        "accountNumber": "1003",
+        "holderName": "\"Charl\"",
+        "balance": "700",
+        "transactions": {
+            "0": {
+                "type": "DEPOSIT",
+                "amount": "750",
+                "description": "\"Initial\""
+            },
+            "1": {
+                "type": "WITHDRAWAL",
+                "amount": "50",
+                "description": "\"shopping\""
+            },
+            "2": {
+                "type": "DEPOSIT",
+                "amount": "0",
+                "description": "\"\""
+            },
+            "3": {
+                "type": "DEPOSIT",
+                "amount": "0",
+                "description": "\"\""
+            },
+            "4": {
+                "type": "DEPOSIT",
+                "amount": "0",
+                "description": "\"\""
+            },
+            "5": {
+                "type": "DEPOSIT",
+                "amount": "0",
+                "description": "\"\""
+            },
+            "6": {
+                "type": "DEPOSIT",
+                "amount": "0",
+                "description": "\"\""
+            },
+            "7": {
+                "type": "DEPOSIT",
+                "amount": "0",
+                "description": "\"\""
+            },
+            "8": {
+                "type": "DEPOSIT",
+                "amount": "0",
+                "description": "\"\""
+            },
+            "9": {
+                "type": "DEPOSIT",
+                "amount": "0",
+                "description": "\"\""
+            }
+        },
+        "transactionCount": "2"
+    }
+}
+2024-11-18 21:35:59,670 - INFO - [Global Variables]:
+2024-11-18 21:35:59,670 - INFO - [Member Variables]:
+2024-11-18 21:35:59,670 - INFO - [Arguments]:
+2024-11-18 21:35:59,671 - DEBUG - Stopped at transfer at function start, called from simulateOperations.
+2024-11-18 21:35:59,671 - DEBUG - [Call]    0x00005555555553ef <+41>:	call   0x555555555365 <findAccount>
+2024-11-18 21:35:59,671 - DEBUG - [Call]    0x0000555555555407 <+65>:	call   0x555555555365 <findAccount>
+2024-11-18 21:35:59,671 - DEBUG - Function 0x555555556008 not found in input data.
+2024-11-18 21:35:59,671 - DEBUG - [Call]    0x0000555555555438 <+114>:	call   0x5555555552d1 <withdraw>
+2024-11-18 21:35:59,671 - DEBUG - Function 0x555555556014 not found in input data.
+2024-11-18 21:35:59,671 - DEBUG - [Call]    0x000055555555545b <+149>:	call   0x55555555526e <deposit>
+2024-11-18 21:35:59,672 - DEBUG - [Return]    0x0000555555555464 <+158>:	ret
+2024-11-18 21:35:59,672 - DEBUG - Stopped at findAccount at function start, called from transfer.
+2024-11-18 21:35:59,672 - DEBUG - transfer called findAccount 1 times, total 2 times.
+2024-11-18 21:35:59,672 - INFO - Function findAccount called 1 times, total 2 times.
+2024-11-18 21:35:59,673 - DEBUG - Stopped at findAccount at function start, called from transfer.
+2024-11-18 21:35:59,673 - DEBUG - Function 0x0(,%rax,8),%rdx not found in input data.
+2024-11-18 21:35:59,673 - DEBUG - Function 0x0(,%rax,8),%rdx not found in input data.
+2024-11-18 21:35:59,673 - DEBUG - [Return]    0x00005555555553c5 <+96>:	ret
+2024-11-18 21:35:59,674 - DEBUG - Stopped at findAccount at function return, returning to transfer.
+2024-11-18 21:35:59,674 - DEBUG - transfer called findAccount 1 times, total 2 times.
+2024-11-18 21:35:59,674 - INFO - Function findAccount called 1 times, total 2 times.
+2024-11-18 21:35:59,675 - DEBUG - Stopped at findAccount at function start, called from transfer.
+2024-11-18 21:35:59,675 - DEBUG - transfer called findAccount 2 times, total 2 times.
+2024-11-18 21:35:59,675 - INFO - Function findAccount called 2 times, total 2 times.
+2024-11-18 21:35:59,675 - DEBUG - SAL: symbol and line for test15.c, line 103 Line: 103 File: test15.c
+2024-11-18 21:35:59,675 - DEBUG - [Pointer] 0x5555555592a0 [Type] None (1)
+2024-11-18 21:35:59,676 - DEBUG - [Pointer] 0x4049000000000000 [Type] None (1)
+2024-11-18 21:35:59,677 - ERROR - Failed to get string value: Cannot access memory at address 0x4049000000000000
+2024-11-18 21:35:59,677 - ERROR - Failed to get string value: Cannot access memory at address 0x4049000000000004
+2024-11-18 21:35:59,677 - ERROR - Failed to get string value: Cannot access memory at address 0x4049000000000010
+2024-11-18 21:35:59,677 - ERROR - Failed to get string value: Cannot access memory at address 0x4049000000000018
+2024-11-18 21:35:59,677 - ERROR - Failed to get string value: Cannot access memory at address 0x4049000000000020
+2024-11-18 21:35:59,677 - ERROR - Failed to get string value: Cannot access memory at address 0x4049000000000028
+2024-11-18 21:35:59,677 - ERROR - Failed to get string value: Cannot access memory at address 0x4049000000000038
+2024-11-18 21:35:59,677 - ERROR - Failed to get string value: Cannot access memory at address 0x4049000000000040
+2024-11-18 21:35:59,677 - ERROR - Failed to get string value: Cannot access memory at address 0x4049000000000048
+2024-11-18 21:35:59,678 - ERROR - Failed to get string value: Cannot access memory at address 0x4049000000000058
+2024-11-18 21:35:59,678 - ERROR - Failed to get string value: Cannot access memory at address 0x4049000000000060
+2024-11-18 21:35:59,678 - ERROR - Failed to get string value: Cannot access memory at address 0x4049000000000068
+2024-11-18 21:35:59,678 - ERROR - Failed to get string value: Cannot access memory at address 0x4049000000000078
+2024-11-18 21:35:59,678 - ERROR - Failed to get string value: Cannot access memory at address 0x4049000000000080
+2024-11-18 21:35:59,678 - ERROR - Failed to get string value: Cannot access memory at address 0x4049000000000088
+2024-11-18 21:35:59,678 - ERROR - Failed to get string value: Cannot access memory at address 0x4049000000000098
+2024-11-18 21:35:59,678 - ERROR - Failed to get string value: Cannot access memory at address 0x40490000000000a0
+2024-11-18 21:35:59,678 - ERROR - Failed to get string value: Cannot access memory at address 0x40490000000000a8
+2024-11-18 21:35:59,678 - ERROR - Failed to get string value: Cannot access memory at address 0x40490000000000b8
+2024-11-18 21:35:59,678 - ERROR - Failed to get string value: Cannot access memory at address 0x40490000000000c0
+2024-11-18 21:35:59,678 - ERROR - Failed to get string value: Cannot access memory at address 0x40490000000000c8
+2024-11-18 21:35:59,679 - ERROR - Failed to get string value: Cannot access memory at address 0x40490000000000d8
+2024-11-18 21:35:59,679 - ERROR - Failed to get string value: Cannot access memory at address 0x40490000000000e0
+2024-11-18 21:35:59,679 - ERROR - Failed to get string value: Cannot access memory at address 0x40490000000000e8
+2024-11-18 21:35:59,679 - ERROR - Failed to get string value: Cannot access memory at address 0x40490000000000f8
+2024-11-18 21:35:59,679 - ERROR - Failed to get string value: Cannot access memory at address 0x4049000000000100
+2024-11-18 21:35:59,679 - ERROR - Failed to get string value: Cannot access memory at address 0x4049000000000108
+2024-11-18 21:35:59,679 - ERROR - Failed to get string value: Cannot access memory at address 0x4049000000000118
+2024-11-18 21:35:59,679 - ERROR - Failed to get string value: Cannot access memory at address 0x4049000000000120
+2024-11-18 21:35:59,679 - ERROR - Failed to get string value: Cannot access memory at address 0x4049000000000128
+2024-11-18 21:35:59,679 - ERROR - Failed to get string value: Cannot access memory at address 0x4049000000000138
+2024-11-18 21:35:59,679 - ERROR - Failed to get string value: Cannot access memory at address 0x4049000000000140
+2024-11-18 21:35:59,679 - ERROR - Failed to get string value: Cannot access memory at address 0x4049000000000148
+2024-11-18 21:35:59,679 - ERROR - Failed to get string value: Cannot access memory at address 0x4049000000000158
+2024-11-18 21:35:59,679 - ERROR - Failed to get string value: Cannot access memory at address 0x4049000000000000
+2024-11-18 21:35:59,680 - ERROR - Failed to get string value: Cannot access memory at address 0x4049000000000004
+2024-11-18 21:35:59,680 - ERROR - Failed to get string value: Cannot access memory at address 0x4049000000000010
+2024-11-18 21:35:59,680 - ERROR - Failed to get string value: Cannot access memory at address 0x4049000000000018
+2024-11-18 21:35:59,680 - ERROR - Failed to get string value: Cannot access memory at address 0x4049000000000020
+2024-11-18 21:35:59,680 - ERROR - Failed to get string value: Cannot access memory at address 0x4049000000000028
+2024-11-18 21:35:59,680 - ERROR - Failed to get string value: Cannot access memory at address 0x4049000000000038
+2024-11-18 21:35:59,680 - ERROR - Failed to get string value: Cannot access memory at address 0x4049000000000040
+2024-11-18 21:35:59,680 - ERROR - Failed to get string value: Cannot access memory at address 0x4049000000000048
+2024-11-18 21:35:59,680 - ERROR - Failed to get string value: Cannot access memory at address 0x4049000000000058
+2024-11-18 21:35:59,680 - ERROR - Failed to get string value: Cannot access memory at address 0x4049000000000060
+2024-11-18 21:35:59,680 - ERROR - Failed to get string value: Cannot access memory at address 0x4049000000000068
+2024-11-18 21:35:59,680 - ERROR - Failed to get string value: Cannot access memory at address 0x4049000000000078
+2024-11-18 21:35:59,681 - ERROR - Failed to get string value: Cannot access memory at address 0x4049000000000080
+2024-11-18 21:35:59,681 - ERROR - Failed to get string value: Cannot access memory at address 0x4049000000000088
+2024-11-18 21:35:59,681 - ERROR - Failed to get string value: Cannot access memory at address 0x4049000000000098
+2024-11-18 21:35:59,681 - ERROR - Failed to get string value: Cannot access memory at address 0x40490000000000a0
+2024-11-18 21:35:59,681 - ERROR - Failed to get string value: Cannot access memory at address 0x40490000000000a8
+2024-11-18 21:35:59,681 - ERROR - Failed to get string value: Cannot access memory at address 0x40490000000000b8
+2024-11-18 21:35:59,681 - ERROR - Failed to get string value: Cannot access memory at address 0x40490000000000c0
+2024-11-18 21:35:59,681 - ERROR - Failed to get string value: Cannot access memory at address 0x40490000000000c8
+2024-11-18 21:35:59,681 - ERROR - Failed to get string value: Cannot access memory at address 0x40490000000000d8
+2024-11-18 21:35:59,681 - ERROR - Failed to get string value: Cannot access memory at address 0x40490000000000e0
+2024-11-18 21:35:59,681 - ERROR - Failed to get string value: Cannot access memory at address 0x40490000000000e8
+2024-11-18 21:35:59,681 - ERROR - Failed to get string value: Cannot access memory at address 0x40490000000000f8
+2024-11-18 21:35:59,681 - ERROR - Failed to get string value: Cannot access memory at address 0x4049000000000100
+2024-11-18 21:35:59,681 - ERROR - Failed to get string value: Cannot access memory at address 0x4049000000000108
+2024-11-18 21:35:59,682 - ERROR - Failed to get string value: Cannot access memory at address 0x4049000000000118
+2024-11-18 21:35:59,682 - ERROR - Failed to get string value: Cannot access memory at address 0x4049000000000120
+2024-11-18 21:35:59,682 - ERROR - Failed to get string value: Cannot access memory at address 0x4049000000000128
+2024-11-18 21:35:59,682 - ERROR - Failed to get string value: Cannot access memory at address 0x4049000000000138
+2024-11-18 21:35:59,682 - ERROR - Failed to get string value: Cannot access memory at address 0x4049000000000140
+2024-11-18 21:35:59,682 - ERROR - Failed to get string value: Cannot access memory at address 0x4049000000000148
+2024-11-18 21:35:59,682 - ERROR - Failed to get string value: Cannot access memory at address 0x4049000000000158
+2024-11-18 21:35:59,682 - DEBUG - [Pointer] 0x7fffffffe060 [Type] None (1)
+2024-11-18 21:35:59,682 - DEBUG - [Pointer] 0x5555555592a0 [Type] None (1)
+2024-11-18 21:35:59,683 - DEBUG - [Pointer] 0x5555555592a0 [Type] None (1)
+2024-11-18 21:35:59,684 - INFO - [Local Variables]:
+2024-11-18 21:35:59,685 - DEBUG - [Pointer] 0x5555555592a0 [Type] None (1)
+2024-11-18 21:35:59,686 - DEBUG - [Pointer] 0x4049000000000000 [Type] None (1)
+2024-11-18 21:35:59,686 - ERROR - Failed to get string value: Cannot access memory at address 0x4049000000000000
+2024-11-18 21:35:59,686 - ERROR - Failed to get string value: Cannot access memory at address 0x4049000000000004
+2024-11-18 21:35:59,686 - ERROR - Failed to get string value: Cannot access memory at address 0x4049000000000010
+2024-11-18 21:35:59,686 - ERROR - Failed to get string value: Cannot access memory at address 0x4049000000000018
+2024-11-18 21:35:59,686 - ERROR - Failed to get string value: Cannot access memory at address 0x4049000000000020
+2024-11-18 21:35:59,686 - ERROR - Failed to get string value: Cannot access memory at address 0x4049000000000028
+2024-11-18 21:35:59,687 - ERROR - Failed to get string value: Cannot access memory at address 0x4049000000000038
+2024-11-18 21:35:59,687 - ERROR - Failed to get string value: Cannot access memory at address 0x4049000000000040
+2024-11-18 21:35:59,687 - ERROR - Failed to get string value: Cannot access memory at address 0x4049000000000048
+2024-11-18 21:35:59,687 - ERROR - Failed to get string value: Cannot access memory at address 0x4049000000000058
+2024-11-18 21:35:59,687 - ERROR - Failed to get string value: Cannot access memory at address 0x4049000000000060
+2024-11-18 21:35:59,687 - ERROR - Failed to get string value: Cannot access memory at address 0x4049000000000068
+2024-11-18 21:35:59,687 - ERROR - Failed to get string value: Cannot access memory at address 0x4049000000000078
+2024-11-18 21:35:59,687 - ERROR - Failed to get string value: Cannot access memory at address 0x4049000000000080
+2024-11-18 21:35:59,687 - ERROR - Failed to get string value: Cannot access memory at address 0x4049000000000088
+2024-11-18 21:35:59,687 - ERROR - Failed to get string value: Cannot access memory at address 0x4049000000000098
+2024-11-18 21:35:59,687 - ERROR - Failed to get string value: Cannot access memory at address 0x40490000000000a0
+2024-11-18 21:35:59,687 - ERROR - Failed to get string value: Cannot access memory at address 0x40490000000000a8
+2024-11-18 21:35:59,687 - ERROR - Failed to get string value: Cannot access memory at address 0x40490000000000b8
+2024-11-18 21:35:59,688 - ERROR - Failed to get string value: Cannot access memory at address 0x40490000000000c0
+2024-11-18 21:35:59,688 - ERROR - Failed to get string value: Cannot access memory at address 0x40490000000000c8
+2024-11-18 21:35:59,688 - ERROR - Failed to get string value: Cannot access memory at address 0x40490000000000d8
+2024-11-18 21:35:59,688 - ERROR - Failed to get string value: Cannot access memory at address 0x40490000000000e0
+2024-11-18 21:35:59,688 - ERROR - Failed to get string value: Cannot access memory at address 0x40490000000000e8
+2024-11-18 21:35:59,688 - ERROR - Failed to get string value: Cannot access memory at address 0x40490000000000f8
+2024-11-18 21:35:59,688 - ERROR - Failed to get string value: Cannot access memory at address 0x4049000000000100
+2024-11-18 21:35:59,688 - ERROR - Failed to get string value: Cannot access memory at address 0x4049000000000108
+2024-11-18 21:35:59,688 - ERROR - Failed to get string value: Cannot access memory at address 0x4049000000000118
+2024-11-18 21:35:59,688 - ERROR - Failed to get string value: Cannot access memory at address 0x4049000000000120
+2024-11-18 21:35:59,688 - ERROR - Failed to get string value: Cannot access memory at address 0x4049000000000128
+2024-11-18 21:35:59,688 - ERROR - Failed to get string value: Cannot access memory at address 0x4049000000000138
+2024-11-18 21:35:59,688 - ERROR - Failed to get string value: Cannot access memory at address 0x4049000000000140
+2024-11-18 21:35:59,689 - ERROR - Failed to get string value: Cannot access memory at address 0x4049000000000148
+2024-11-18 21:35:59,689 - ERROR - Failed to get string value: Cannot access memory at address 0x4049000000000158
+2024-11-18 21:35:59,689 - ERROR - Failed to get string value: Cannot access memory at address 0x4049000000000000
+2024-11-18 21:35:59,689 - ERROR - Failed to get string value: Cannot access memory at address 0x4049000000000004
+2024-11-18 21:35:59,689 - ERROR - Failed to get string value: Cannot access memory at address 0x4049000000000010
+2024-11-18 21:35:59,689 - ERROR - Failed to get string value: Cannot access memory at address 0x4049000000000018
+2024-11-18 21:35:59,689 - ERROR - Failed to get string value: Cannot access memory at address 0x4049000000000020
+2024-11-18 21:35:59,689 - ERROR - Failed to get string value: Cannot access memory at address 0x4049000000000028
+2024-11-18 21:35:59,689 - ERROR - Failed to get string value: Cannot access memory at address 0x4049000000000038
+2024-11-18 21:35:59,689 - ERROR - Failed to get string value: Cannot access memory at address 0x4049000000000040
+2024-11-18 21:35:59,689 - ERROR - Failed to get string value: Cannot access memory at address 0x4049000000000048
+2024-11-18 21:35:59,689 - ERROR - Failed to get string value: Cannot access memory at address 0x4049000000000058
+2024-11-18 21:35:59,689 - ERROR - Failed to get string value: Cannot access memory at address 0x4049000000000060
+2024-11-18 21:35:59,690 - ERROR - Failed to get string value: Cannot access memory at address 0x4049000000000068
+2024-11-18 21:35:59,690 - ERROR - Failed to get string value: Cannot access memory at address 0x4049000000000078
+2024-11-18 21:35:59,690 - ERROR - Failed to get string value: Cannot access memory at address 0x4049000000000080
+2024-11-18 21:35:59,690 - ERROR - Failed to get string value: Cannot access memory at address 0x4049000000000088
+2024-11-18 21:35:59,690 - ERROR - Failed to get string value: Cannot access memory at address 0x4049000000000098
+2024-11-18 21:35:59,690 - ERROR - Failed to get string value: Cannot access memory at address 0x40490000000000a0
+2024-11-18 21:35:59,690 - ERROR - Failed to get string value: Cannot access memory at address 0x40490000000000a8
+2024-11-18 21:35:59,690 - ERROR - Failed to get string value: Cannot access memory at address 0x40490000000000b8
+2024-11-18 21:35:59,690 - ERROR - Failed to get string value: Cannot access memory at address 0x40490000000000c0
+2024-11-18 21:35:59,690 - ERROR - Failed to get string value: Cannot access memory at address 0x40490000000000c8
+2024-11-18 21:35:59,690 - ERROR - Failed to get string value: Cannot access memory at address 0x40490000000000d8
+2024-11-18 21:35:59,690 - ERROR - Failed to get string value: Cannot access memory at address 0x40490000000000e0
+2024-11-18 21:35:59,690 - ERROR - Failed to get string value: Cannot access memory at address 0x40490000000000e8
+2024-11-18 21:35:59,690 - ERROR - Failed to get string value: Cannot access memory at address 0x40490000000000f8
+2024-11-18 21:35:59,691 - ERROR - Failed to get string value: Cannot access memory at address 0x4049000000000100
+2024-11-18 21:35:59,691 - ERROR - Failed to get string value: Cannot access memory at address 0x4049000000000108
+2024-11-18 21:35:59,691 - ERROR - Failed to get string value: Cannot access memory at address 0x4049000000000118
+2024-11-18 21:35:59,691 - ERROR - Failed to get string value: Cannot access memory at address 0x4049000000000120
+2024-11-18 21:35:59,691 - ERROR - Failed to get string value: Cannot access memory at address 0x4049000000000128
+2024-11-18 21:35:59,691 - ERROR - Failed to get string value: Cannot access memory at address 0x4049000000000138
+2024-11-18 21:35:59,691 - ERROR - Failed to get string value: Cannot access memory at address 0x4049000000000140
+2024-11-18 21:35:59,691 - ERROR - Failed to get string value: Cannot access memory at address 0x4049000000000148
+2024-11-18 21:35:59,691 - ERROR - Failed to get string value: Cannot access memory at address 0x4049000000000158
+2024-11-18 21:35:59,691 - INFO -   fromAccount = {
+    "accountNumber": "1001",
+    "holderName": "\"Alice\"",
+    "balance": "500",
+    "transactions": {
+        "0": {
+            "type": "DEPOSIT",
+            "amount": "500",
+            "description": "\"Initial\""
+        },
+        "1": {
+            "type": "DEPOSIT",
+            "amount": "0",
+            "description": "\"\""
+        },
+        "2": {
+            "type": "DEPOSIT",
+            "amount": "0",
+            "description": "\"\""
+        },
+        "3": {
+            "type": "DEPOSIT",
+            "amount": "0",
+            "description": "\"\""
+        },
+        "4": {
+            "type": "DEPOSIT",
+            "amount": "0",
+            "description": "\"\""
+        },
+        "5": {
+            "type": "DEPOSIT",
+            "amount": "0",
+            "description": "\"\""
+        },
+        "6": {
+            "type": "DEPOSIT",
+            "amount": "0",
+            "description": "\"\""
+        },
+        "7": {
+            "type": "DEPOSIT",
+            "amount": "0",
+            "description": "\"\""
+        },
+        "8": {
+            "type": "DEPOSIT",
+            "amount": "0",
+            "description": "\"\""
+        },
+        "9": {
+            "type": "DEPOSIT",
+            "amount": "0",
+            "description": "\"\""
+        }
+    },
+    "transactionCount": "1"
+}
+2024-11-18 21:35:59,691 - INFO -   toAccount = {
+    "accountNumber": "<unavailable>",
+    "holderName": "<unavailable>",
+    "balance": "<unavailable>",
+    "transactions": {
+        "0": {
+            "type": "<unavailable>",
+            "amount": "<unavailable>",
+            "description": "<unavailable>"
+        },
+        "1": {
+            "type": "<unavailable>",
+            "amount": "<unavailable>",
+            "description": "<unavailable>"
+        },
+        "2": {
+            "type": "<unavailable>",
+            "amount": "<unavailable>",
+            "description": "<unavailable>"
+        },
+        "3": {
+            "type": "<unavailable>",
+            "amount": "<unavailable>",
+            "description": "<unavailable>"
+        },
+        "4": {
+            "type": "<unavailable>",
+            "amount": "<unavailable>",
+            "description": "<unavailable>"
+        },
+        "5": {
+            "type": "<unavailable>",
+            "amount": "<unavailable>",
+            "description": "<unavailable>"
+        },
+        "6": {
+            "type": "<unavailable>",
+            "amount": "<unavailable>",
+            "description": "<unavailable>"
+        },
+        "7": {
+            "type": "<unavailable>",
+            "amount": "<unavailable>",
+            "description": "<unavailable>"
+        },
+        "8": {
+            "type": "<unavailable>",
+            "amount": "<unavailable>",
+            "description": "<unavailable>"
+        },
+        "9": {
+            "type": "<unavailable>",
+            "amount": "<unavailable>",
+            "description": "<unavailable>"
+        }
+    },
+    "transactionCount": "<unavailable>"
+}
+2024-11-18 21:35:59,692 - INFO - [Global Variables]:
+2024-11-18 21:35:59,692 - INFO - [Member Variables]:
+2024-11-18 21:35:59,692 - INFO - [Arguments]:
+2024-11-18 21:35:59,692 - DEBUG - [Pointer] 0x7fffffffe060 [Type] None (1)
+2024-11-18 21:35:59,692 - DEBUG - [Pointer] 0x5555555592a0 [Type] None (1)
+2024-11-18 21:35:59,693 - DEBUG - [Pointer] 0x5555555592a0 [Type] None (1)
+2024-11-18 21:35:59,694 - INFO -   accounts = {
+    "accountNumber": "1001",
+    "holderName": "\"Alice\"",
+    "balance": "500",
+    "transactions": {
+        "0": {
+            "type": "DEPOSIT",
+            "amount": "500",
+            "description": "\"Initial\""
+        },
+        "1": {
+            "type": "DEPOSIT",
+            "amount": "0",
+            "description": "\"\""
+        },
+        "2": {
+            "type": "DEPOSIT",
+            "amount": "0",
+            "description": "\"\""
+        },
+        "3": {
+            "type": "DEPOSIT",
+            "amount": "0",
+            "description": "\"\""
+        },
+        "4": {
+            "type": "DEPOSIT",
+            "amount": "0",
+            "description": "\"\""
+        },
+        "5": {
+            "type": "DEPOSIT",
+            "amount": "0",
+            "description": "\"\""
+        },
+        "6": {
+            "type": "DEPOSIT",
+            "amount": "0",
+            "description": "\"\""
+        },
+        "7": {
+            "type": "DEPOSIT",
+            "amount": "0",
+            "description": "\"\""
+        },
+        "8": {
+            "type": "DEPOSIT",
+            "amount": "0",
+            "description": "\"\""
+        },
+        "9": {
+            "type": "DEPOSIT",
+            "amount": "0",
+            "description": "\"\""
+        }
+    },
+    "transactionCount": "1"
+}
+2024-11-18 21:35:59,694 - INFO -   totalAccounts = "3"
+2024-11-18 21:35:59,694 - INFO -   fromAccNum = "1001"
+2024-11-18 21:35:59,694 - INFO -   toAccNum = "1003"
+2024-11-18 21:35:59,694 - INFO -   amount = "150"
+2024-11-18 21:35:59,695 - DEBUG - Stopped at findAccount at function start, called from transfer.
+2024-11-18 21:35:59,695 - DEBUG - Function 0x0(,%rax,8),%rdx not found in input data.
+2024-11-18 21:35:59,695 - DEBUG - Function 0x0(,%rax,8),%rdx not found in input data.
+2024-11-18 21:35:59,695 - DEBUG - [Return]    0x00005555555553c5 <+96>:	ret
+2024-11-18 21:35:59,696 - DEBUG - Stopped at findAccount at function return, returning to transfer.
+2024-11-18 21:35:59,696 - DEBUG - transfer called findAccount 2 times, total 2 times.
+2024-11-18 21:35:59,696 - INFO - Function findAccount called 2 times, total 2 times.
+2024-11-18 21:35:59,696 - DEBUG - SAL: symbol and line for test15.c, line 99 Line: 99 File: test15.c
+2024-11-18 21:35:59,696 - DEBUG - [Pointer] 0x7fffffffe060 [Type] None (1)
+2024-11-18 21:35:59,696 - DEBUG - [Pointer] 0x5555555592a0 [Type] None (1)
+2024-11-18 21:35:59,698 - DEBUG - [Pointer] 0x5555555592a0 [Type] None (1)
+2024-11-18 21:35:59,699 - INFO - [Local Variables]:
+2024-11-18 21:35:59,699 - INFO - [Global Variables]:
+2024-11-18 21:35:59,699 - INFO - [Member Variables]:
+2024-11-18 21:35:59,699 - INFO - [Arguments]:
+2024-11-18 21:35:59,699 - DEBUG - [Pointer] 0x7fffffffe060 [Type] None (1)
+2024-11-18 21:35:59,699 - DEBUG - [Pointer] 0x5555555592a0 [Type] None (1)
+2024-11-18 21:35:59,700 - DEBUG - [Pointer] 0x5555555592a0 [Type] None (1)
+2024-11-18 21:35:59,702 - DEBUG - Stopped at withdraw at function start, called from transfer.
+2024-11-18 21:35:59,702 - DEBUG - transfer called withdraw 1 times, total 1 times.
+2024-11-18 21:35:59,702 - INFO - Function withdraw called 1 times, total 1 times.
+2024-11-18 21:35:59,702 - DEBUG - SAL: symbol and line for test15.c, line 107 Line: 107 File: test15.c
+2024-11-18 21:35:59,702 - DEBUG - [Pointer] 0x5555555592a0 [Type] None (1)
+2024-11-18 21:35:59,703 - DEBUG - [Pointer] 0x555555559580 [Type] None (1)
+2024-11-18 21:35:59,704 - DEBUG - [Pointer] 0x7fffffffe060 [Type] None (1)
+2024-11-18 21:35:59,705 - DEBUG - [Pointer] 0x5555555592a0 [Type] None (1)
+2024-11-18 21:35:59,706 - DEBUG - [Pointer] 0x5555555592a0 [Type] None (1)
+2024-11-18 21:35:59,707 - INFO - [Local Variables]:
+2024-11-18 21:35:59,707 - DEBUG - [Pointer] 0x5555555592a0 [Type] None (1)
+2024-11-18 21:35:59,708 - DEBUG - [Pointer] 0x555555559580 [Type] None (1)
+2024-11-18 21:35:59,709 - INFO -   fromAccount = {
+    "accountNumber": "1001",
+    "holderName": "\"Alice\"",
+    "balance": "500",
+    "transactions": {
+        "0": {
+            "type": "DEPOSIT",
+            "amount": "500",
+            "description": "\"Initial\""
+        },
+        "1": {
+            "type": "DEPOSIT",
+            "amount": "0",
+            "description": "\"\""
+        },
+        "2": {
+            "type": "DEPOSIT",
+            "amount": "0",
+            "description": "\"\""
+        },
+        "3": {
+            "type": "DEPOSIT",
+            "amount": "0",
+            "description": "\"\""
+        },
+        "4": {
+            "type": "DEPOSIT",
+            "amount": "0",
+            "description": "\"\""
+        },
+        "5": {
+            "type": "DEPOSIT",
+            "amount": "0",
+            "description": "\"\""
+        },
+        "6": {
+            "type": "DEPOSIT",
+            "amount": "0",
+            "description": "\"\""
+        },
+        "7": {
+            "type": "DEPOSIT",
+            "amount": "0",
+            "description": "\"\""
+        },
+        "8": {
+            "type": "DEPOSIT",
+            "amount": "0",
+            "description": "\"\""
+        },
+        "9": {
+            "type": "DEPOSIT",
+            "amount": "0",
+            "description": "\"\""
+        }
+    },
+    "transactionCount": "1"
+}
+2024-11-18 21:35:59,709 - INFO -   toAccount = {
+    "accountNumber": "1003",
+    "holderName": "\"Charl\"",
+    "balance": "700",
+    "transactions": {
+        "0": {
+            "type": "DEPOSIT",
+            "amount": "750",
+            "description": "\"Initial\""
+        },
+        "1": {
+            "type": "WITHDRAWAL",
+            "amount": "50",
+            "description": "\"shopping\""
+        },
+        "2": {
+            "type": "DEPOSIT",
+            "amount": "0",
+            "description": "\"\""
+        },
+        "3": {
+            "type": "DEPOSIT",
+            "amount": "0",
+            "description": "\"\""
+        },
+        "4": {
+            "type": "DEPOSIT",
+            "amount": "0",
+            "description": "\"\""
+        },
+        "5": {
+            "type": "DEPOSIT",
+            "amount": "0",
+            "description": "\"\""
+        },
+        "6": {
+            "type": "DEPOSIT",
+            "amount": "0",
+            "description": "\"\""
+        },
+        "7": {
+            "type": "DEPOSIT",
+            "amount": "0",
+            "description": "\"\""
+        },
+        "8": {
+            "type": "DEPOSIT",
+            "amount": "0",
+            "description": "\"\""
+        },
+        "9": {
+            "type": "DEPOSIT",
+            "amount": "0",
+            "description": "\"\""
+        }
+    },
+    "transactionCount": "2"
+}
+2024-11-18 21:35:59,710 - INFO - [Global Variables]:
+2024-11-18 21:35:59,710 - INFO - [Member Variables]:
+2024-11-18 21:35:59,710 - INFO - [Arguments]:
+2024-11-18 21:35:59,710 - DEBUG - [Pointer] 0x7fffffffe060 [Type] None (1)
+2024-11-18 21:35:59,710 - DEBUG - [Pointer] 0x5555555592a0 [Type] None (1)
+2024-11-18 21:35:59,711 - DEBUG - [Pointer] 0x5555555592a0 [Type] None (1)
+2024-11-18 21:35:59,712 - INFO -   accounts = {
+    "accountNumber": "1001",
+    "holderName": "\"Alice\"",
+    "balance": "500",
+    "transactions": {
+        "0": {
+            "type": "DEPOSIT",
+            "amount": "500",
+            "description": "\"Initial\""
+        },
+        "1": {
+            "type": "DEPOSIT",
+            "amount": "0",
+            "description": "\"\""
+        },
+        "2": {
+            "type": "DEPOSIT",
+            "amount": "0",
+            "description": "\"\""
+        },
+        "3": {
+            "type": "DEPOSIT",
+            "amount": "0",
+            "description": "\"\""
+        },
+        "4": {
+            "type": "DEPOSIT",
+            "amount": "0",
+            "description": "\"\""
+        },
+        "5": {
+            "type": "DEPOSIT",
+            "amount": "0",
+            "description": "\"\""
+        },
+        "6": {
+            "type": "DEPOSIT",
+            "amount": "0",
+            "description": "\"\""
+        },
+        "7": {
+            "type": "DEPOSIT",
+            "amount": "0",
+            "description": "\"\""
+        },
+        "8": {
+            "type": "DEPOSIT",
+            "amount": "0",
+            "description": "\"\""
+        },
+        "9": {
+            "type": "DEPOSIT",
+            "amount": "0",
+            "description": "\"\""
+        }
+    },
+    "transactionCount": "1"
+}
+2024-11-18 21:35:59,712 - INFO -   totalAccounts = "3"
+2024-11-18 21:35:59,712 - INFO -   fromAccNum = "1001"
+2024-11-18 21:35:59,712 - INFO -   toAccNum = "1003"
+2024-11-18 21:35:59,712 - INFO -   amount = "150"
+2024-11-18 21:35:59,713 - DEBUG - Stopped at withdraw at function start, called from simulateOperations.
+2024-11-18 21:35:59,713 - DEBUG - [Call]    0x0000555555555343 <+114>:	call   0x5555555551df <addTransaction>
+2024-11-18 21:35:59,713 - DEBUG - [Return]    0x000055555555534e <+125>:	ret
+2024-11-18 21:35:59,714 - DEBUG - Stopped at addTransaction at function start, called from withdraw.
+2024-11-18 21:35:59,714 - DEBUG - withdraw called addTransaction 3 times, total 3 times.
+2024-11-18 21:35:59,714 - INFO - Function addTransaction called 3 times, total 3 times.
+2024-11-18 21:35:59,714 - DEBUG - SAL: symbol and line for test15.c, line 82 Line: 82 File: test15.c
+2024-11-18 21:35:59,714 - DEBUG - [Pointer] 0x5555555592a0 [Type] None (1)
+2024-11-18 21:35:59,716 - DEBUG - [Pointer] 0x555555556008 "Transfer to" [Type] None (1)
+2024-11-18 21:35:59,716 - DEBUG - [Pointer] 0x555555556008 "Transfer to" [Address] 93824992239624 [Size] 1
+2024-11-18 21:35:59,716 - INFO - [Local Variables]:
+2024-11-18 21:35:59,716 - INFO - [Global Variables]:
+2024-11-18 21:35:59,716 - INFO - [Member Variables]:
+2024-11-18 21:35:59,716 - INFO - [Arguments]:
+2024-11-18 21:35:59,716 - DEBUG - [Pointer] 0x5555555592a0 [Type] None (1)
+2024-11-18 21:35:59,717 - DEBUG - [Pointer] 0x555555556008 "Transfer to" [Type] None (1)
+2024-11-18 21:35:59,717 - DEBUG - [Pointer] 0x555555556008 "Transfer to" [Address] 93824992239624 [Size] 1
+2024-11-18 21:35:59,718 - INFO -   account = {
+    "accountNumber": "1001",
+    "holderName": "\"Alice\"",
+    "balance": "350",
+    "transactions": {
+        "0": {
+            "type": "DEPOSIT",
+            "amount": "500",
+            "description": "\"Initial\""
+        },
+        "1": {
+            "type": "DEPOSIT",
+            "amount": "0",
+            "description": "\"\""
+        },
+        "2": {
+            "type": "DEPOSIT",
+            "amount": "0",
+            "description": "\"\""
+        },
+        "3": {
+            "type": "DEPOSIT",
+            "amount": "0",
+            "description": "\"\""
+        },
+        "4": {
+            "type": "DEPOSIT",
+            "amount": "0",
+            "description": "\"\""
+        },
+        "5": {
+            "type": "DEPOSIT",
+            "amount": "0",
+            "description": "\"\""
+        },
+        "6": {
+            "type": "DEPOSIT",
+            "amount": "0",
+            "description": "\"\""
+        },
+        "7": {
+            "type": "DEPOSIT",
+            "amount": "0",
+            "description": "\"\""
+        },
+        "8": {
+            "type": "DEPOSIT",
+            "amount": "0",
+            "description": "\"\""
+        },
+        "9": {
+            "type": "DEPOSIT",
+            "amount": "0",
+            "description": "\"\""
+        }
+    },
+    "transactionCount": "1"
+}
+2024-11-18 21:35:59,718 - INFO -   amount = "150"
+2024-11-18 21:35:59,718 - INFO -   description = "[84 'T', 114 'r', 97 'a', 110 'n', 115 's', 102 'f', 101 'e', 114 'r', 32 ' ', 116 't', 111 'o', 0 '']"
+2024-11-18 21:35:59,719 - DEBUG - Stopped at addTransaction at function start, called from deposit.
+2024-11-18 21:35:59,719 - DEBUG - Function 0x1(%rax),%ecx not found in input data.
+2024-11-18 21:35:59,719 - DEBUG - Function 0x10(%rax),%rdx not found in input data.
+2024-11-18 21:35:59,719 - DEBUG - Function 0x10(%rax),%rcx not found in input data.
+2024-11-18 21:35:59,719 - DEBUG - [Call]    0x0000555555555264 <+133>:	call   0x555555555040 <strncpy@plt>
+2024-11-18 21:35:59,719 - DEBUG - [Return]    0x000055555555526d <+142>:	ret
+2024-11-18 21:35:59,720 - DEBUG - Stopped at strncpy at function start, called from addTransaction.
+2024-11-18 21:35:59,720 - DEBUG - addTransaction called strncpy 6 times, total 7 times.
+2024-11-18 21:35:59,720 - INFO - Function strncpy called 6 times, total 7 times.
+2024-11-18 21:35:59,721 - DEBUG - Stopped at strncpy at function start, called from createAccount.
+2024-11-18 21:35:59,721 - DEBUG - Function 0x7ffff7e76920 not found in input data.
+2024-11-18 21:35:59,721 - DEBUG - Function 0x7ffff7f287c0 not found in input data.
+2024-11-18 21:35:59,721 - DEBUG - Function 0x7ffff7e76920 not found in input data.
+2024-11-18 21:35:59,721 - DEBUG - Function 0x7ffff7f1fc20 not found in input data.
+2024-11-18 21:35:59,721 - DEBUG - [Return]    0x00007ffff7e67429 <+73>:	ret
+2024-11-18 21:35:59,721 - DEBUG - Function 0x7ffff7f31630 not found in input data.
+2024-11-18 21:35:59,721 - DEBUG - Stopped at addTransaction at function return, returning to deposit.
+2024-11-18 21:35:59,722 - DEBUG - deposit called addTransaction 3 times, total 4 times.
+2024-11-18 21:35:59,722 - INFO - Function addTransaction called 3 times, total 4 times.
+2024-11-18 21:35:59,722 - DEBUG - Stopped at withdraw at function return, returning to simulateOperations.
+2024-11-18 21:35:59,722 - DEBUG - simulateOperations called withdraw 2 times, total 2 times.
+2024-11-18 21:35:59,722 - INFO - Function withdraw called 2 times, total 2 times.
+2024-11-18 21:35:59,722 - DEBUG - SAL: symbol and line for test15.c, line 84 Line: 84 File: test15.c
+2024-11-18 21:35:59,723 - DEBUG - [Pointer] 0x5555555592a0 [Type] None (1)
+2024-11-18 21:35:59,724 - DEBUG - [Pointer] 0x555555556008 "Transfer to" [Type] None (1)
+2024-11-18 21:35:59,724 - DEBUG - [Pointer] 0x555555556008 "Transfer to" [Address] 93824992239624 [Size] 1
+2024-11-18 21:35:59,724 - INFO - [Local Variables]:
+2024-11-18 21:35:59,724 - INFO - [Global Variables]:
+2024-11-18 21:35:59,724 - INFO - [Member Variables]:
+2024-11-18 21:35:59,724 - INFO - [Arguments]:
+2024-11-18 21:35:59,724 - DEBUG - [Pointer] 0x5555555592a0 [Type] None (1)
+2024-11-18 21:35:59,725 - DEBUG - [Pointer] 0x555555556008 "Transfer to" [Type] None (1)
+2024-11-18 21:35:59,726 - DEBUG - [Pointer] 0x555555556008 "Transfer to" [Address] 93824992239624 [Size] 1
+2024-11-18 21:35:59,726 - DEBUG - Stopped at deposit at function start, called from transfer.
+2024-11-18 21:35:59,726 - DEBUG - transfer called deposit 1 times, total 1 times.
+2024-11-18 21:35:59,726 - INFO - Function deposit called 1 times, total 1 times.
+2024-11-18 21:35:59,727 - DEBUG - SAL: symbol and line for test15.c, line 108 Line: 108 File: test15.c
+2024-11-18 21:35:59,727 - DEBUG - [Pointer] 0x5555555592a0 [Type] None (1)
+2024-11-18 21:35:59,728 - DEBUG - [Pointer] 0x555555559580 [Type] None (1)
+2024-11-18 21:35:59,729 - DEBUG - [Pointer] 0x7fffffffe060 [Type] None (1)
+2024-11-18 21:35:59,729 - DEBUG - [Pointer] 0x5555555592a0 [Type] None (1)
+2024-11-18 21:35:59,730 - DEBUG - [Pointer] 0x5555555592a0 [Type] None (1)
+2024-11-18 21:35:59,731 - INFO - [Local Variables]:
+2024-11-18 21:35:59,731 - DEBUG - [Pointer] 0x5555555592a0 [Type] None (1)
+2024-11-18 21:35:59,732 - DEBUG - [Pointer] 0x555555559580 [Type] None (1)
+2024-11-18 21:35:59,734 - INFO -   fromAccount = {
+    "accountNumber": "1001",
+    "holderName": "\"Alice\"",
+    "balance": "350",
+    "transactions": {
+        "0": {
+            "type": "DEPOSIT",
+            "amount": "500",
+            "description": "\"Initial\""
+        },
+        "1": {
+            "type": "WITHDRAWAL",
+            "amount": "150",
+            "description": "\"Transfer t\""
+        },
+        "2": {
+            "type": "DEPOSIT",
+            "amount": "0",
+            "description": "\"\""
+        },
+        "3": {
+            "type": "DEPOSIT",
+            "amount": "0",
+            "description": "\"\""
+        },
+        "4": {
+            "type": "DEPOSIT",
+            "amount": "0",
+            "description": "\"\""
+        },
+        "5": {
+            "type": "DEPOSIT",
+            "amount": "0",
+            "description": "\"\""
+        },
+        "6": {
+            "type": "DEPOSIT",
+            "amount": "0",
+            "description": "\"\""
+        },
+        "7": {
+            "type": "DEPOSIT",
+            "amount": "0",
+            "description": "\"\""
+        },
+        "8": {
+            "type": "DEPOSIT",
+            "amount": "0",
+            "description": "\"\""
+        },
+        "9": {
+            "type": "DEPOSIT",
+            "amount": "0",
+            "description": "\"\""
+        }
+    },
+    "transactionCount": "2"
+}
+2024-11-18 21:35:59,734 - INFO -   toAccount = {
+    "accountNumber": "1003",
+    "holderName": "\"Charl\"",
+    "balance": "700",
+    "transactions": {
+        "0": {
+            "type": "DEPOSIT",
+            "amount": "750",
+            "description": "\"Initial\""
+        },
+        "1": {
+            "type": "WITHDRAWAL",
+            "amount": "50",
+            "description": "\"shopping\""
+        },
+        "2": {
+            "type": "DEPOSIT",
+            "amount": "0",
+            "description": "\"\""
+        },
+        "3": {
+            "type": "DEPOSIT",
+            "amount": "0",
+            "description": "\"\""
+        },
+        "4": {
+            "type": "DEPOSIT",
+            "amount": "0",
+            "description": "\"\""
+        },
+        "5": {
+            "type": "DEPOSIT",
+            "amount": "0",
+            "description": "\"\""
+        },
+        "6": {
+            "type": "DEPOSIT",
+            "amount": "0",
+            "description": "\"\""
+        },
+        "7": {
+            "type": "DEPOSIT",
+            "amount": "0",
+            "description": "\"\""
+        },
+        "8": {
+            "type": "DEPOSIT",
+            "amount": "0",
+            "description": "\"\""
+        },
+        "9": {
+            "type": "DEPOSIT",
+            "amount": "0",
+            "description": "\"\""
+        }
+    },
+    "transactionCount": "2"
+}
+2024-11-18 21:35:59,734 - INFO - [Global Variables]:
+2024-11-18 21:35:59,734 - INFO - [Member Variables]:
+2024-11-18 21:35:59,734 - INFO - [Arguments]:
+2024-11-18 21:35:59,734 - DEBUG - [Pointer] 0x7fffffffe060 [Type] None (1)
+2024-11-18 21:35:59,734 - DEBUG - [Pointer] 0x5555555592a0 [Type] None (1)
+2024-11-18 21:35:59,735 - DEBUG - [Pointer] 0x5555555592a0 [Type] None (1)
+2024-11-18 21:35:59,737 - INFO -   accounts = {
+    "accountNumber": "1001",
+    "holderName": "\"Alice\"",
+    "balance": "350",
+    "transactions": {
+        "0": {
+            "type": "DEPOSIT",
+            "amount": "500",
+            "description": "\"Initial\""
+        },
+        "1": {
+            "type": "WITHDRAWAL",
+            "amount": "150",
+            "description": "\"Transfer t\""
+        },
+        "2": {
+            "type": "DEPOSIT",
+            "amount": "0",
+            "description": "\"\""
+        },
+        "3": {
+            "type": "DEPOSIT",
+            "amount": "0",
+            "description": "\"\""
+        },
+        "4": {
+            "type": "DEPOSIT",
+            "amount": "0",
+            "description": "\"\""
+        },
+        "5": {
+            "type": "DEPOSIT",
+            "amount": "0",
+            "description": "\"\""
+        },
+        "6": {
+            "type": "DEPOSIT",
+            "amount": "0",
+            "description": "\"\""
+        },
+        "7": {
+            "type": "DEPOSIT",
+            "amount": "0",
+            "description": "\"\""
+        },
+        "8": {
+            "type": "DEPOSIT",
+            "amount": "0",
+            "description": "\"\""
+        },
+        "9": {
+            "type": "DEPOSIT",
+            "amount": "0",
+            "description": "\"\""
+        }
+    },
+    "transactionCount": "2"
+}
+2024-11-18 21:35:59,737 - INFO -   totalAccounts = "3"
+2024-11-18 21:35:59,737 - INFO -   fromAccNum = "1001"
+2024-11-18 21:35:59,737 - INFO -   toAccNum = "1003"
+2024-11-18 21:35:59,737 - INFO -   amount = "150"
+2024-11-18 21:35:59,738 - DEBUG - Stopped at deposit at function start, called from simulateOperations.
+2024-11-18 21:35:59,738 - DEBUG - [Call]    0x00005555555552c5 <+87>:	call   0x5555555551df <addTransaction>
+2024-11-18 21:35:59,738 - DEBUG - [Return]    0x00005555555552d0 <+98>:	ret
+2024-11-18 21:35:59,739 - DEBUG - Stopped at addTransaction at function start, called from deposit.
+2024-11-18 21:35:59,739 - DEBUG - deposit called addTransaction 4 times, total 4 times.
+2024-11-18 21:35:59,739 - INFO - Function addTransaction called 4 times, total 4 times.
+2024-11-18 21:35:59,739 - DEBUG - SAL: symbol and line for test15.c, line 70 Line: 70 File: test15.c
+2024-11-18 21:35:59,739 - DEBUG - [Pointer] 0x555555559580 [Type] None (1)
+2024-11-18 21:35:59,740 - DEBUG - [Pointer] 0x555555556014 "Transfer from" [Type] None (1)
+2024-11-18 21:35:59,740 - DEBUG - [Pointer] 0x555555556014 "Transfer from" [Address] 93824992239636 [Size] 1
+2024-11-18 21:35:59,740 - INFO - [Local Variables]:
+2024-11-18 21:35:59,740 - INFO - [Global Variables]:
+2024-11-18 21:35:59,741 - INFO - [Member Variables]:
+2024-11-18 21:35:59,741 - INFO - [Arguments]:
+2024-11-18 21:35:59,741 - DEBUG - [Pointer] 0x555555559580 [Type] None (1)
+2024-11-18 21:35:59,742 - DEBUG - [Pointer] 0x555555556014 "Transfer from" [Type] None (1)
+2024-11-18 21:35:59,742 - DEBUG - [Pointer] 0x555555556014 "Transfer from" [Address] 93824992239636 [Size] 1
+2024-11-18 21:35:59,742 - INFO -   account = {
+    "accountNumber": "1003",
+    "holderName": "\"Charl\"",
+    "balance": "850",
+    "transactions": {
+        "0": {
+            "type": "DEPOSIT",
+            "amount": "750",
+            "description": "\"Initial\""
+        },
+        "1": {
+            "type": "WITHDRAWAL",
+            "amount": "50",
+            "description": "\"shopping\""
+        },
+        "2": {
+            "type": "DEPOSIT",
+            "amount": "0",
+            "description": "\"\""
+        },
+        "3": {
+            "type": "DEPOSIT",
+            "amount": "0",
+            "description": "\"\""
+        },
+        "4": {
+            "type": "DEPOSIT",
+            "amount": "0",
+            "description": "\"\""
+        },
+        "5": {
+            "type": "DEPOSIT",
+            "amount": "0",
+            "description": "\"\""
+        },
+        "6": {
+            "type": "DEPOSIT",
+            "amount": "0",
+            "description": "\"\""
+        },
+        "7": {
+            "type": "DEPOSIT",
+            "amount": "0",
+            "description": "\"\""
+        },
+        "8": {
+            "type": "DEPOSIT",
+            "amount": "0",
+            "description": "\"\""
+        },
+        "9": {
+            "type": "DEPOSIT",
+            "amount": "0",
+            "description": "\"\""
+        }
+    },
+    "transactionCount": "2"
+}
+2024-11-18 21:35:59,742 - INFO -   amount = "150"
+2024-11-18 21:35:59,742 - INFO -   description = "[84 'T', 114 'r', 97 'a', 110 'n', 115 's', 102 'f', 101 'e', 114 'r', 32 ' ', 102 'f', 114 'r', 111 'o', 109 'm', 0 '']"
+2024-11-18 21:35:59,743 - DEBUG - Stopped at addTransaction at function start, called from deposit.
+2024-11-18 21:35:59,743 - DEBUG - Function 0x1(%rax),%ecx not found in input data.
+2024-11-18 21:35:59,743 - DEBUG - Function 0x10(%rax),%rdx not found in input data.
+2024-11-18 21:35:59,743 - DEBUG - Function 0x10(%rax),%rcx not found in input data.
+2024-11-18 21:35:59,743 - DEBUG - [Call]    0x0000555555555264 <+133>:	call   0x555555555040 <strncpy@plt>
+2024-11-18 21:35:59,743 - DEBUG - [Return]    0x000055555555526d <+142>:	ret
+2024-11-18 21:35:59,744 - DEBUG - Stopped at strncpy at function start, called from addTransaction.
+2024-11-18 21:35:59,744 - DEBUG - addTransaction called strncpy 7 times, total 7 times.
+2024-11-18 21:35:59,744 - INFO - Function strncpy called 7 times, total 7 times.
+2024-11-18 21:35:59,744 - DEBUG - SAL: symbol and line for test15.c, line 62 Line: 62 File: test15.c
+2024-11-18 21:35:59,745 - DEBUG - [Pointer] 0x5555555595d8 [Type] None (1)
+2024-11-18 21:35:59,745 - DEBUG - [Pointer] 0x555555559580 [Type] None (1)
+2024-11-18 21:35:59,746 - DEBUG - [Pointer] 0x555555556014 "Transfer from" [Type] None (1)
+2024-11-18 21:35:59,746 - DEBUG - [Pointer] 0x555555556014 "Transfer from" [Address] 93824992239636 [Size] 1
+2024-11-18 21:35:59,746 - INFO - [Local Variables]:
+2024-11-18 21:35:59,746 - DEBUG - [Pointer] 0x5555555595d8 [Type] None (1)
+2024-11-18 21:35:59,746 - INFO -   txn = {
+    "type": "DEPOSIT",
+    "amount": "150",
+    "description": "\"\""
+}
+2024-11-18 21:35:59,746 - INFO - [Global Variables]:
+2024-11-18 21:35:59,747 - INFO - [Member Variables]:
+2024-11-18 21:35:59,747 - INFO - [Arguments]:
+2024-11-18 21:35:59,747 - DEBUG - [Pointer] 0x555555559580 [Type] None (1)
+2024-11-18 21:35:59,748 - DEBUG - [Pointer] 0x555555556014 "Transfer from" [Type] None (1)
+2024-11-18 21:35:59,748 - DEBUG - [Pointer] 0x555555556014 "Transfer from" [Address] 93824992239636 [Size] 1
+2024-11-18 21:35:59,748 - INFO -   account = {
+    "accountNumber": "1003",
+    "holderName": "\"Charl\"",
+    "balance": "850",
+    "transactions": {
+        "0": {
+            "type": "DEPOSIT",
+            "amount": "750",
+            "description": "\"Initial\""
+        },
+        "1": {
+            "type": "WITHDRAWAL",
+            "amount": "50",
+            "description": "\"shopping\""
+        },
+        "2": {
+            "type": "DEPOSIT",
+            "amount": "150",
+            "description": "\"\""
+        },
+        "3": {
+            "type": "DEPOSIT",
+            "amount": "0",
+            "description": "\"\""
+        },
+        "4": {
+            "type": "DEPOSIT",
+            "amount": "0",
+            "description": "\"\""
+        },
+        "5": {
+            "type": "DEPOSIT",
+            "amount": "0",
+            "description": "\"\""
+        },
+        "6": {
+            "type": "DEPOSIT",
+            "amount": "0",
+            "description": "\"\""
+        },
+        "7": {
+            "type": "DEPOSIT",
+            "amount": "0",
+            "description": "\"\""
+        },
+        "8": {
+            "type": "DEPOSIT",
+            "amount": "0",
+            "description": "\"\""
+        },
+        "9": {
+            "type": "DEPOSIT",
+            "amount": "0",
+            "description": "\"\""
+        }
+    },
+    "transactionCount": "3"
+}
+2024-11-18 21:35:59,749 - INFO -   type = "DEPOSIT"
+2024-11-18 21:35:59,749 - INFO -   amount = "150"
+2024-11-18 21:35:59,749 - INFO -   description = "[84 'T', 114 'r', 97 'a', 110 'n', 115 's', 102 'f', 101 'e', 114 'r', 32 ' ', 102 'f', 114 'r', 111 'o', 109 'm', 0 '']"
+2024-11-18 21:35:59,749 - DEBUG - Stopped at strncpy at function start, called from createAccount.
+2024-11-18 21:35:59,750 - DEBUG - Function 0x7ffff7e76920 not found in input data.
+2024-11-18 21:35:59,750 - DEBUG - Function 0x7ffff7f287c0 not found in input data.
+2024-11-18 21:35:59,750 - DEBUG - Function 0x7ffff7e76920 not found in input data.
+2024-11-18 21:35:59,750 - DEBUG - Function 0x7ffff7f1fc20 not found in input data.
+2024-11-18 21:35:59,750 - DEBUG - [Return]    0x00007ffff7e67429 <+73>:	ret
+2024-11-18 21:35:59,750 - DEBUG - Function 0x7ffff7f31630 not found in input data.
+2024-11-18 21:35:59,750 - DEBUG - Stopped at addTransaction at function return, returning to deposit.
+2024-11-18 21:35:59,750 - DEBUG - deposit called addTransaction 4 times, total 4 times.
+2024-11-18 21:35:59,750 - INFO - Function addTransaction called 4 times, total 4 times.
+2024-11-18 21:35:59,751 - DEBUG - SAL: symbol and line for test15.c, line 63 Line: 63 File: test15.c
+2024-11-18 21:35:59,751 - DEBUG - [Pointer] 0x5555555595d8 [Type] None (1)
+2024-11-18 21:35:59,751 - DEBUG - [Pointer] 0x555555559580 [Type] None (1)
+2024-11-18 21:35:59,752 - DEBUG - [Pointer] 0x555555556014 "Transfer from" [Type] None (1)
+2024-11-18 21:35:59,752 - DEBUG - [Pointer] 0x555555556014 "Transfer from" [Address] 93824992239636 [Size] 1
+2024-11-18 21:35:59,752 - INFO - [Local Variables]:
+2024-11-18 21:35:59,752 - DEBUG - [Pointer] 0x5555555595d8 [Type] None (1)
+2024-11-18 21:35:59,752 - INFO - [Global Variables]:
+2024-11-18 21:35:59,753 - INFO - [Member Variables]:
+2024-11-18 21:35:59,753 - INFO - [Arguments]:
+2024-11-18 21:35:59,753 - DEBUG - [Pointer] 0x555555559580 [Type] None (1)
+2024-11-18 21:35:59,754 - DEBUG - [Pointer] 0x555555556014 "Transfer from" [Type] None (1)
+2024-11-18 21:35:59,754 - DEBUG - [Pointer] 0x555555556014 "Transfer from" [Address] 93824992239636 [Size] 1
+2024-11-18 21:35:59,755 - DEBUG - Stopped at deposit at function return, returning to simulateOperations.
+2024-11-18 21:35:59,755 - DEBUG - simulateOperations called deposit 3 times, total 3 times.
+2024-11-18 21:35:59,755 - INFO - Function deposit called 3 times, total 3 times.
+2024-11-18 21:35:59,755 - DEBUG - SAL: symbol and line for test15.c, line 72 Line: 72 File: test15.c
+2024-11-18 21:35:59,755 - DEBUG - [Pointer] 0x555555559580 [Type] None (1)
+2024-11-18 21:35:59,756 - DEBUG - [Pointer] 0x555555556014 "Transfer from" [Type] None (1)
+2024-11-18 21:35:59,756 - DEBUG - [Pointer] 0x555555556014 "Transfer from" [Address] 93824992239636 [Size] 1
+2024-11-18 21:35:59,757 - INFO - [Local Variables]:
+2024-11-18 21:35:59,757 - INFO - [Global Variables]:
+2024-11-18 21:35:59,757 - INFO - [Member Variables]:
+2024-11-18 21:35:59,757 - INFO - [Arguments]:
+2024-11-18 21:35:59,757 - DEBUG - [Pointer] 0x555555559580 [Type] None (1)
+2024-11-18 21:35:59,758 - DEBUG - [Pointer] 0x555555556014 "Transfer from" [Type] None (1)
+2024-11-18 21:35:59,758 - DEBUG - [Pointer] 0x555555556014 "Transfer from" [Address] 93824992239636 [Size] 1
+2024-11-18 21:35:59,759 - DEBUG - Stopped at transfer at function return, returning to simulateOperations.
+2024-11-18 21:35:59,759 - DEBUG - simulateOperations called transfer 1 times, total 1 times.
+2024-11-18 21:35:59,759 - INFO - Function transfer called 1 times, total 1 times.
+2024-11-18 21:35:59,759 - DEBUG - SAL: symbol and line for test15.c, line 110 Line: 110 File: test15.c
+2024-11-18 21:35:59,759 - DEBUG - [Pointer] 0x5555555592a0 [Type] None (1)
+2024-11-18 21:35:59,760 - DEBUG - [Pointer] 0x555555559580 [Type] None (1)
+2024-11-18 21:35:59,761 - DEBUG - [Pointer] 0x7fffffffe060 [Type] None (1)
+2024-11-18 21:35:59,762 - DEBUG - [Pointer] 0x5555555592a0 [Type] None (1)
+2024-11-18 21:35:59,763 - DEBUG - [Pointer] 0x5555555592a0 [Type] None (1)
+2024-11-18 21:35:59,764 - INFO - [Local Variables]:
+2024-11-18 21:35:59,764 - DEBUG - [Pointer] 0x5555555592a0 [Type] None (1)
+2024-11-18 21:35:59,765 - DEBUG - [Pointer] 0x555555559580 [Type] None (1)
+2024-11-18 21:35:59,766 - INFO - [Global Variables]:
+2024-11-18 21:35:59,766 - INFO - [Member Variables]:
+2024-11-18 21:35:59,766 - INFO - [Arguments]:
+2024-11-18 21:35:59,766 - DEBUG - [Pointer] 0x7fffffffe060 [Type] None (1)
+2024-11-18 21:35:59,766 - DEBUG - [Pointer] 0x5555555592a0 [Type] None (1)
+2024-11-18 21:35:59,767 - DEBUG - [Pointer] 0x5555555592a0 [Type] None (1)
+2024-11-18 21:35:59,769 - DEBUG - Stopped at printAccountDetails at function start, called from simulateOperations.
+2024-11-18 21:35:59,769 - DEBUG - simulateOperations called printAccountDetails 1 times, total 3 times.
+2024-11-18 21:35:59,769 - INFO - Function printAccountDetails called 1 times, total 3 times.
+2024-11-18 21:35:59,770 - DEBUG - Stopped at printAccountDetails at function start, called from simulateOperations.
+2024-11-18 21:35:59,770 - DEBUG - [Return]    0x0000555555555359 <+10>:	ret
+2024-11-18 21:35:59,771 - DEBUG - Stopped at printAccountDetails at function return, returning to simulateOperations.
+2024-11-18 21:35:59,771 - DEBUG - simulateOperations called printAccountDetails 1 times, total 3 times.
+2024-11-18 21:35:59,771 - INFO - Function printAccountDetails called 1 times, total 3 times.
+2024-11-18 21:35:59,771 - DEBUG - Stopped at printTransactionHistory at function start, called from simulateOperations.
+2024-11-18 21:35:59,771 - DEBUG - simulateOperations called printTransactionHistory 1 times, total 3 times.
+2024-11-18 21:35:59,771 - INFO - Function printTransactionHistory called 1 times, total 3 times.
+2024-11-18 21:35:59,772 - DEBUG - Stopped at printTransactionHistory at function start, called from simulateOperations.
+2024-11-18 21:35:59,772 - DEBUG - [Return]    0x0000555555555364 <+10>:	ret
+2024-11-18 21:35:59,773 - DEBUG - Stopped at printTransactionHistory at function return, returning to simulateOperations.
+2024-11-18 21:35:59,773 - DEBUG - simulateOperations called printTransactionHistory 1 times, total 3 times.
+2024-11-18 21:35:59,773 - INFO - Function printTransactionHistory called 1 times, total 3 times.
+2024-11-18 21:35:59,774 - DEBUG - Stopped at printAccountDetails at function start, called from simulateOperations.
+2024-11-18 21:35:59,774 - DEBUG - simulateOperations called printAccountDetails 2 times, total 3 times.
+2024-11-18 21:35:59,774 - INFO - Function printAccountDetails called 2 times, total 3 times.
+2024-11-18 21:35:59,774 - DEBUG - Stopped at printAccountDetails at function start, called from simulateOperations.
+2024-11-18 21:35:59,774 - DEBUG - [Return]    0x0000555555555359 <+10>:	ret
+2024-11-18 21:35:59,775 - DEBUG - Stopped at printAccountDetails at function return, returning to simulateOperations.
+2024-11-18 21:35:59,775 - DEBUG - simulateOperations called printAccountDetails 2 times, total 3 times.
+2024-11-18 21:35:59,775 - INFO - Function printAccountDetails called 2 times, total 3 times.
+2024-11-18 21:35:59,776 - DEBUG - Stopped at printTransactionHistory at function start, called from simulateOperations.
+2024-11-18 21:35:59,776 - DEBUG - simulateOperations called printTransactionHistory 2 times, total 3 times.
+2024-11-18 21:35:59,776 - INFO - Function printTransactionHistory called 2 times, total 3 times.
+2024-11-18 21:35:59,776 - DEBUG - Stopped at printTransactionHistory at function start, called from simulateOperations.
+2024-11-18 21:35:59,776 - DEBUG - [Return]    0x0000555555555364 <+10>:	ret
+2024-11-18 21:35:59,777 - DEBUG - Stopped at printTransactionHistory at function return, returning to simulateOperations.
+2024-11-18 21:35:59,777 - DEBUG - simulateOperations called printTransactionHistory 2 times, total 3 times.
+2024-11-18 21:35:59,777 - INFO - Function printTransactionHistory called 2 times, total 3 times.
+2024-11-18 21:35:59,778 - DEBUG - Stopped at printAccountDetails at function start, called from simulateOperations.
+2024-11-18 21:35:59,778 - DEBUG - simulateOperations called printAccountDetails 3 times, total 3 times.
+2024-11-18 21:35:59,778 - INFO - Function printAccountDetails called 3 times, total 3 times.
+2024-11-18 21:35:59,778 - DEBUG - SAL: symbol and line for test15.c, line 130 Line: 130 File: test15.c
+2024-11-18 21:35:59,778 - INFO - [Local Variables]:
+2024-11-18 21:35:59,778 - INFO -   i = "2"
+2024-11-18 21:35:59,778 - INFO - [Global Variables]:
+2024-11-18 21:35:59,778 - INFO - [Member Variables]:
+2024-11-18 21:35:59,778 - INFO - [Arguments]:
+2024-11-18 21:35:59,779 - DEBUG - Stopped at printAccountDetails at function start, called from simulateOperations.
+2024-11-18 21:35:59,779 - DEBUG - [Return]    0x0000555555555359 <+10>:	ret
+2024-11-18 21:35:59,780 - DEBUG - Stopped at printAccountDetails at function return, returning to simulateOperations.
+2024-11-18 21:35:59,780 - DEBUG - simulateOperations called printAccountDetails 3 times, total 3 times.
+2024-11-18 21:35:59,780 - INFO - Function printAccountDetails called 3 times, total 3 times.
+2024-11-18 21:35:59,780 - DEBUG - SAL: symbol and line for test15.c, line 87 Line: 87 File: test15.c
+2024-11-18 21:35:59,780 - DEBUG - [Pointer] 0x555555559580 [Type] None (1)
+2024-11-18 21:35:59,781 - INFO - [Local Variables]:
+2024-11-18 21:35:59,781 - INFO - [Global Variables]:
+2024-11-18 21:35:59,781 - INFO - [Member Variables]:
+2024-11-18 21:35:59,781 - INFO - [Arguments]:
+2024-11-18 21:35:59,781 - DEBUG - [Pointer] 0x555555559580 [Type] None (1)
+2024-11-18 21:35:59,783 - DEBUG - Stopped at printTransactionHistory at function start, called from simulateOperations.
+2024-11-18 21:35:59,783 - DEBUG - simulateOperations called printTransactionHistory 3 times, total 3 times.
+2024-11-18 21:35:59,783 - INFO - Function printTransactionHistory called 3 times, total 3 times.
+2024-11-18 21:35:59,783 - DEBUG - SAL: symbol and line for test15.c, line 131 Line: 131 File: test15.c
+2024-11-18 21:35:59,783 - INFO - [Local Variables]:
+2024-11-18 21:35:59,783 - INFO -   i = "2"
+2024-11-18 21:35:59,783 - INFO - [Global Variables]:
+2024-11-18 21:35:59,783 - INFO - [Member Variables]:
+2024-11-18 21:35:59,783 - INFO - [Arguments]:
+2024-11-18 21:35:59,784 - DEBUG - Stopped at printTransactionHistory at function start, called from simulateOperations.
+2024-11-18 21:35:59,784 - DEBUG - [Return]    0x0000555555555364 <+10>:	ret
+2024-11-18 21:35:59,785 - DEBUG - Stopped at printTransactionHistory at function return, returning to simulateOperations.
+2024-11-18 21:35:59,785 - DEBUG - simulateOperations called printTransactionHistory 3 times, total 3 times.
+2024-11-18 21:35:59,785 - INFO - Function printTransactionHistory called 3 times, total 3 times.
+2024-11-18 21:35:59,785 - DEBUG - SAL: symbol and line for test15.c, line 90 Line: 90 File: test15.c
+2024-11-18 21:35:59,785 - DEBUG - [Pointer] 0x555555559580 [Type] None (1)
+2024-11-18 21:35:59,786 - INFO - [Local Variables]:
+2024-11-18 21:35:59,786 - INFO - [Global Variables]:
+2024-11-18 21:35:59,786 - INFO - [Member Variables]:
+2024-11-18 21:35:59,786 - INFO - [Arguments]:
+2024-11-18 21:35:59,786 - DEBUG - [Pointer] 0x555555559580 [Type] None (1)
+2024-11-18 21:35:59,788 - DEBUG - Stopped at free at function start, called from simulateOperations.
+2024-11-18 21:35:59,788 - DEBUG - simulateOperations called free 1 times, total 3 times.
+2024-11-18 21:35:59,788 - INFO - Function free called 1 times, total 3 times.
+2024-11-18 21:35:59,788 - DEBUG - Stopped at free at function start, called from simulateOperations.
+2024-11-18 21:35:59,789 - DEBUG - Function -0x10(%rdi),%rsi not found in input data.
+2024-11-18 21:35:59,789 - DEBUG - Function 0x7ffff7f9ac60 not found in input data.
+2024-11-18 21:35:59,789 - DEBUG - Function 0x0(,%rdx,4),%rax not found in input data.
+2024-11-18 21:35:59,789 - DEBUG - Function 0x7ffff7e5e070 not found in input data.
+2024-11-18 21:35:59,789 - DEBUG - [Return]    0x00007ffff7e60ea8 <+120>:	ret
+2024-11-18 21:35:59,789 - DEBUG - Function 0x7ffff7e5c900 not found in input data.
+2024-11-18 21:35:59,789 - DEBUG - [Return]    0x00007ffff7e60ef1 <+193>:	ret
+2024-11-18 21:35:59,789 - DEBUG - [Return]    0x00007ffff7e60ef8 <+200>:	ret
+2024-11-18 21:35:59,790 - DEBUG - Function 0x7ffff7e60160 not found in input data.
+2024-11-18 21:35:59,790 - DEBUG - Stopped at free at function return, returning to simulateOperations.
+2024-11-18 21:35:59,790 - DEBUG - simulateOperations called free 1 times, total 3 times.
+2024-11-18 21:35:59,790 - INFO - Function free called 1 times, total 3 times.
+2024-11-18 21:35:59,791 - DEBUG - Stopped at free at function start, called from simulateOperations.
+2024-11-18 21:35:59,791 - DEBUG - simulateOperations called free 2 times, total 3 times.
+2024-11-18 21:35:59,791 - INFO - Function free called 2 times, total 3 times.
+2024-11-18 21:35:59,791 - DEBUG - Stopped at free at function start, called from simulateOperations.
+2024-11-18 21:35:59,792 - DEBUG - Function -0x10(%rdi),%rsi not found in input data.
+2024-11-18 21:35:59,792 - DEBUG - Function 0x7ffff7f9ac60 not found in input data.
+2024-11-18 21:35:59,792 - DEBUG - Function 0x0(,%rdx,4),%rax not found in input data.
+2024-11-18 21:35:59,792 - DEBUG - Function 0x7ffff7e5e070 not found in input data.
+2024-11-18 21:35:59,792 - DEBUG - [Return]    0x00007ffff7e60ea8 <+120>:	ret
+2024-11-18 21:35:59,792 - DEBUG - Function 0x7ffff7e5c900 not found in input data.
+2024-11-18 21:35:59,792 - DEBUG - [Return]    0x00007ffff7e60ef1 <+193>:	ret
+2024-11-18 21:35:59,792 - DEBUG - [Return]    0x00007ffff7e60ef8 <+200>:	ret
+2024-11-18 21:35:59,792 - DEBUG - Function 0x7ffff7e60160 not found in input data.
+2024-11-18 21:35:59,793 - DEBUG - Stopped at free at function return, returning to simulateOperations.
+2024-11-18 21:35:59,793 - DEBUG - simulateOperations called free 2 times, total 3 times.
+2024-11-18 21:35:59,793 - INFO - Function free called 2 times, total 3 times.
+2024-11-18 21:35:59,793 - DEBUG - Stopped at free at function start, called from simulateOperations.
+2024-11-18 21:35:59,793 - DEBUG - simulateOperations called free 3 times, total 3 times.
+2024-11-18 21:35:59,793 - INFO - Function free called 3 times, total 3 times.
+2024-11-18 21:35:59,793 - DEBUG - SAL: symbol and line for test15.c, line 135 Line: 135 File: test15.c
+2024-11-18 21:35:59,793 - INFO - [Local Variables]:
+2024-11-18 21:35:59,794 - INFO -   i = "2"
+2024-11-18 21:35:59,794 - INFO - [Global Variables]:
+2024-11-18 21:35:59,794 - INFO - [Member Variables]:
+2024-11-18 21:35:59,794 - INFO - [Arguments]:
+2024-11-18 21:35:59,794 - DEBUG - Stopped at free at function start, called from simulateOperations.
+2024-11-18 21:35:59,795 - DEBUG - Function -0x10(%rdi),%rsi not found in input data.
+2024-11-18 21:35:59,795 - DEBUG - Function 0x7ffff7f9ac60 not found in input data.
+2024-11-18 21:35:59,795 - DEBUG - Function 0x0(,%rdx,4),%rax not found in input data.
+2024-11-18 21:35:59,795 - DEBUG - Function 0x7ffff7e5e070 not found in input data.
+2024-11-18 21:35:59,795 - DEBUG - [Return]    0x00007ffff7e60ea8 <+120>:	ret
+2024-11-18 21:35:59,795 - DEBUG - Function 0x7ffff7e5c900 not found in input data.
+2024-11-18 21:35:59,795 - DEBUG - [Return]    0x00007ffff7e60ef1 <+193>:	ret
+2024-11-18 21:35:59,795 - DEBUG - [Return]    0x00007ffff7e60ef8 <+200>:	ret
+2024-11-18 21:35:59,795 - DEBUG - Function 0x7ffff7e60160 not found in input data.
+2024-11-18 21:35:59,796 - DEBUG - Stopped at free at function return, returning to simulateOperations.
+2024-11-18 21:35:59,796 - DEBUG - simulateOperations called free 3 times, total 3 times.
+2024-11-18 21:35:59,796 - INFO - Function free called 3 times, total 3 times.
+2024-11-18 21:35:59,796 - DEBUG - SAL: symbol and line for <unknown>, line 0 Line: 0 File: unknown
+2024-11-18 21:35:59,796 - ERROR - Failed to get frame block: Cannot locate block for frame.
+2024-11-18 21:35:59,796 - ERROR - Failed to get frame block: Cannot locate block for frame.
+2024-11-18 21:35:59,796 - ERROR - Failed to get frame block: Cannot locate block for frame.
+2024-11-18 21:35:59,796 - ERROR - Failed to get frame block: Cannot locate block for frame.
+2024-11-18 21:35:59,796 - INFO - [Local Variables]:
+2024-11-18 21:35:59,796 - ERROR - Failed to get frame block: Cannot locate block for frame.
+2024-11-18 21:35:59,796 - INFO - [Global Variables]:
+2024-11-18 21:35:59,796 - ERROR - Failed to get frame block: Cannot locate block for frame.
+2024-11-18 21:35:59,796 - INFO - [Member Variables]:
+2024-11-18 21:35:59,796 - ERROR - Failed to get frame block: Cannot locate block for frame.
+2024-11-18 21:35:59,796 - INFO - [Arguments]:
+2024-11-18 21:35:59,796 - ERROR - Failed to get frame block: Cannot locate block for frame.
+2024-11-18 21:35:59,797 - DEBUG - Stopped at simulateOperations at function return, returning to main.
+2024-11-18 21:35:59,797 - DEBUG - main called simulateOperations 1 times, total 1 times.
+2024-11-18 21:35:59,797 - INFO - Function simulateOperations called 1 times, total 1 times.
+2024-11-18 21:35:59,797 - DEBUG - SAL: symbol and line for test15.c, line 137 Line: 137 File: test15.c
+2024-11-18 21:35:59,797 - DEBUG - [Pointer] 0x5555555592a0 [Type] None (1)
+2024-11-18 21:35:59,798 - DEBUG - [Pointer] 0x555555559410 [Type] None (1)
+2024-11-18 21:35:59,799 - DEBUG - [Pointer] 0x555555559580 [Type] None (1)
+2024-11-18 21:35:59,801 - INFO - [Local Variables]:
+2024-11-18 21:35:59,801 - DEBUG - [Pointer] 0x5555555592a0 [Type] None (1)
+2024-11-18 21:35:59,802 - DEBUG - [Pointer] 0x555555559410 [Type] None (1)
+2024-11-18 21:35:59,803 - DEBUG - [Pointer] 0x555555559580 [Type] None (1)
+2024-11-18 21:35:59,804 - INFO - [Global Variables]:
+2024-11-18 21:35:59,804 - INFO - [Member Variables]:
+2024-11-18 21:35:59,804 - INFO - [Arguments]:
+2024-11-18 21:35:59,805 - DEBUG - Stopped at main at function return, returning to _start.
+2024-11-18 21:35:59,805 - INFO - Function main called 0 times, total 0 times.
+2024-11-18 21:35:59,805 - DEBUG - SAL: symbol and line for test15.c, line 41 Line: 41 File: test15.c
+2024-11-18 21:35:59,805 - INFO - [Local Variables]:
+2024-11-18 21:35:59,805 - INFO - [Global Variables]:
+2024-11-18 21:35:59,805 - INFO - [Member Variables]:
+2024-11-18 21:35:59,805 - INFO - [Arguments]:
